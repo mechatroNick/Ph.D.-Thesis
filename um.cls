@@ -48,7 +48,7 @@
 \definecolor{OxfordBlue}{rgb}{0,0.27,0.49}   % Color
 \definecolor{UMRed}{rgb}{0.73,0.09,0.19}   % UM Logo Color
 
-% Setup choosen University of Malta crest/logo
+% Setup choosen University of Auckland Logo
 \def\logo{{\includegraphics[width=30mm]{logo-crest-full}}}
 
 % The year and term the thesis is submitted 
@@ -91,8 +91,10 @@
 \makeheadfootruleprefix{umpage}{\color{gray}}{}
 \makeheadrule{umpage}{\textwidth}{\normalrulethickness}
 \makepsmarks{umpage}{%
-	\createmark{chapter}{left}{shownumber}{\@chapapp\ }{. \ }
-	\createmark{section}{right}{shownumber}{}{. \ }
+	\createmark{chapter}        {left}  {shownumber}    {\@chapapp\ }{. \ }
+	\createmark{section}        {right} {shownumber}    {}{. \ }
+	\createmark{subsection}     {right} {shownumber}    {} {. \ }
+    \createmark{subsubsection}  {right} {shownumber}    {} {. \ }
 }
 
 
