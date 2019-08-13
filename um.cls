@@ -32,7 +32,7 @@
 \RequirePackage[pdftex]{graphicx}    % For pictures
 \RequirePackage{amssymb}             % At least, for black squares in bullet list
 \RequirePackage[pdfusetitle]{hyperref}             % For hyperreferences
-\RequirePackage[authoryear,semicolon,sort]{natbib} % for (Ebejer, 2012; Alba, 2013) kind of references; removed 'square' option after viva examination comments
+% \RequirePackage[authoryear,semicolon,sort]{natbib} % for (Ebejer, 2012; Alba, 2013) kind of references; removed 'square' option after viva examination comments
 
 \RequirePackage{longtable}           % For very long tables
 \RequirePackage{pdflscape}			 % For landscape tables (instead of portrait)
