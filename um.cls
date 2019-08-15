@@ -25,12 +25,12 @@
 
 \RequirePackage[utf8]{inputenc}      % Required for inputting international characters
 \RequirePackage[T1]{fontenc}         % Output font encoding for international characters
-\RequirePackage{mathpazo}            % Use the Palatino font by default
+% \RequirePackage{mathpazo}            % Use the Palatino font by default
 \RequirePackage[english]{babel}      % Load babel if you're unsure about the default language - mostly to be safe
 \RequirePackage{xcolor}              % For named colors
 \RequirePackage{eso-pic}                 % required to place huge uni logo at the back - on title page
 \RequirePackage[pdftex]{graphicx}    % For pictures
-\RequirePackage{amssymb}             % At least, for black squares in bullet list
+% \RequirePackage{amssymb}             % At least, for black squares in bullet list
 \RequirePackage[pdfusetitle]{hyperref}             % For hyperreferences
 % \RequirePackage[authoryear,semicolon,sort]{natbib} % for (Ebejer, 2012; Alba, 2013) kind of references; removed 'square' option after viva examination comments
 
@@ -39,6 +39,9 @@
 
 \usepackage[defaultsans]{lato}		 % Sans font to use
 \usepackage[printonlyused,withpage]{acronym}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
 
 %% ****************** Packages (End) *********************
 
@@ -113,7 +116,7 @@
 \setsubsubsecheadstyle{\sffamily\large\color{OxfordBlue}}% Set \subsection style
 \setsecnumformat{\csname the#1\endcsname\enskip{\color{gray}\textbar}\enskip}
 
-\newsubfloat{figure} % declares a new subfloat element which allows to use \subbottom commands
+% \newsubfloat{figure} % declares a new subfloat element which allows to use \subbottom commands
 
 \renewcommand{\labelitemi}{\color{OxfordBlue}\scriptsize$\blacksquare$}
 
