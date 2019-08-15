@@ -37,11 +37,15 @@
 \RequirePackage{longtable}           % For very long tables
 \RequirePackage{pdflscape}			 % For landscape tables (instead of portrait)
 
-\usepackage[defaultsans]{lato}		 % Sans font to use
+
 \usepackage[printonlyused,withpage]{acronym}
 \usepackage{subfig}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage[defaultsans]{lato}		 % Sans font to use
+\usepackage{charter}
+\usepackage[font=small]{caption}
+
 
 %% ****************** Packages (End) *********************
 
@@ -96,8 +100,6 @@
 \makepsmarks{umpage}{%
 	\createmark{chapter}        {left}  {shownumber}    {\@chapapp\ }{. \ }
 	\createmark{section}        {right} {shownumber}    {}{. \ }
-	\createmark{subsection}     {right} {shownumber}    {} {. \ }
-    \createmark{subsubsection}  {right} {shownumber}    {} {. \ }
 }
 
 
@@ -170,7 +172,7 @@
 \hspace*{2ex}
 \parbox[b][0.95\textheight][t]{0.8\textwidth}{
     \setlength{\parindent}{0pt}
-    %%\fontfamily{pag}\selectfont
+    % \fontfamily{pag}\selectfont
     \sffamily
     {\Huge\bfseries{\begin{Spacing}{1.15}\textcolor{OxfordBlue}{\@title}\end{Spacing}}}
     \vspace*{2ex}
