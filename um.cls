@@ -85,7 +85,7 @@
 
 \OnehalfSpacing                                  % One and a half line spacing
 
-\setlength{\headsep}{1.5cm}                      % Add space between the header and text
+\setlength{\headsep}{1cm}                      % Add space between the header and text
 
 \nouppercaseheads								 % Don't convert titles to Uppercase
 \makepagestyle{umpage}
@@ -145,6 +145,13 @@
 \renewcommand*{\cftappendixname}{Appendix\space}
 \newcommand{\removelinebreaks}[1]{%
 	\begingroup\def\\{ }#1\endgroup}
+	
+\AtBeginDocument{%
+ \abovedisplayskip=0pt
+ \abovedisplayshortskip=-6pt
+ \belowdisplayskip= 0pt
+ \belowdisplayshortskip=12pt
+}
 
 %% ************* Document Options (End) ******************
 
