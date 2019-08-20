@@ -45,6 +45,7 @@
 \usepackage[defaultsans]{lato}		 % Sans font to use
 \usepackage{charter}
 \usepackage[font=small]{caption}
+\usepackage{mfirstuc}
 
 
 %% ****************** Packages (End) *********************

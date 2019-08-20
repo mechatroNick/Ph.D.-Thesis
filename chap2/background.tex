@@ -546,10 +546,12 @@
     
         Lorentz's force equation describe force $\overrightarrow{f}$ experienced by a charge $q$ moving with a velocity $\overrightarrow{v}$:
         
+        
         \begin{equation}
             \overrightarrow{f} = q(\overrightarrow{E} + \overrightarrow{v} \times \overrightarrow{B})
             \label{eq:lorentz force equation}
         \end{equation}   
+        
         
         where there is a electric field $\overrightarrow{E}$ and magnetic field $\overrightarrow{B}$. The first part of the equation describes the force exerted on a charge by mere presence of an electric field $\overrightarrow{E}$. The second part of the equation describe the force created when a moving charge is crossing a magnetic field $\overrightarrow{B}$. Force $\overrightarrow{F}$ is the resultant force acting on a body given volume $V$ with current density $J$ flowing through volume $V$:
         
@@ -568,7 +570,9 @@
             \label{eq:surface generalized lorentz}
         \end{equation}     
 
+
         where the Maxwell stress tensor, $\sigma$, consists of only the magnetic field component but not the electric field component, is coordinate system independent and defined as:
+
 
         \begin{equation}
             \label{eq:maxwell stress tensor}
@@ -585,27 +589,127 @@
                     \end{cases}
             \end{split}
         \end{equation}
-
+        
 
 % ===================================================================================================
 % === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
 % ===================================================================================================
 \section{Modelling techniques for motors}           \label{Chapter:background/modelling techniques for designing motors}
+
+
+    Electric machines are devices that either produce force as a product of electric current and magnetic field, or harvest electric current from a conductor in contact with a changing magnetic field. It is necessary to estimate rated power, efficiency, losses to optimize and achieve design goals. These estimations often require calculation in one or more machine characteristics using different forms of Maxwell’s equations, governed by the relationship between constitutional materials, geometry, and configuration that apply to individual machines. Quasi-static or low- frequency assumption has been extensively used to model synchronous motor. Methods to solve for quasi-static Maxwell equations indirectly via either magnetic vector potential $A$ or scalar potential $\varphi$ mentioned in Section\,\ref{Chapter:background/electromagnetic field theory/quasi-static maxwell equations}. The method for solving Maxwell equations to model electric machines can fall under three categories: numerical, analytical or semi-analytical. Recently, for motor types yet to be well understood can be modelled using empirical methods by collect a vast amount of simulation data and fit the motor variables and performance onto a set of non-linear equations.
+
+
+    % -----------------------------------------------------------------------------------
+    % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- 
+    % -----------------------------------------------------------------------------------
     \subsection{Numerical methods}                  \label{Chapter:background/modelling techniques for designing motors/numerical methods}
+    
+    
+        Mathematically speaking, Maxwell equations are \acsp{PDE}. Numerical methods approximate the \acsp{PDE} into a system of linear equation by discretization of the spatial domain into smaller building blocks. These components are also called meshes, which are often triangular in case of two-dimensional and tetrahedral for three-dimensional problems. Fine discretization, at the cost of an increase in computation effort, generally gives better results than coarse discretization. Boundaries condition will alter the set of governing equation appropriately. If discretization occurs throughout the body of the materials, this method is referred as \ac{FEM} or \ac{FEA}. In case the discretization happens only at the surface of the materials, it is referred as \ac{BEM}. 
+        
+        \acs{FEA} is widely used because it can solve for complex geometry, include nonlinear material properties and account for coupling between multiple types of physics (thermal, magnetic, mechanical) using nonlinear iterative algorithms. Out of the three categories, numerical method requires the most computation effort. Often, \acs{FEA} requires too much computational effort to be used directly in optimization. Tuning for a single parameter may take several hours or days, depending on the mesh density. \acs{FEA} is usually used to evaluate the accuracy of analytical and semi-analytical models.
+
+    
+    % -----------------------------------------------------------------------------------
+    % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- 
+    % -----------------------------------------------------------------------------------
     \subsection{Analytical methods}                 \label{Chapter:background/modelling techniques for designing motors/analytical methods}
+    
+    
+        The most commonly used analytical modeling method is known as \ac{MEC}. Similar to \acs{FEA}, the geometry is discretized. However, the number of elements is much smaller. Prior knowledge of flux distribution is necessary to construct an accurate model. Discretized flux tubes with assumed constant flux distribution are used to simplify the real problem. Instead of finding a direct solution for the Maxwell equations, the flux distribution represented in term of lumped flux tubes is modeled using electric circuit analogy. Magnetic flux is obtained as a product of given \ac{MMF} due to magnetic field source.  
+        
+        \acs{MEC} takes a simple form and very low computational time. Saturation can be taken into account by splitting a soft magnetic object into multiple flux tubes with permanence dependent upon the magnetic field strength through each tube. Effects such as flux leakage and fringing are difficult to take into account because this approach assumes flux enter and leaves solely in the axial direction of the flux tubes. The differences in relative permeability between the regions are usually not taken into account, and relative permeability for air is assumed as unity. For the stated reasons, \acs{MEC} performs poorly in structure with large air gap or structure with no magnetic bridge (iron) at all\,\cite{DeBoeij2006ModelingStructures}. Other analytical methods include solving complex function and Schwarz–Christoffel transformation\,\cite{Zarko2006AnalyticalPermeance}, and motor phase circuit modelling\,\cite{Proca2003AnalyticalMagnets}.
+        
+        
+    % -----------------------------------------------------------------------------------
+    % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- 
+    % -----------------------------------------------------------------------------------
     \subsection{Semi-analytical methods}            \label{Chapter:background/modelling techniques for designing motors/semi-analytical methods}
+    
+    
+        One of the most popular semi-analytical method takes the form of \ac{HM}. This approach uses harmonic series or Fourier series to express the magnetic field formulation in 2D and 3D, based on the theory of transfer relation\,\cite{Melcher1981ContinuumElectromechanics}. The problem is divided into material regions whose boundaries are orthogonal with axes of the coordinate system. The magnetic potentials in quasi-Halbach magnet array and poly phase winding can be described in terms of Fourier series. In each region, the equations for of vector or scalar magnetic potential can take the form of the Laplace or Poisson equations in Cartesian coordinate\,\cite{Trumper1993,Wang1999}. In Cylindrical coordinate, the equation for magnetic potential takes the form of the Bessel function\cite{Gysen2008AnalyticalFramework,Ruddy2011a,Gysen20113-DMagnets}. Two methods to solve for the magnetic potentials are separation of a variable method or Green theorem. The coefficients in magnetic flux density equations, made up of magnetic potential terms are obtained by applying the boundaries equations. The magnetic field can then simply be found via the constitutive relation with magnetic flux density.
+        
+        
+        This modeling technique is excellent for periodic geometry like in long stroke linear machines. Since long stroke synchronous motors have repeating segments of the same structure, the analysis only needs to limit to single wavelength with periodic boundary conditions. End effect is dealt with separately. \acs{HM} is capable of taking linear material properties into account although iron is often assumed to be infinitely permeable. Models which can account for saturation exist in form or diffusion equation or adopt an iterative method that calculates the magnetic field based on the nonlinear B-H curve. \acs{HM} can compute slower than \acs{MEC} but faster than \acs{FEM}. High accuracy and relatively good speed allow HM approaches to be used directly in multi-variable optimization. Different motor geometry configuration requires a different set of \acsp{PDE} to be solve in order to determine the general solution for the magnetic potential in each spatial regions. This is a mathematically rigorous process. In validating solutions to the \acsp{PDE}, the tests are checking for continuity behaviour of underlying magnetic fields, and strong agreement to \acs{FEM} results.
+        
+        
+        \ac{MCM} is an alternative method resulting from the use of Green’s integrals to solve Maxwell equations. Volume integrals are used to obtain magnetic scalar potential under the assumption that materials used are current free. It is not possible to model the magnetic field due to current using the scalar potential, and thus reduced scalar potential\,\cite{Gong2009AnalysisMethod} was introduced for this purpose. The reduced scalar potential is robust and convenient for calculating eddy loss in soft ferromagnetic materials\,\cite{Xu2004TotalCalculation,Bowler1987EddyFunctions,Rubinacci2004AComputation}. Magnetization in permanent magnet is replaced by equivalent surface and volume magnetic charge terms with unity permeability. Only constant permeability on the whole domain is considered. \acs{MCM} has not achieved the level of accuracy that \acs{HM} has.
+        
+    
+    % -----------------------------------------------------------------------------------
+    % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- 
+    % -----------------------------------------------------------------------------------
     \subsection{Empirical methods}                  \label{Chapter:background/modelling techniques for designing motors/empirical methods}
+
+
+        Due the complex flux path in motor typologies such as Flux Switching and Transverse Flux, reflected by the difficulty in semi-analytical modelling for this type of motor, the literature typically makes use of $\mathrm{2D}$ or $\mathrm{3D}$ \acs{FEA} to accurately predict the thrust and cogging force. Traditionally, during the optimization process, each performance valuation requires one FEM evaluation. This means the simulation is only when needed once. Thus, this approach is considered having poor data re-use, and unpredictable optimization wait time. Instead, we can approach motor design with the \ac{RSM}, by describing the motor performance metrics using empirical equations\,\cite{Hong2008,Lei2013}, or using an artificial neural network\,\cite{Hadjout2006,Ashabani2010OptimumApproach}. Once an arithmetic model is fitted to represent the data set, model inference time is a number of magnitude lower the simulation time for each valuation. A high number of recent motor design and control research has obtained various degree of success with this approach\,\cite{Hwang2007RotorMethod,Lee2012OptimumMethod,Kim2006OptimalMethodology,Jung2015AdaptiveDrives,Hong2018DesignApplications}. 
+        
+        
+        In a high order \acs{RSM} problem with many input variables, high sampling levels for each input are the key to obtaining accurate model predictions. However, the time and computation effort required are growing exponentially with each additional of parameter and sampling level for existing parameter. Planning and execution of \acs{RSM} is in this sense a data exploratory exercise. It is difficult to predict what range of data is needed ahead of time.
 
 
 % ===================================================================================================
 % === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
 % ===================================================================================================
 \section{Optimization methods}                      \label{Chapter:background/optimization methods}
-    \subsection{Classification}                     \label{Chapter:background/optimization methods/classification}
-    \subsection{Application in motor design}        \label{Chapter:background/optimization methods/application in motor design}
+    
+    
+    Mathematical optimization techniques offer a methodical way of approaching design problems. Optimization is commonly performed by minimizing cost functions, can be applied to a wide variety of applications:
+    
+        
+    \begin{equation}
+        \begin{array}{rll}
+            \textbf{minimize}       & \small{objective\,\,function}         & f(x)\\ 
+            \textbf{subject to}     & \small{inequality\,\,constraints}     & g_i(x) \leqslant 0, \text{for } i= 1,...,m,\\ 
+                                    & \small{equality\,\,constraints}       & h_i(x) = 0, \text{for } j= 1,...,n,\\ 
+                                    & \small{variable\,\,space}             & x \in X
+        \end{array}
+    \end{equation}
+    
+    
+    An alternative is the direct grid search or exhaustive search, in many cases attempt to consider the complete design space. By mapping the performance of every single machine design in a discretized variables to a performance index value, this method can help identify a Pareto front of designs in which the performance could be not be further improved. The most suitable machine can then be selected from the group of Pareto-optimum designs, based on the specific requirements and trade off of the application.
+    
+    
+    % -----------------------------------------------------------------------------------
+    % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- 
+    % -----------------------------------------------------------------------------------
+    \subsection{Optimization problem classification}    \label{Chapter:background/optimization methods/optimization prob classification}
 
+        
+        Some problems only allow variables to take on discrete values, often subset of integers, whereas other variables can be any real values. Therefore, optimization problems can be classified based on the nature of variables:
+
+        \begin{itemize}
+            \item Discrete optimization - all variables take form of discrete or boolean values,
+            \item Continuous optimization - all variables are continuous
+            \item Mixed-integer optimization - some variables in the are discrete while others take continuous values
+        \end{itemize}
+   
+        Another distinction to have is whether the problem is constrained or not. The constraint may be as simple as bound to the input variable of the objective function to be minimized, or more complex like explicit equal or greater equal relationships among the variables. Unconstrained optimization problems arise directly from a limited set of application. In the case of motor design, there often exist limitations such as a desired weigh or length or tolerable cogging force.
+        
+        
+        Most optimization problems will have a single objective function to be minimized. However, there are multi-objective problems where people are more interested in the trade-off between the objectives function instead of finding a single satisfactory design. For instance, the problem requires the lightest motor while maximizing force output. In practice, multi-objective problems with multiple objectives will be rearranged as a single objective problem by replacing some objectives as constraints, or by creating a new objective function as a weighted combination of the original objective functions.
+        
+
+    % -----------------------------------------------------------------------------------
+    % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- 
+    % -----------------------------------------------------------------------------------
+    \subsection{Optimization in motor design}        \label{Chapter:background/optimization methods/optimization in motor design}
+    
+    
+        The increase in speed and reduction in prices of computer hardware, together with the development of faster algorithms as well as highly accurate \acs{FEA} models allow theoretical optimum design to be obtained. The design of permanent magnet motors or actuators has been discussed in many textbooks, however, a standard method does not exist since the application together with different sets of applicable constraints determines the strategy. The design of \acsp{PMLSM} for \acs{NFJI} is no exception. Ideally, the actuator should have high force density and the energy losses should be minimal. 
+    
+        
+        One class of which is a group of gradient methods, in which the search direction is determined by the local gradient of the objective function at the current search point. Such algorithms are referred as linear or non-linear programming. Though straight forward to implement, these algorithm tends to converge to local optimum. If the problem at hand is a mixed integer optimization problem, the discrete variables will be treated separately by considering all possible combinations of the discrete variables as separate optimization problems\,\cite{Ruddy2015a}. This class of optimization algorithm has demonstrated to be working well with semi-analytical and analytical modeling technique\,\cite{Overboom2010DesignZ-module,Aleksandrov2018DesignTracks,Fang2008}. 
+        
+        
+        The other class of optimization algorithm are evolutionary methods. They are probability based algorithms which starts with an initial population of design candidates and simulate a breeding environment. The characteristics of each design are used to generate a fitness value to indicate its level of performance with respect to other design in the population. After each generation, breeding is carried out to combine characteristics of selected parents design with hope to yield a better next generation of designs. This class of algorithm has the capacity to handle both discrete and continuous variables. The random mutation guarantees to some extent that we see a wide range of solutions. However, it is rather tricky to choose parameters such as the number of generation, the population and the mutation probability. Despite the experiment like nature of this class of methods, the literature has applied this method extensively in motor design, starting from proven analytical and semi-analytical models\,\cite{Isfahani2007,Li2014DesignAlgorithm,Mallik2017EfficiencyAlgorithm,RuiHuang2008MinimizationArray}.
+        
+        
+        Direct use of \acs{FEM} is far less suitable for optimization purposes due to the long computation time taken to evaluate a single objective function. Even with simple structures, the creation of mesh can be the most time consuming task. One way to overcome this limitation is replacing the online \acs{FEM} function evaluation with a simplified function that requires far less time to compute. As mentioned in Section\,\ref{Chapter:background/modelling techniques for designing motors/empirical methods}, these methods are classified as empirical modelling methods. Once there exists a simplified model to represent the design space, gradients and evolutionary methods can be applied to find the globally optimal motor design\,\cite{Ashabani2010OptimumApproach,Lee2012OptimumMethod,Giurgea2007,Hasanien2010, Hasanien2011,Zhang2017}. 
 
 % ===================================================================================================
 % === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
 % ===================================================================================================
 \section{Summary}                                   \label{Chapter:background/summary}
+
