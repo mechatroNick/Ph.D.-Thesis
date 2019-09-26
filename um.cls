@@ -46,6 +46,7 @@
 \usepackage{charter}
 \usepackage[font=small]{caption}
 \usepackage{mfirstuc}
+\usepackage{lscape} 
 
 
 %% ****************** Packages (End) *********************
