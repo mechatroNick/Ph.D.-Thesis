@@ -1,10 +1,10 @@
-\chapter{PMLSM design with Harmonics Modelling technique}   \label{Chapter:PMLSM design HM}
+\chapter{PMLSM design with a Harmonics Modelling technique}   \label{Chapter:PMLSM design HM}
 
 
-    Previously explored by Ruddy et al. \cite{Ruddy2015}, \acsp{PMLSM} or more precisely tubular, slotless, permanent magnet excited, longitudinal flux, and linear 3-phase motors have shown superior potential when compared to \acsp{VCM} in \acs{NFJI} applications. The scaling laws for \acsp{PMLSM} allow the overall system to operate a magnitude higher efficiency. The potential of a better actuator for \acs{NFJI} has been proven with \acsp{PMLSM}, accompanied with computationally efficient, exact semi-analytical magnetic field \acsp{HM} solution. However, large efficiency gain is only possible if the total length of motor is allowed to be very long which will be impractical for fitting in an actual injector device. An appropriate optimization scheme with the necessary constraints will be required to not only realize a practical actuator for \acs{NFJI}, but flexible enough to compare with other types of \acsp{LSDDM} in existence.
+    Previously explored by Ruddy et al. \cite{Ruddy2015}, \acsp{PMLSM} or more precisely tubular, slotless, permanent magnet excited, longitudinal flux, and linear 3-phase motors have shown superior potential when compared to \acsp{VCM} in \acs{NFJI} applications. The scaling laws for \acsp{PMLSM} allow the overall system to operate at a magnitude higher efficiency. The potential of a better actuator for \acs{NFJI} has been proven with \acsp{PMLSM}, accompanied with computationally efficient, exact semi-analytical magnetic field \acsp{HM} solutions. However, a large efficiency gain is only possible if the total length of the motor is allowed to be very long which will be impractical for fitting into an actual injector device. An appropriate optimization scheme with the necessary constraints will be required to not only realize a practical actuator for an \acs{NFJI} but be flexible enough to compare with other types of \acsp{LSDDM} in existence.
     
     
-    This chapter considers the requirements tailored to \acs{NFJI} to describe a modified design of \acs{PMLSM} from that already presented in \cite{Ruddy2015}. Then, an universal optimization scheme for \acsp{LSDDM} with fixed maximum motor length, motor mass, and input power dissipation is presented. This optimization method helps determining a \acs{PMLSM} motor design that produce the fastest water jet injection velocity with the given constraints. 
+    This chapter considers the requirements tailored to \acsp{NFJI} to describe a modified design of \acs{PMLSM} from that already presented in \cite{Ruddy2015}. Then, an universal optimization scheme for \acsp{LSDDM} with fixed maximum motor length, motor mass, and input power dissipation is presented. This optimization method helps determine a \acs{PMLSM} motor design that will produce the fastest water jet injection velocity with the given constraints. 
 
 
 % ===================================================================================================
@@ -27,7 +27,7 @@
         \end{figure*}
 
 
-        Ignoring resistance due to fluid viscosity and atmospheric pressure, due to Bernoulli's equation for an incompressible and steady fluid flow, the actuator force $F$ and jet speed $v_{jet}$ have the following relation:
+        Ignoring resistance due to fluid viscosity and atmospheric pressure, due to Bernoulli's equation for an incompressible and steady fluid flow, the actuator force $F$ and jet speed $v_{jet}$ have the following relationship:
         
         
         \begin{equation}
@@ -66,12 +66,12 @@
         \begin{figure*}[ht]
           \centering
           \includegraphics[width=5.8in]{chap3/images/PMLSM.pdf}
-          \caption{This schematic illustrates a tubular LPMSM with quasi-Halbach magnets, slotless windings, and a shortened exterior back-iron tube. The radii of magnet, coil, and back are shown; the structure has periodicity with wave number $k$, wave length $L_k$, number of half coil poles $N_C$ and half magnet poles $N_M$. The arrows indicate direction of magnetization of magnets, while the characters label the coil phases.}
+          \caption{This schematic illustrates a tubular LPMSM with quasi-Halbach magnets, slotless windings, and a shortened exterior back-iron tube. The radii of magnet, coil, and back are shown; the structure has periodicity with wave number $k$, wave length $L_k$, number of half coil poles $N_C$ and half magnet poles $N_M$. The arrows indicate the direction of magnetization of the magnets, while the characters label the coil phases.}
           \label{fig:chapter/hm/PMLSM motor construction fullpage}
         \end{figure*}
     
         
-        Based on \cite{ruddy2014}, we will study a slight variation of this topology using a shorter exterior back-iron. In this approach, the back-iron only covers the coil and travels along with it, as shown in Fig.~\ref{fig:chapter/hm/PMLSM motor construction fullpage}. The advantage of shortened back-iron over using iron to cover the entire motor length is the reduction in weight, which is an important objective in designing handheld devices. However, a moving-iron configuration introduces cogging effects that can be problematic for smooth motion control.
+        Based on \cite{ruddy2014}, we will study a slight variation of this topology using a shorter exterior back-iron. In this approach, the back-iron only covers the coil and travels along with it, as shown in Fig.~\ref{fig:chapter/hm/PMLSM motor construction fullpage}. The advantage of the shortened back-iron over using iron to cover the entire motor length is the reduction in weight, which is an important objective in designing handheld devices. However, a moving-iron configuration introduces cogging effects that can be problematic for smooth motion control.
         
         
         We analyzed a motor with repeat units of coil and magnet of wavelength $L_k$, ratio of radial magnet length over a pair of radial-axial magnet $\delta$, coil length $L_C$, magnet length $L_M$, and arbitrary number of half coil poles  $N_C$ and magnet poles $N_M$, as illustrated in Fig.~\ref{fig:chapter/hm/PMLSM motor construction fullpage}. The motor is overhung if $N_C>N_M$, and underhung if $N_M>N_C$. Previous research in \cite{Ruddy2015} points out that underhung motors offer superior efficiency to overhung motors; thus, only underhung motors are considered here. The length of the motor simplifies to:
@@ -89,7 +89,7 @@
     \subsection{Harmonic modelling solution}               \label{Chapter:PMLSM design HM/electromagnetic model/hm solution}
 
                 
-        Our modeling approach is outlined in \cite{Ruddy2011a} and employed in \cite{ruddy2014,Ruddy2015}: an analytical Fourier series solution was used to solve Poisson's equation in cylindrical coordinates directly. This formulation provides a good tradeoff between accuracy and computational efficiency. It computes faster compared to FEA \cite{Jin2014TheElectromagnetics} or the standard integral formulation \cite{Wang1999,Bianchi2000} and avoids the problems of numerical instability exhibited by other explicit analytical solutions \cite{Wijono2010,Yan2013}.
+        Our modeling approach is outlined in \cite{Ruddy2011a} and employed in \cite{ruddy2014,Ruddy2015}. An analytical Fourier series solution was used to solve Poisson's equation in cylindrical coordinates directly. This formulation provides a good tradeoff between accuracy and computational efficiency. It computes faster compared to FEA \cite{Jin2014TheElectromagnetics} or the standard integral formulation \cite{Wang1999,Bianchi2000} and avoids the problems of numerical instability exhibited by other explicit analytical solutions \cite{Wijono2010,Yan2013}.
         
         
         Uniformly magnetized segments are used in place of each radial magnet to approximate true radial magnetization. The magnetization of permanent magnets can be represented by a Fourier series where ${\hat M}_{rn}$ and  ${\hat M}_{zn}$ are the dimensionless radial and axial magnetizations, respectively:
@@ -110,7 +110,7 @@
         in odd harmonic order $n$, the number of uniformly magnetized segments used to approximate true radial magnetization $N_{seg}$, and the fraction of magnet array occupied by radial-orientated magnets $\delta$. This imperfection is also accounted for in the model by a method of analyzing 3D effects in a segmented Halbach array \cite{Meessen2011}.
 
 
-        Valid for idealized back-iron with constant permeability, the solutions to Maxwell's equations for this set of boundary conditions can be described in terms of auxiliary functions ${\mathrm\Lambda}_{\nu}$ based on the modified Struve function ${\mathrm{L}_{\nu}}(x)$, and the modified Bessel functions ${\mathrm I}_{\nu}(x)$, and ${\mathrm K}_{\nu}(x)$:
+        Valid for an idealized back-iron with constant permeability, the solutions to Maxwell's equations for this set of boundary conditions can be described in terms of auxiliary functions ${\mathrm\Lambda}_{\nu}$ based on the modified Struve function ${\mathrm{L}_{\nu}}(x)$, and the modified Bessel functions ${\mathrm I}_{\nu}(x)$, and ${\mathrm K}_{\nu}(x)$:
         
         
         \begin{equation}
@@ -200,7 +200,7 @@
         \end{equation}
         
         
-        where $f$ is copper volume fill factor, $\rho_{ins}$ is insulator density, $\rho_c$ is conductor density, $\rho_m$ is magnet volumetric density, and $\rho_f$ is iron density. Note that in the description of dimensionless mass\,$\hat M$ the length of the back-iron follows the length of the coil. However, back-iron length will need to be adjusted to minimize end cogging effects, which will slightly increase the total mass. 
+        where $f$ is copper volume fill factor, $\rho_{ins}$ is the insulator density, $\rho_c$ is the conductor density, $\rho_m$ is magnet volumetric density, and $\rho_f$ is the iron density. Note that in the description of the dimensionless mass\,$\hat M$ the length of the back-iron follows the length of the coil. However, back-iron length will need to be adjusted to minimize end cogging effects, which will slightly increase the total mass. 
         
         
         The field solution for infinitely-permeable back iron has been derived previously\,\cite{ruddy2014} for any harmonic model $n$:
@@ -242,7 +242,7 @@
         \end{equation}
         
         
-        With $\sigma$ as is the conductivity of the conductor, $w$ as the winding factor, and $N_{\phi}$ as the number of winding phases, the dimensionless motor constant ${\hat K}_m$ and the motor constant $K_m$ can be obtained via:
+        With $\sigma$ as the conductivity of the conductor, $w$ as the winding factor, and $N_{\phi}$ as the number of winding phases, the dimensionless motor constant ${\hat K}_m$ and the motor constant $K_m$ can be obtained via:
 
 
         \begin{equation}
@@ -274,7 +274,7 @@
     \subsection{Common design criteria}         \label{Chapter:PMLSM design HM/design optimization/design citeria}
     
     
-        One of the main goal in this body of work is to be able to fairly compare different types of \acsp{LSDDM}. In order to achieve this goal, a common set of design criteria needs to be established:
+        One of the main goal in this body of work is to be able to fairly compare different types of \acsp{LSDDM}. In order to achieve this goal, a common set of design criteria needs to be established as follows:
         
         
         \begin{itemize}
@@ -287,10 +287,10 @@
         \end{itemize}
         
         
-        The target volume $1\mathrm{mL}$ is standard to many macro-molecules drug formulation. The motor weigh between $325\,\mathrm{g}$ and $425\,\mathrm{g}$ is the range for a comfortable handheld device. The power level is decided to be within the capability of practical self-contained power sources such as Texas Instrument's $\mathrm{TMDSHVMTRPFCKIT}$ or ST Microelectronics's $\mathrm{STEVAL-IHM028V2}$. As mentioned in Section\,\ref{Chapter:background/needle-free jet injection/how it works}, the jet minimum jet speed required to puncture the skin is $100\,\mathrm{m/s}$. 
+        The target volume $1\mathrm{mL}$ is standard to many macro-molecule drug formulations. The motor weighs between $325\,\mathrm{g}$ and $425\,\mathrm{g}$ is the range for a comfortable handheld device. The power level is decided to be within the capability of practical self-contained power sources such as Texas Instrument's $\mathrm{TMDSHVMTRPFCKIT}$ or ST Microelectronics' $\mathrm{STEVAL-IHM028V2}$. As mentioned in Section\,\ref{Chapter:background/needle-free jet injection/how it works}, the jet minimum jet speed required to puncture the skin is $100\,\mathrm{m/s}$. 
         
         
-        This set of common design criteria will allow for a common optimization scheme with that attempts to find motor configuration with the highest achievable jet velocity across different types of \acsp{LSDDM}. The following content in this Chapter and Chapter\,\ref{Chapter:PMLSM design RSM} will demonstrate the implementation for each type of \acsp{LSDDM} studied by this thesis has to be adapted to the motor's unique characteristic.
+        This set of common design criteria will allow for a common optimization scheme that attempts to find the motor configuration with the highest achievable jet velocity across different types of \acsp{LSDDM}. The following content in this chapter and Chapter\,\ref{Chapter:PMLSM design RSM} will demonstrate that the implementation for each type of \acsp{LSDDM} studied by this thesis has to be adapted to the motor's unique characteristic.
         
 
     % -----------------------------------------------------------------------------------
@@ -301,7 +301,7 @@
         \subsubsection{Outer optimization}      \label{Chapter:PMLSM design HM/design optimization/optimization formulation/out}
         
         
-            The overall optimization consist of strategic repetition of the inner optimization maximize the achievable jet speed $v_{jet}$:
+            The overall optimization consist of strategic repetition of the inner optimization to maximize the achievable jet speed $v_{jet}$:
         
         
             \begin{equation}
@@ -321,10 +321,10 @@
             \end{equation}
             
             
-            To get a realistic model, material properties, design constants and value ranges were introduced. A fill factor of $w = 62\,\%$ was assumed for the three-phase ($N_{\phi}=3$) copper conductor, 1080 carbon steel for the back iron shell. The radial magnet is approximated by 4 equal segments ($N_{seg}=4$ ). The saturation field is $B_{sat}=2\,\mathrm{T}$. All calculation are conducted up to $n \leq 11$ harmonics. Recalling the characteristic of \acsp{PMLSM}: each repeat length $L_{k}$ consist of 2 equal half-coil-phases $N_C$, as well as 2 half-magnet-phases $N_M$. 
+            To get a realistic model, material properties, design constants and value ranges were introduced. A fill factor of $w = 62\,\%$ was assumed for the three-phase ($N_{\phi}=3$) copper conductor, and $1080$ carbon steel for the back iron shell. The radial magnet is approximated by 4 equal segments ($N_{seg}=4$ ). The saturation field is $B_{sat}=2\,\mathrm{T}$. All calculations were conducted up to $n \leq 11$ harmonics. Recalling the characteristics of \acsp{PMLSM}: each repeat length $L_{k}$ consists of 2 equal half-coil-phases $N_C$, as well as 2 half-magnet-phases $N_M$. 
             
             
-            Figure\,\ref{fig:chapter/hm/PMLSM motor construction fullpage} shows that each half-coil-phase $N_C$ consists of 3 equally spaced windings. Naturally, each coil winding should be structurally sound with the minimum width per coil winding of $3\,\mathrm{mm}$, thus, the minimum value of $L_k$ is $18\,\mathrm{mm}$. The magnet array should be hollow to allow for reinforcement to be installed from end of end of the motor. The clearance between the magnet and coil $g_{mc}$ was set to $1.2\,\mathrm{mm}$ to facilitate for rigidity of the moving structure that supports the coils. Additionally, the gap between the coil assembly and the outer iron shell $gap_{cf}$ is set to $0.1\,\mathrm{mm}$ for the ease of assembly. Both the coil thickness $t_c = r_{co}-r_{ci}$ and magnet thickness $t_m = r_{mo}-r_{mi}$ are set to be thicker than $3\,\mathrm{mm}$, respectively. Table\,\ref{table:table_of_optimization_constraints_PMLSM} summarize the constraints on desired motor configuration.
+            Figure\,\ref{fig:chapter/hm/PMLSM motor construction fullpage} shows that each half-coil-phase $N_C$ consists of trhee equally spaced windings. Naturally, each coil winding should be structurally sound with the minimum width per coil winding of $3\,\mathrm{mm}$, thus, the minimum value of $L_k$ is $18\,\mathrm{mm}$. The magnet array should be hollow to allow for reinforcement to be installed from one end to another end of the motor. The clearance between the magnet and coil $g_{mc}$ was set to $1.2\,\mathrm{mm}$ to facilitate for the rigidity of the moving structure that supports the coils. Additionally, the gap between the coil assembly and the outer iron shell $gap_{cf}$ is set to $0.1\,\mathrm{mm}$ for the ease of assembly. Both the coil thickness $t_c = r_{co}-r_{ci}$ and magnet thickness $t_m = r_{mo}-r_{mi}$ are set to be thicker than $3\,\mathrm{mm}$, respectively. Table\,\ref{table:table_of_optimization_constraints_PMLSM} summarizes the constraints on the desired motor configuration.
             
             
             \begin{table}
@@ -363,7 +363,7 @@
             \end{equation}
         
         
-            As the result, the total length of coil winding $L_C$ is always as long as $L_{C0}$, consistent with $h_3$ relationship from Equation\,\ref{eq:outer optimization for PMLSMs}:
+            As the result, the total length of coil winding $L_C$ is always as long as $L_{C0}$, consistent with the $h_3$ relationship from Equation\,\ref{eq:outer optimization for PMLSMs}:
             
             
             \begin{equation}
@@ -372,7 +372,7 @@
             \end{equation}
             
             
-            The aim are to make sure the number of half-coil-phase $N_C$ and half-magnet-phase $N_M$ are simultaneously natural number, as well as maximizing the total length of motor $L_{M0}$ allowed ($g_1$ relationship from Equation\,\ref{eq:outer optimization for PMLSMs}). When choosing a particular $N_C$ and accompanying $L_C$ from the value sets worked out above, the stroke length $L_S$ and $N_M$ satisfy the following:
+            The aim is to make sure the number of half-coil-phase $N_C$ and half-magnet-phase $N_M$ are simultaneously a natural number, as well as maximizing the total length of motor $L_{M0}$ allowed ($g_1$ relationship from Equation\,\ref{eq:outer optimization for PMLSMs}). When choosing a particular $N_C$ and accompanying $L_C$ from the value sets worked out above, the stroke lengths $L_S$ and $N_M$ satisfy the following:
             
             
             \begin{equation}
@@ -399,7 +399,7 @@
             \end{figure*}
             
             
-            In summary, the outer optimization loop provides unique combinations of $L_{C0}$, $L_{M0}$, and $M_0$ to produce a set of possible $N_C$, as well as corresponding values of $N_M$ and $L_k$. At each point in the $L_{C0} \times L_{M0}$ space, multiple inner most optimizations will perform non-linear constraint optimization for unknown variable vector $\textbf{x}$:
+            In summary, the outer optimization loop provides unique combinations of $L_{C0}$, $L_{M0}$, and $M_0$ to produce a set of possible $N_C$, as well as corresponding values of $N_M$ and $L_k$. At each point in the $L_{C0} \times L_{M0}$ space, multiple inner most optimizations will perform a non-linear constraint optimization for the unknown variable vector $\textbf{x}$:
             
             
             \begin{equation}
@@ -408,7 +408,7 @@
             \end{equation}
             
             
-            Each inner optimization's aim is to find $\textbf{x}$ given $\left[N_C,N_M,L_k,M_0\right]$ from the outer optimization, and constants $\left[P,V\right]$ to maximize the jet speed $v_{jet}$ achieved where the same variable ranges in Table\,\ref{table:table_of_optimization_constraints_PMLSM} also applies: 
+            Each inner optimization's aim is to find $\textbf{x}$ given $\left[N_C,N_M,L_k,M_0\right]$ from the outer optimization, and constants $\left[P,V\right]$ to maximize the jet speed $v_{jet}$ achieved where the same variable ranges in Table\,\ref{table:table_of_optimization_constraints_PMLSM} also apply: 
             
             
             \begin{equation}
@@ -430,7 +430,7 @@
             \end{equation}
             
             
-            The inner optimization uses constrained nonlinear multi-variable optimization based on the interior point algorithm (MATLAB Optimization Toolbox) to minize the objective function in Equation\,\ref{eq:inner optimization for PMLSMs}. Upon finishing the inner optimizations for each pair $L_{C0} \times L_{M0}$, the control flow saves the best performing motor configuration and moves on to the next $L_{C0} \times L_{M0}$, obtains a next set of possible $N_C$ and so on. Fig.\,\ref{fig:chapter/hm/top level optmization} summarizes and illustrates both the outer and the inner optimization algorithms.
+            The inner optimization uses constrained nonlinear multi-variable optimization based on the interior point algorithm (MATLAB Optimization Toolbox) to minize the objective function in Equation\,\ref{eq:inner optimization for PMLSMs}. Upon finishing the inner optimizations for each pair $L_{C0} \times L_{M0}$, the control flow saves the best performing motor configuration and moves on to the next $L_{C0} \times L_{M0}$, obtains the next set of possible $N_C$ and so on. Fig.\,\ref{fig:chapter/hm/top level optmization} summarizes and illustrates both the outer and the inner optimization algorithms.
     
     
     % -----------------------------------------------------------------------------------
@@ -439,10 +439,10 @@
     \subsection{Results}                        \label{Chapter:PMLSM design HM/design optimization/results}
     
             
-        The global optimization of \acs{PMLSM} for the problem described in Equation\,\ref{eq:outer optimization for PMLSMs} at different mass constraints $M_0=[325,350,375,400,425]\,\mathrm{g}$ are summarized in Table\,\ref{table:result for global optimization of PMLSM via HM method}.
+        The global optimization of \acs{PMLSM} for the problem described in Equation\,\ref{eq:outer optimization for PMLSMs} at different mass constraints $M_0=[325,350,375,400,425]\,\mathrm{g}$ is summarized in Table\,\ref{table:result for global optimization of PMLSM via HM method}.
             
             
-        Taking an example for the global optimization of constraints set $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$, $M_0=325\,\mathrm{g}$ on the search space of $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm}$, and $L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$, we found an under-hung motor with $N_C=4$, $N_M=12$, $L_k=26.5\,\mathrm{mm}$, $r_{mi}=2\,\mathrm{mm}$, $t_m=6.15\,\mathrm{mm}$, $t_c=3\,\mathrm{mm}$, $\delta=0.30$. The motor is able to theoretically produce $246.64\,\mathrm{N}$ at the rated power, which corresponds to a motor constant $K_m=6.37\,\mathrm{N/\sqrt{W}}$ and peak jet speed $v_{jet}=228.67\,\mathrm{m/s}$. The typical motor constant of \acsp{PMLSM} far exceed typical motor constant achieved by \acsp{VCM}\,\cite{ruddy2014}. The achievable jet speed $v_{jet}$ is beyond what is required for a successful needle free injection.
+        Taking an example for the global optimization of constraints set $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$, $M_0=325\,\mathrm{g}$ on the search space of $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm}$, and $L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$, we found an under-hung motor with $N_C=4$, $N_M=12$, $L_k=26.5\,\mathrm{mm}$, $r_{mi}=2\,\mathrm{mm}$, $t_m=6.15\,\mathrm{mm}$, $t_c=3\,\mathrm{mm}$, $\delta=0.30$. The motor is able to theoretically produce $246.64\,\mathrm{N}$ at the rated power, which corresponds to a motor constant $K_m=6.37\,\mathrm{N/\sqrt{W}}$ and peak jet speed $v_{jet}=228.67\,\mathrm{m/s}$. The typical motor constant of \acsp{PMLSM} far exceeds the typical motor constant achieved by \acsp{VCM}\,\cite{ruddy2014}. The achievable jet speed $v_{jet}$ is beyond what is required for a successful needle free injection.
             
             
         According to Equation\,\ref{eq:power dissipation for PMLSMs}, and provided that $P$, $\rho_w$, $K_m$, $L_S$ are unchanged:
@@ -548,7 +548,7 @@
     \section{Discussion}                            \label{Chapter:PMLSM design HM/discussion}
     
         
-        To summarize, this chapter provides a semi-analytical solution for the electromagnetic model of slotless tubular \acsp{PMLSM} (Section\,\ref{Chapter:PMLSM design HM/electromagnetic model}), an efficient optimization scheme for a fixed motor mass at a given power dissipation (Section\,\ref{Chapter:PMLSM design HM/design optimization/optimization formulation}). Utilizing these modeling and optimization methodologies, we performed a case study and found a globally optimized motor configurations for \acs{NFJI} under different mass constraints (Section\,\ref{Chapter:PMLSM design HM/design optimization/optimization formulation}). The optimized motor configuration for these requirements is summarized in Table~\ref{table:result for global optimization of PMLSM via HM method}. Most importantly, this work was able to confirm that \acsp{PMLSM} readily outperform \acsp{VCM} in \acs{NFJI} applications: being able deliver more volume with far less energy.
+        To summarize, this chapter provides a semi-analytical solution for the electromagnetic model of slotless tubular \acsp{PMLSM} (Section\,\ref{Chapter:PMLSM design HM/electromagnetic model}), an efficient optimization scheme for a fixed motor mass at a given power dissipation (Section\,\ref{Chapter:PMLSM design HM/design optimization/optimization formulation}). Utilizing these modeling and optimization methodologies, we performed a case study and found globally optimized motor configurations for \acs{NFJI} under different mass constraints (Section\,\ref{Chapter:PMLSM design HM/design optimization/optimization formulation}). The optimized motor configuration for these requirements is summarized in Table~\ref{table:result for global optimization of PMLSM via HM method}. Most importantly, this work was able to confirm that \acsp{PMLSM} readily outperform \acsp{VCM} in \acs{NFJI} applications, being able to deliver more volume with far less energy.
         
         
         The optimization benchmark optimization specification established in Section\,\ref{Chapter:PMLSM design HM/design optimization/design citeria} is especially important, and will be reused in accessing and comparing other types of \acsp{LSDDM} in the later Chapter\,\ref{Chapter:PMLSM design RSM}.
