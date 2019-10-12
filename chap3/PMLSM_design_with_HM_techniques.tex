@@ -1,4 +1,4 @@
-\chapter{PMLSM design with a Harmonics Modelling technique}   \label{Chapter:PMLSM design HM}
+\chapter{PMLSM design with a Harmonics Modelling}   \label{Chapter:PMLSM design HM}
 
 
     Previously explored by Ruddy et al. \cite{Ruddy2015}, \acsp{PMLSM} or more precisely tubular, slotless, permanent magnet excited, longitudinal flux, and linear 3-phase motors have shown superior potential when compared to \acsp{VCM} in \acs{NFJI} applications. The scaling laws for \acsp{PMLSM} allow the overall system to operate at a magnitude higher efficiency. The potential of a better actuator for \acs{NFJI} has been proven with \acsp{PMLSM}, accompanied with computationally efficient, exact semi-analytical magnetic field \acsp{HM} solutions. However, a large efficiency gain is only possible if the total length of the motor is allowed to be very long which will be impractical for fitting into an actual injector device. An appropriate optimization scheme with the necessary constraints will be required to not only realize a practical actuator for an \acs{NFJI} but be flexible enough to compare with other types of \acsp{LSDDM} in existence.
@@ -324,7 +324,7 @@
             To get a realistic model, material properties, design constants and value ranges were introduced. A fill factor of $w = 62\,\%$ was assumed for the three-phase ($N_{\phi}=3$) copper conductor, and $1080$ carbon steel for the back iron shell. The radial magnet is approximated by 4 equal segments ($N_{seg}=4$ ). The saturation field is $B_{sat}=2\,\mathrm{T}$. All calculations were conducted up to $n \leq 11$ harmonics. Recalling the characteristics of \acsp{PMLSM}: each repeat length $L_{k}$ consists of 2 equal half-coil-phases $N_C$, as well as 2 half-magnet-phases $N_M$. 
             
             
-            Figure\,\ref{fig:chapter/hm/PMLSM motor construction fullpage} shows that each half-coil-phase $N_C$ consists of trhee equally spaced windings. Naturally, each coil winding should be structurally sound with the minimum width per coil winding of $3\,\mathrm{mm}$, thus, the minimum value of $L_k$ is $18\,\mathrm{mm}$. The magnet array should be hollow to allow for reinforcement to be installed from one end to another end of the motor. The clearance between the magnet and coil $g_{mc}$ was set to $1.2\,\mathrm{mm}$ to facilitate for the rigidity of the moving structure that supports the coils. Additionally, the gap between the coil assembly and the outer iron shell $gap_{cf}$ is set to $0.1\,\mathrm{mm}$ for the ease of assembly. Both the coil thickness $t_c = r_{co}-r_{ci}$ and magnet thickness $t_m = r_{mo}-r_{mi}$ are set to be thicker than $3\,\mathrm{mm}$, respectively. Table\,\ref{table:table_of_optimization_constraints_PMLSM} summarizes the constraints on the desired motor configuration.
+            Figure\,\ref{fig:chapter/hm/PMLSM motor construction fullpage} shows that each half-coil-phase $N_C$ consists of three equally spaced windings. Naturally, each coil winding should be structurally sound with the minimum width per coil winding of $3\,\mathrm{mm}$, thus, the minimum value of $L_k$ is $18\,\mathrm{mm}$. The magnet array should be hollow to allow for reinforcement to be installed from one end to another end of the motor. The clearance between the magnet and coil $g_{mc}$ was set to $1.2\,\mathrm{mm}$ to facilitate for the rigidity of the moving structure that supports the coils. Additionally, the gap between the coil assembly and the outer iron shell $gap_{cf}$ is set to $0.1\,\mathrm{mm}$ for the ease of assembly. Both the coil thickness $t_c = r_{co}-r_{ci}$ and magnet thickness $t_m = r_{mo}-r_{mi}$ are set to be thicker than $3\,\mathrm{mm}$, respectively. Table\,\ref{table:table_of_optimization_constraints_PMLSM} summarizes the constraints on the desired motor configuration.
             
             
             \begin{table}
@@ -341,7 +341,7 @@
                     $r_{mi}$		& Magnet array inner radius 			    &	$\geq2\,\mathrm{mm}$\\ 
                     $gap_{mc}$		& Magnet and coil fixed gap $gap_{mc}=r_{ci}-r_{mo}$    &	$1.2\,\mathrm{mm}$\\ 
                     $gap_{cf}$		& Coil and iron fixed gap $gap_{cf}=r_{fi}-r_{co}$ 	    &	$0.1\,\mathrm{mm}$\\ 
-                    $L_k$			& Period length	 						    &	$L_{CO} \geq L_k \geq 18\,\mathrm{mm}$\\
+                    $L_k$			& Period length	 						    &	$L_{C} \geq L_k \geq 18\,\mathrm{mm}$\\
                     $\delta$		& Ratio of radial magnet over a period	    & 	$1> \delta >0$\\
                 \hline
             \end{tabular}
@@ -442,7 +442,7 @@
         The global optimization of \acs{PMLSM} for the problem described in Equation\,\ref{eq:outer optimization for PMLSMs} at different mass constraints $M_0=[325,350,375,400,425]\,\mathrm{g}$ is summarized in Table\,\ref{table:result for global optimization of PMLSM via HM method}.
             
             
-        Taking an example for the global optimization of constraints set $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$, $M_0=325\,\mathrm{g}$ on the search space of $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm}$, and $L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$, we found an under-hung motor with $N_C=4$, $N_M=12$, $L_k=26.5\,\mathrm{mm}$, $r_{mi}=2\,\mathrm{mm}$, $t_m=6.15\,\mathrm{mm}$, $t_c=3\,\mathrm{mm}$, $\delta=0.30$. The motor is able to theoretically produce $246.64\,\mathrm{N}$ at the rated power, which corresponds to a motor constant $K_m=6.37\,\mathrm{N/\sqrt{W}}$ and peak jet speed $v_{jet}=228.67\,\mathrm{m/s}$. The typical motor constant of \acsp{PMLSM} far exceeds the typical motor constant achieved by \acsp{VCM}\,\cite{ruddy2014}. The achievable jet speed $v_{jet}$ is beyond what is required for a successful needle free injection.
+        Taking an example for the global optimization of constraints set $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$, $M_0=325\,\mathrm{g}$ on the search space of $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm}$, and $L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$, we found an under-hung motor with $N_C=4$, $N_M=12$, $L_k=26.5\,\mathrm{mm}$, $r_{mi}=2\,\mathrm{mm}$, $t_m=6.15\,\mathrm{mm}$, $t_c=3\,\mathrm{mm}$, $\delta=0.30$. The motor is able to theoretically produce $246.64\,\mathrm{N}$ at the rated power, which corresponds to a motor constant $K_m=6.37\,\mathrm{N/\sqrt{W}}$ and peak jet speed $v_{jet}=228.92\,\mathrm{m/s}$. The typical motor constant of \acsp{PMLSM} far exceeds the typical motor constant achieved by \acsp{VCM}\,\cite{ruddy2014}. The achievable jet speed $v_{jet}$ is beyond what is required for a successful needle free injection.
             
             
         According to Equation\,\ref{eq:power dissipation for PMLSMs}, and provided that $P$, $\rho_w$, $K_m$, $L_S$ are unchanged:
@@ -458,51 +458,52 @@
             V_{new}=\frac{v_{jet:old}}{v_{jet:new}}V_{old}
             \label{eq:v_jet and V ratio}
         \end{equation}
+        
+        
+        \begin{landscape}
+                \begin{table}
+                    \renewcommand{\arraystretch}{1.2}
+                    \caption{Summary of motor design optimization values and performance using \acs {HM} method}
+                    \label{table:result for global optimization of PMLSM via HM method}
+                    \centering
+                    \begin{tabular}{lllrrrrr}
+                        \hline
+                        \textbf{Params}     & \textbf{Description}                            & \textbf{Unit}           & $M_0=\mathbf{325\,g}$ & $\mathbf{350\,g}$ & $\mathbf{375\,g}$ & $\mathbf{400\,g}$ & $\mathbf{425\,g}$ \\
+                        \hline
+                        $P$        & Power dissipation in coil winding      & $\mathrm{kW}$  & $1.50$                & $1.50$            & $1.50$            & $1.50$            & $1.50$            \\
+                        $V$        & Volume of ampoule                      & $\mathrm{mL}$  & $1.00$                & $1.00$            & $1.00$            & $1.00$            & $1.00$            \\
+                        $gap_{mc}$ & Magnet and coil fixed gap              & $\mathrm{mm}$  & $1.20$                & $1.20$            & $1.20$            & $1.20$            & $1.20$            \\
+                        $gap_{cf}$ & Coil and iron fixed gap                & $\mathrm{mm}$  & $0.10$                & $0.10$            & $0.10$            & $0.10$            & $0.10$            \\
+                        \hline
+                        $L_{C0:optim}$ & Constraint $L_C$ winding at global optimum & $\mathrm{mm}$        & $53.00$                       & $53.00$           & $53.00$           & $53.00$           & $53.00$           \\
+                        $L_{M0:optim}$ & Constraint $L_C+L_S$ at global optimum        & $\mathrm{mm}$        & $160.00$                      & $160.00$          & $160.00$          & $160.00$          & $160.00$          \\
+                        \hline
+                        $r_{mi}$   & Magnet array inner radius              & $\mathrm{mm}$  & $2.00$                & $2.00$            & $2.00$            & $2.00$            & $2.00$            \\
+                        $t_m$      & Magnet thickness                       & $\mathrm{mm}$  & $6.15$                & $6.35$            & $6.67$            & $6.99$            & $7.29$            \\
+                        $t_c$      & Coil thickness                         & $\mathrm{mm}$  & $3.00$                & $3.00$            & $3.00$            & $3.00$            & $3.00$            \\
+                        $\delta$   & Ratio of radial magnet vs. magnet pair &                & $0.30$                & $0.25$            & $0.26$            & $0.26$            & $0.27$            \\
+                        $N_C$      & Number of half coil-poles              &                & $4$                   & $3$               & $3$               & $3$               & $3$               \\
+                        $N_M$      & Number of half magnet-poles            &                & $12$                  & $9$               & $9$               & $9$               & $9$               \\
+                        \hline
+                        $t_f$      & Iron shell thickness                   & $\mathrm{mm}$  & $0.77$                        & $1.07$            & $1.12$            & $1.15$            & $1.19$    \\       
+                        $L_k$      & Full pole length                       & $\mathrm{mm}$  & $26.50$               & $35.33$           & $35.33$           & $35.33$           & $35.33$           \\
+                        $L_C$      & Length of coil array                   & $\mathrm{mm}$  & $53.00$               & $53.00$           & $53.00$           & $53.00$           & $53.00$           \\
+                        $L_M$      & Length of magnet array                 & $\mathrm{mm}$  & $159.00$              & $159.00$          & $159.00$          & $159.00$          & $159.00$          \\
+                        $L_S$      & Stroke length                          & $\mathrm{mm}$  & $106.00$              & $106.00$          & $106.00$          & $106.00$          & $106.00$          \\
+                        \hline
+                        $v_{jet}$  & Achievable jet speed                   & $\mathrm{m/s}$ & $228.92$              & $234.20$          & $239.84$          & $245.13$          & $250.11$         \\
+                        $F$        & Force exerts on piston                 & $\mathrm{N}$         & $246.64$                      & $258.72$          & $271.35$          & $283.44$          & $295.07$          \\
+                        $K_m$      & Motor constant                         & $\mathrm{N/\sqrt{W}}$ & $6.37$                        & $6.68$            & $7.01$            & $7.32$            & $7.62$           \\
+                        \hline
+                    \end{tabular}
+                \end{table}
+            \end{landscape}
             
             
         If we now choose to adjust the ampoule cross-sectional area to reduce the peak jet speed $v_{jet}$ to $200\,\mathrm{m/s}$, the maximum volume $V$ of drug delivery can now be $V_{new}=1.31\,\mathrm{mL}$. 
             
             
-        \begin{landscape}
-            \begin{table}
-                \renewcommand{\arraystretch}{1.2}
-                \caption{Summary of motor design optimization values and performance}
-                \label{table:result for global optimization of PMLSM via HM method}
-                \centering
-                \begin{tabular}{lllrrrrr}
-                    \hline
-                    \textbf{Params}     & \textbf{Description}                            & \textbf{Unit}           & $M_0=\mathbf{325\,g}$ & $\mathbf{350\,g}$ & $\mathbf{375\,g}$ & $\mathbf{400\,g}$ & $\mathbf{425\,g}$ \\
-                    \hline
-                    $P$        & Power dissipation in coil winding      & $\mathrm{kW}$  & $1.50$                & $1.50$            & $1.50$            & $1.50$            & $1.50$            \\
-                    $V$        & Volume of ampoule                      & $\mathrm{mL}$  & $1.00$                & $1.00$            & $1.00$            & $1.00$            & $1.00$            \\
-                    $gap_{mc}$ & Magnet and coil fixed gap              & $\mathrm{mm}$  & $1.20$                & $1.20$            & $1.20$            & $1.20$            & $1.20$            \\
-                    $gap_{cf}$ & Coil and iron fixed gap                & $\mathrm{mm}$  & $0.10$                & $0.10$            & $0.10$            & $0.10$            & $0.10$            \\
-                    \hline
-                    $L_{C0:optim}$ & Constraint $L_C$ winding at global optimum & $\mathrm{mm}$        & $53.00$                       & $53.00$           & $53.00$           & $53.00$           & $53.00$           \\
-                    $L_{M0:optim}$ & Constraint $L_C+L_S$ at global optimum        & $\mathrm{mm}$        & $160.00$                      & $160.00$          & $160.00$          & $160.00$          & $160.00$          \\
-                    \hline
-                    $r_{mi}$   & Magnet array inner radius              & $\mathrm{mm}$  & $2.00$                & $2.00$            & $2.00$            & $2.00$            & $2.00$            \\
-                    $t_m$      & Magnet thickness                       & $\mathrm{mm}$  & $6.15$                & $6.35$            & $6.67$            & $6.99$            & $7.29$            \\
-                    $t_c$      & Coil thickness                         & $\mathrm{mm}$  & $3.00$                & $3.00$            & $3.00$            & $3.00$            & $3.00$            \\
-                    $\delta$   & Ratio of radial magnet vs. magnet pair &                & $0.30$                & $0.25$            & $0.26$            & $0.26$            & $0.27$            \\
-                    $N_C$      & Number of half coil-poles              &                & $4$                   & $3$               & $3$               & $3$               & $3$               \\
-                    $N_M$      & Number of half magnet-poles            &                & $12$                  & $9$               & $9$               & $9$               & $9$               \\
-                    \hline
-                    $t_f$      & Iron shell thickness                   & $\mathrm{mm}$  & $0.77$                        & $1.07$            & $1.12$            & $1.15$            & $1.19$    \\       
-                    $L_k$      & Full pole length                       & $\mathrm{mm}$  & $26.50$               & $35.33$           & $35.33$           & $35.33$           & $35.33$           \\
-                    $L_C$      & Length of coil array                   & $\mathrm{mm}$  & $53.00$               & $53.00$           & $53.00$           & $53.00$           & $53.00$           \\
-                    $L_M$      & Length of magnet array                 & $\mathrm{mm}$  & $159.00$              & $159.00$          & $159.00$          & $159.00$          & $159.00$          \\
-                    $L_S$      & Stroke length                          & $\mathrm{mm}$  & $106.00$              & $106.00$          & $106.00$          & $106.00$          & $106.00$          \\
-                    \hline
-                    $v_{jet}$  & Achievable jet speed                   & $\mathrm{m/s}$ & $228.67$              & $234.20$          & $239.84$          & $245.13$          & $250.10$         \\
-                    $F$        & Force exerts on piston                 & $\mathrm{N}$         & $246.64$                      & $258.72$          & $271.35$          & $283.44$          & $295.06$          \\
-                    $K_m$      & Motor constant                         & $\mathrm{N/\sqrt{W}}$ & $6.37$                        & $6.68$            & $7.01$            & $7.32$            & $7.62$           \\
-                    \hline
-                \end{tabular}
-            \end{table}
-        \end{landscape}
-            
-        \begin{figure*}[ht]
+        \begin{figure*}
             \centering
             \subfloat[$M_0=325\,\mathrm{g}$. Global optimum found at $L_{C0}=53\,\mathrm{mm}$, $L_{C0}=160\,\mathrm{mm}$, $N_C=4$, and $N_M=12$.
             ]{
@@ -539,7 +540,7 @@
             }   \label{fig:chapter/hm/optimization search space result for differnt mass}
         \end{figure*}
             
-        As expected, the more relaxed the mass constraint $M_0$, the higher the achievable jet speed $v_{jet}$ can be. Globally optimized motors at mass constraints $M_0$ of $350\,\mathrm{g}$, $350\,\mathrm{g}$, $375\,\mathrm{g}$, $400\,\mathrm{g}$, and $425\,\mathrm{g}$ can produce $v_{jet}$ of $229\,\mathrm{m/s}$, $234\,\mathrm{m/s}$, $240\,\mathrm{m/s}$, $245\,\mathrm{m/s}$, and $250\,\mathrm{m/s}$, respectively. Figure\,\ref{fig:chapter/hm/optimization search space result for differnt mass} provides global optimization plots of $v_{jet}$ for the search space $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm} \times L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$ using $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$,  and $M_0=[325,350,375,400,425]\,\mathrm{g}$. Although the 2D contour patterns appear similar across the different plots, the color shade gradually gets darker with easier mass constraints $M_0$, indicating an increase in the motor performance.
+        As expected, the more relaxed the mass constraint $M_0$, the higher the achievable jet speed $v_{jet}$ can be. Globally optimized motors at mass constraints $M_0$ of $350\,\mathrm{g}$, $350\,\mathrm{g}$, $375\,\mathrm{g}$, $400\,\mathrm{g}$, and $425\,\mathrm{g}$ can produce $v_{jet}$ of $229\,\mathrm{m/s}$, $234\,\mathrm{m/s}$, $240\,\mathrm{m/s}$, $245\,\mathrm{m/s}$, and $250\,\mathrm{m/s}$, respectively. Fig.\,\ref{fig:chapter/hm/optimization search space result for differnt mass} provides global optimization plots of $v_{jet}$ for the search space $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm} \times L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$ using $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$,  and $M_0=[325,350,375,400,425]\,\mathrm{g}$. Although the 2D contour patterns appear similar across the different plots, the color shade gradually gets darker with easier mass constraints $M_0$, indicating an increase in the motor performance.
             
 
     % ===================================================================================================
