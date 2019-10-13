@@ -1,4 +1,4 @@
-\chapter{PMLSM design with a Harmonics Modelling}   \label{Chapter:PMLSM design HM}
+\chapter{\acsp{LSDDM} design with a Harmonics Modelling}   \label{Chapter:PMLSM design HM}
 
 
     Previously explored by Ruddy et al. \cite{Ruddy2015}, \acsp{PMLSM} or more precisely tubular, slotless, permanent magnet excited, longitudinal flux, and linear 3-phase motors have shown superior potential when compared to \acsp{VCM} in \acs{NFJI} applications. The scaling laws for \acsp{PMLSM} allow the overall system to operate at a magnitude higher efficiency. The potential of a better actuator for \acs{NFJI} has been proven with \acsp{PMLSM}, accompanied with computationally efficient, exact semi-analytical magnetic field \acsp{HM} solutions. However, a large efficiency gain is only possible if the total length of the motor is allowed to be very long which will be impractical for fitting into an actual injector device. An appropriate optimization scheme with the necessary constraints will be required to not only realize a practical actuator for an \acs{NFJI} but be flexible enough to compare with other types of \acsp{LSDDM} in existence.
@@ -261,6 +261,7 @@
             {\hat K_m} = w\hat F\sqrt {\frac{f}{{( {\frac{{{N_M}}}{{{N_C}}}} )\hat P\hat M}}}
             \label{eq:K_m dimless}
         \end{equation}
+           
         
 % ==============================================\propto{}=====================================================
 % === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
@@ -549,9 +550,9 @@
     \section{Discussion}                            \label{Chapter:PMLSM design HM/discussion}
     
         
-        To summarize, this chapter provides a semi-analytical solution for the electromagnetic model of slotless tubular \acsp{PMLSM} (Section\,\ref{Chapter:PMLSM design HM/electromagnetic model}), an efficient optimization scheme for a fixed motor mass at a given power dissipation (Section\,\ref{Chapter:PMLSM design HM/design optimization/optimization formulation}). Utilizing these modeling and optimization methodologies, we performed a case study and found globally optimized motor configurations for \acs{NFJI} under different mass constraints (Section\,\ref{Chapter:PMLSM design HM/design optimization/optimization formulation}). The optimized motor configuration for these requirements is summarized in Table~\ref{table:result for global optimization of PMLSM via HM method}. Most importantly, this work was able to confirm that \acsp{PMLSM} readily outperform \acsp{VCM} in \acs{NFJI} applications, being able to deliver more volume with far less energy.
+        To summarize, this chapter provides a semi-analytical solution for the electromagnetic model of slotless tubular \acsp{PMLSM} (Section\,\ref{Chapter:PMLSM design HM/electromagnetic model}), an efficient optimization scheme for a fixed motor mass at a given power dissipation (Section\,\ref{Chapter:PMLSM design HM/design optimization/optimization formulation}). Utilizing these modeling and optimization methodologies, we performed a case study and found globally optimized motor configurations for \acs{NFJI} under different mass constraints (Section\,\ref{Chapter:PMLSM design HM/design optimization/optimization formulation}). The optimized motor configuration for these requirements is summarized in Table~\ref{table:result for global optimization of PMLSM via HM method}. Most importantly, this work was able to confirm that \acsp{PMLSM} readily outperform \acsp{VCM} in \acs{NFJI} applications, being able to deliver more volume with far less energy. 
         
         
-        The optimization benchmark optimization specification established in Section\,\ref{Chapter:PMLSM design HM/design optimization/design citeria} is especially important, and will be reused in accessing and comparing other types of \acsp{LSDDM} in the later Chapter\,\ref{Chapter:PMLSM design RSM}.
+        The optimization benchmark optimization specification established in Section\,\ref{Chapter:PMLSM design HM/design optimization/design citeria} is especially important, and will be reused in accessing and comparing other types of \acsp{LSDDM} in the later Chapter\,\ref{Chapter:PMLSM design RSM}. With this modelling approach, it is assumed that the end-effect is ignored. Therefore the true performance will be slightly lower than which predicted by this modelling method\,\cite{Ruddy2013APerformance}.
         
         
