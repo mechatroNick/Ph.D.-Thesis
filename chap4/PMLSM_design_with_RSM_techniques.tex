@@ -321,14 +321,14 @@ for the input and hidden layer,
         The general parameters of a three-phase tubular linear flux-switching motor consist of:
         
         \begin{itemize}
-            \item The total number of armature slots $N_C$,
-            \item The total number of armature pole $N_S$
+            \item The total number of armature slots $N_C$, as opposed to the number of half-coil phases $N_M$ in \acsp{PMLSM},
+            \item The total number of armature pole $N_S$, which is different from the number of half-magnet phases in \acsp{PMLSM},
             \item The radii of the \acs{SMC} track $r_{is}$, $r_{ms}$, and $r_{os}$,
             \item The radii of the armature assembly $r_{ic}$, $r_{mc}$, and $r_{oc}$,
             \item The slot period length $L_{KC}$,
             \item The track period length $L_{KS}$,
             \item The whole of mover armature length $L_{C}$,
-            \item The whole track length or equivalent motor length $L_{S}$,
+            \item The whole track length or equivalent motor length $L_{S}$, which does not present the stroke length like in \acsp{PMLSM},
             \item The length of each overall repeat unit $L_{repeat}$,
             \item The motor stroke length $L_{stroke}$.
         \end{itemize}
@@ -435,8 +435,8 @@ for the input and hidden layer,
                     $h_G$	        & Mover-stator air gap 					    &	$1.2\,\mathrm{mm}$\\ 
                     $L_{repeat}$	& Length of each 6 slot/7 pole unit 		&	$50-90\,\mathrm{mm}$\\ 
                     $\theta$	    & Stator tooth angle 		                &	$\arctan(1/2)$\\ 
-                    $N_C$	        & Number of armature slots 		            &	    $6$\\ 
-                    $N_S$	        & Number of mover pole 		                &	$\geq 7$\\ 
+                    $N_C$	        & Number of armature slots 		            &	$6$\\ 
+                    $N_S$	        & Number of mover pole 		                &	$7$\\ 
                 \hline
                 \end{tabular}
             \end{table}
@@ -529,7 +529,7 @@ for the input and hidden layer,
 
             
             \begin{itemize}
-                \item $8$ structural parameters and the input power are regarded as the Input Layer: $\alpha$, $\beta$, $\gamma$, $\epsilon$, $\delta$, $r_{so}$, $h_G$, and $L_{repeat}$,
+                \item $8$ structural parameters are regarded as the Input Layer: $\alpha$, $\beta$, $\gamma$, $\epsilon$, $\delta$, $r_{so}$, $h_G$, and $L_{repeat}$,
                 \item $3$ performance outputs are regarded as the Output Layer: $F_{\Delta cogging}$, $\overline{F}$, and $F_{peak}$,
                 \item $\mathrm{Adam}$ optimizer is used for ANN training,
                 \item $6$ hidden layers of $256-512-512-512-512-512$ of densely connected nodes,
@@ -573,6 +573,142 @@ for the input and hidden layer,
         % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- 
         % -----------------------------------------------------------------------------------
         \subsection{Optimization}                   \label{Chapter:RSM/LFSM/Optimization}
+        
+        
+            \subsubsection{Outer Optimization}          \label{Chapter:RSM/LFSM/Optimization/Outer}
+            
+            
+                In order to fairly compare the performance of \acsp{LFSM} to \acsp{PMLSM} in \acs{NFJI}, the optimization problem description needs to be simultaneously adaptable to \acsp{LFSM} and equivalent to that described in Equation\,\ref{eq:outer optimization for PMLSMs}. The overall optimization for \acs{LFSM} consists of strategic repetition of the inner optimization to maximize the achievable jet speed $v_{jet}$:
+                
+                \begin{equation}
+                    \begin{array}{rll}
+                        \textbf{minimize}       & \small{objective\,\,function}     & f(\textbf{x})=\frac{1}{v_{jet}} \\
+                        \textbf{subjected to}   & \small{equality\,\,constraint}    & h_1(\textbf{x})=M - M_0= 0\\
+                                                &\quad \small{where}                &\quad  M_0\in\left[325,350,375,400,425\right]\,\mathrm{g}\\
+                                                &                                   & h_2(\textbf{x})=P - 1500\,\mathrm{W}=0\\
+                                                &                                   & h_3(\textbf{x})=L_C - L_{C0} = 0\\
+                                                &\quad \small{where}                &\quad  L_{C0}\in\left[50,51,52,...,90\right]\,\mathrm{mm}\\
+                                                &                                   & h_4(\textbf{x})=V - 1\,\mathrm{mL} = 0\\
+                                                & \small{inequality\,\,constraint}  & g_1(\textbf{x})=L_S-L_{S-max} \leqslant 0\\
+                                                &\quad \small{where}                &\quad L_{S-max} \in \left[120,121,122,...,160\right]\,\mathrm{mm} \\
+                                                & \small{other\,\,constraints}       & N_C, N_S \in 	\mathbb{N} \\ 
+                                                &\quad \small{where}                &\quad N_C = 6\\
+                                                &                                   &\quad N_S > 7
+                                                \\ \\
+                    \end{array}
+                    \label{eq:outer optimization for LFSMs}
+                \end{equation}
+                
+                
+                Note that in the previous section where the \acs{ANN} model was constructed, all designs used to construct the model was limited to a 6 slot/7 pole repeat unit. However, in the optimization problem the number of pole or \acs{SMC} teeth will need to be higher than $7$ in order to facilitate for the moving coil configuration. The Equation\,\ref{eq:outer optimization for LFSMs} added the the last constraint to serve said condition. Similar to \acs{PMLSM}, to the overall process for global optimization of \acs{LFSM} was arrange as follow:
+                
+                
+                \begin{itemize}
+                    \item   Limit the search to motors with a total length $L_S = L_{C} + L_{stroke}$ in between $120\,\mathrm{mm}$ and $160\,\mathrm{mm}$,
+                    \item   Divide the maximum allowed $L_{S-max}$ ranges into 41 equally spaced lists: \\ $[120, 121, 122, ..., 160]\,\mathrm{mm}$ 
+                    \item   Divide the coil length $L_{C}$ (equivalent to $L_{repeat}$) ranges into 41 equally spaced lists:  $[50, 51, 52, ..., 90]\,\mathrm{mm}$ 
+                    \item   Create a $\mathrm{2D}$ search zone for each combination of maximum motor length $L_{S-max}$ and coil mover length $L_{C}$, totalling $1681$ points,
+                    \item   Run $1681$ inner optimization searches with Matlab constrained convex non-linear optimization function $fmincon()$. Details of the inner optimization will be explained below,
+                    \item   Plot and identify a motor design that produce the highest average jet speed $v$ at the given mass constraint $m$.
+                \end{itemize}
+                
+                
+                
+                Given each combination of coil length $L_{C}$ and maximum motor length $L_{S-max}$, we can work out the maximum number of whole stator \acs{SMC} teeth $N_S$, the corresponding stator length $L_S$ that can be fitted, and the stroke length $L_{stroke}$:
+
+
+                \begin{equation}
+                    N_S = \bigg\lfloor  \frac{L_{S-max}}{L_C} \cdot 7 \bigg\rfloor
+                    \label{eq:max mumber of teeth for LFSM stator}
+                \end{equation}
+                
+                
+                \begin{equation}
+                    L_S = {\bigg\lfloor  \frac{L_{S-max}}{L_C} \cdot 7 \bigg\rfloor} \frac{L_C}{7}
+                    \label{eq:possible stator length LFSM stator}
+                \end{equation}
+                
+                
+                \begin{equation}
+                    L_{stroke} = {\bigg\lfloor  \frac{L_{S-max}}{L_C} \cdot 7 \bigg\rfloor} \frac{L_C}{7} - L_C
+                    \label{eq:possible stroke length LFSM stator}
+                \end{equation}
+                
+                
+                Together with known power dissipation $P$, ampoule volume $V$, and water density $\rho_w$, the jet velocity $v_{jet}$ can be derived directly from Equation\,\ref{eq:power dissipation for PMLSMs}:
+            
+            
+                \begin{equation}
+                    v_{jet} = \sqrt[4]{\frac{4P {K_m}^2 {L_{stroke}}^2}{\rho_w V^2}}
+                    \label{eq:v_jet for FSM}
+                \end{equation}
+                
+                
+            \subsubsection{Inner Optimization}          \label{Chapter:RSM/LFSM/Optimization/Inner}
+                
+                
+                \begin{figure*}
+                  \centering
+                  \includegraphics[width=5.9in]{chap4/images2/RSM_LFSM_optimization.pdf}
+                  \caption{Summary of the top-level motor optimization algorithm and inner optimization routine for \acsp{LFSM}. The algorithm uses motor specifications $V$, $P$, $M$ to determine the motor parameters $\textbf{x}=[\alpha,\beta,\gamma,\delta,\epsilon,r_{so},h_C]$, $N_C$, $N_S$, $L_{repeat}$ at which the jet speed $v_{jet}$ can be maximized.}
+                  \label{fig:chapter/rsm/fsm/top level optmization}
+                \end{figure*}
+                
+                
+                From the bird eye view, the outer optimization loop provides unique combinations of $L_{C0}$, $L_{S-max}$, and $M_0$ to produce a value of $L_C$, as well as sensible values for $N_S$ and $L_{stroke}$ explained in Equation\,\ref{eq:max mumber of teeth for LFSM stator} and \ref{eq:possible stroke length LFSM stator}. At each point in the $L_{C0} \times L_{S-max}$ space, multiple a single inner optimization will perform a non-linear constraint optimization for the unknown variable vector $\textbf{x}$:
+            
+            
+                \begin{equation}
+                    \textbf{x} = \left[ \alpha,\beta,\gamma,\delta,\epsilon,r_{so},h_{C} \right]
+                    \label{eq:inner optimization x of FSM}
+                \end{equation}
+                
+                
+                The number of coil segments in a single coil repeat unit is 6. To increase the number of coil phase, the mover needs to add 6 coil segments at a time. If more coil phases are added into a fixed length coil, the width of the individual coil winding will be found to be too small and impractical for prototyping. Therefore, number of coil slots $N_C$ is fixed at $6$. This effectively makes the length of coil $L_C$ the same as the repeat length $L_{repeat}$. 
+                
+                
+                The tooth angle $\theta$ is also a constant value of $\arctan(1/2)$ to simplify the problem. Other constants such as the inner radius of the stator $r_{si}$, and the mover-stator air gap $h_G$ are equal to \acsp{PMLSM} inner magnet radius $r_{mi}$, and magnet-coil gap $gap_{mc}$, respectively. The constraints on the input parameters strictly follows the parameter ranges established in Table\,\ref{table:chap/rsm/LFSM/design range} with the only difference of having the value of $N_S$ starting from $8$ and upward to facilitate for a non-zero stroke length $L_{stroke}$. The inner and outer optimization unknown constraints for \acs{LFSM} are summarized in Table\,\ref{table:chap/rsm/LFSM/optimization unknown constraints}.
+                
+                
+                \begin{table}[!ht]
+                    \renewcommand{\arraystretch}{1.2}
+                    \caption{Summary of the inner and outer optimization constraints for \acs{LFSM}}
+                    \label{table:chap/rsm/LFSM/optimization unknown constraints}
+                    \centering
+                    \begin{tabular}{@{}llr@{}}
+                    \hline
+                    \bfseries Parameter & \bfseries Description & \bfseries Values\\
+                    \hline
+                        $\alpha$	    & Ratio of $w_M$ over $L_{KC}$              &	$0.1-0.4$\\ 
+                        $\beta$	        & Ratio of $w_C$ over $w_S$		            &	$0.4-0.9$\\ 
+                        $\gamma$	    & Ratio of $h_{CM}$ over $h_C$			    &	$0.6-0.9$\\ 
+                        $\delta$	    & Ratio of $w_R$ or $L_{KS}$		        &	$0.1-0.2$\\ 
+                        $\epsilon$	    & Ratio of $h_{R1}$ or $h_{R2}$		        &	$0.4-0.6$\\ 
+                        $r_{so}$	    & Outer radius of SMC stator core 			&	$4-10\,\mathrm{mm}$\\ 
+                        $h_C$           & Thickness of the mover assembly           &	$5-30\,\mathrm{mm}$\\ 
+                    \hline
+                        $N_C$	        & Number of armature slots 		            &	$6$\\ 
+                        $N_S$	        & Number of mover pole 		                &	$\geq 8$\\ 
+                        $L_{C0}$	    & Length of coil equality constraint		&	$50-90\,\mathrm{mm}$\\ 
+                        $L_{S-max}$	    & Length of stator inequality constraint	&	$120-160\,\mathrm{mm}$\\
+                    \hline  \\
+                    \end{tabular}
+                \end{table}    
+                
+                
+                Each inner optimization aims at finding $\textbf{x}$ given $[N_C, L_{repeat}, L_{S-max}]$ will first find the maximum value of $L_{stroke}$ while rounding down the number of stator teeth $N_S$. The routine then works to define the unknown $\textbf{x}$ in order to maximize the jet speed $v_{jet}$ where the ranges in Table\,\ref{table:chap/rsm/LFSM/optimization unknown constraints} and the optimization problem in Equation\,\ref{eq:inner optimization for PMLSMs} are applied.
+                
+                
+                Similar to the inner optimizations of \acsp{PMLSM} in Section\,\ref{Chapter:PMLSM design HM/design optimization/optimization formulation/inner} and Section\,\ref{Chapter:RSM/PMLSM/Optimization}, the inner optimization uses constrained nonlinear multi-variable optimization based on the interior point algorithm (MATLAB Optimization Toolbox) to minimize the objective function in Equation\,\ref{eq:inner optimization for PMLSMs}. It should be noted that the each objective function evaluation requires prediction of $v_{jet}$, which is predicted by the \acs{ANN} model described in Section\,\ref{Chapter:RSM/LFSM/ANN training}. The method at which the \acs{ANN} is inferred is depicted in Fig.\,\ref{fig:chapter/rsm/PMLSM/inference options/web services}. Upon finishing the inner optimizations for each pair $L_{C0} \times L_{S-max}$, the control flow saves the best performing motor configuration and moves on to the next $L_{C0} \times L_{S-max}$. Fig.\,\ref{fig:chapter/rsm/fsm/top level optmization} summarizes and illustrates both the outer and the inner optimization algorithms.
+                
+                    
+
+        % -----------------------------------------------------------------------------------
+        % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- 
+        % -----------------------------------------------------------------------------------
+        \subsection{Results}                   \label{Chapter:RSM/LFSM/Results}        
+                
+            With the objective function evaluation using \acs{ANN} models at its core, the global optimization of \acs{LFSM} for the problem described is summarized in Table 4.2. The table shows the optimization results for different motor mass constraints $M0 = [325, 350, 375, 400, 425]\,\mathrm{g}$.
     
     
     % ===================================================================================================
