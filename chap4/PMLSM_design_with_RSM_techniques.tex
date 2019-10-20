@@ -53,10 +53,10 @@
         \subsection{Specifications \& Samplings}    \label{Chapter:RSM/PMLSM/spec}
         
         
-            Reusing the considerations of the \acs{PMLSM} topology already presented in Section\,\ref{Chapter:PMLSM design HM/electromagnetic model/topology}, we refer to the design parameters $t_c$, $t_m$, $r_{mi}$, $L_k$, $\delta$ and their accompanying value ranges listed in Table\,\ref{table:table_of_optimization_constraints_PMLSM}. Additionally, $gap_{mc}$ and $gap_{cf}$ are addressed as constant values. 
+            Reusing the considerations of the \acs{PMLSM} topology already presented in Section\,\ref{Chapter:PMLSM design HM/electromagnetic model/topology}, this work refers back to the design parameters $t_c$, $t_m$, $r_{mi}$, $L_k$, $\delta$ and their accompanying value ranges listed in Table\,\ref{table:table_of_optimization_constraints_PMLSM}. Additionally, $gap_{mc}$ and $gap_{cf}$ are addressed as constant values. 
             
             
-            Table.\,\ref{table:RSM design level for PMLSM} shows incremental sampling steps for the structural design factors. From the sampling steps, full factorial design grid of $51840$ design were generated. Additional, the same number of design case constructed by random input variables in the ranges specified by Table\,\ref{table:RSM design level for PMLSM}. The purpose of combining the factorial design space and the randomly generated design cases is to help generalizing the supposedly continuous \acs{RSM} response better. In total, there were $103680$ independent motor designs available for \acs{ANN} training. To maximize the re-usability of the data collected, we choose to use \acs{HM} in order to generate a library of design for motors with only a single repeating unit. All of these motor designs are assumed to have the number of half coil periods $N_C$ and the number of half magnet periods $N_M$ of $1$. The input power will also be kept at $P=1500\mathrm{W}$, in order to directly compare with the study in Chapter\,\ref{Chapter:PMLSM design HM}.
+            Table.\,\ref{table:RSM design level for PMLSM} shows incremental sampling steps for the structural design factors. From the sampling steps, full factorial design grid of $51840$ design were generated. Additional, the same number of design case constructed by random input variables in the ranges specified by Table\,\ref{table:RSM design level for PMLSM}. The purpose of combining the factorial design space and the randomly generated design cases is to help generalizing the supposedly continuous \acs{RSM} response better. In total, there were $103680$ independent motor designs available for \acs{ANN} training. To maximize the re-usability of the data collected, the obvious choice is to use \acs{HM} in order to generate a library of design for motors with only a single repeating unit. All of these motor designs are assumed to have the number of half coil periods $N_C$ and the number of half magnet periods $N_M$ of $1$. The input power will also be kept at $P=1500\mathrm{W}$, in order to directly compare with the study in Chapter\,\ref{Chapter:PMLSM design HM}.
             
             
             \begin{table}[!h]
@@ -118,7 +118,7 @@
                 \item Rectified linear unit (ReLU) activation function is used
 for the input and hidden layer,
                 \item Linear activation function is used for the output layer,
-                \item The error to optimize for is \acs{MSE},
+                \item The error to optimize for is \acf{MSE},
                 \item The training and validation split chosen at random for each of the three models are: $70\%-30\%$, $75\%-25\%$, and $80\%-20\%$,
                 The final \acs{ANN} model is ensembled from the average of three models above.
             \end{itemize}
@@ -211,7 +211,7 @@ for the input and hidden layer,
             With the objective function evaluation using \acs{ANN} models at its core, the global optimization of \acs{PMLSM} for the problem described in Equation\,\ref{eq:outer optimization for PMLSMs} is summarized in Table\,\ref{table:result for global optimization of PMLSM via RSM method}. The table shows the optimization results for different motor mass constraints $M_0=[325,350,375,400,425]\,\mathrm{g}$.
             
             
-            For instance, the global optimization of constraints set $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$, $M_0=325\,\mathrm{g}$ on the search space of $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm}$, and $L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$, we found an under-hung motor with $N_C=4$, $N_M=12$, $L_k=26.5\,\mathrm{mm}$, $r_{mi}=2\,\mathrm{mm}$, $t_m=6.15\,\mathrm{mm}$, $t_c=3\,\mathrm{mm}$, $\delta=0.30$. The motor is able to theoretically produce $246.45\,\mathrm{N}$ at the rated power, which corresponds to a motor constant $K_m=6.36\,\mathrm{N/\sqrt{W}}$ and peak jet speed $v_{jet}=228.67\,\mathrm{m/s}$. Table\,\ref{table:result for global optimization of PMLSM via HM method} shows that same optimization problem powered by \acs{HM} electromagnetic equations produced almost exactly the same results when compared with \acs{RSM} method. The \acs{RSM} method predicted the peak jet speed $v_{jet}=228.67\,\mathrm{mm}$ while the \acs{HM} method predicted $v_{jet}=228.92\,\mathrm{mm}$. The only difference was the value of the ratio $\delta$ which does not affect the motor mass $M$.  
+            For instance, the global optimization of constraints set $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$, $M_0=325\,\mathrm{g}$ on the search space of $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm}$, and $L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$, the optimization program found an under-hung motor with $N_C=4$, $N_M=12$, $L_k=26.5\,\mathrm{mm}$, $r_{mi}=2\,\mathrm{mm}$, $t_m=6.15\,\mathrm{mm}$, $t_c=3\,\mathrm{mm}$, $\delta=0.30$. The motor is able to theoretically produce $246.45\,\mathrm{N}$ at the rated power, which corresponds to a motor constant $K_m=6.36\,\mathrm{N/\sqrt{W}}$ and peak jet speed $v_{jet}=228.67\,\mathrm{m/s}$. Table\,\ref{table:result for global optimization of PMLSM via HM method} shows that same optimization problem powered by \acs{HM} electromagnetic equations produced almost exactly the same results when compared with \acs{RSM} method. The \acs{RSM} method predicted the peak jet speed $v_{jet}=228.67\,\mathrm{mm}$ while the \acs{HM} method predicted $v_{jet}=228.92\,\mathrm{mm}$. The only difference was the value of the ratio $\delta$ which does not affect the motor mass $M$.  
             
             
             Fig.\,\ref{fig:chapter/rsm/PMLSM/results} provides global optimization plots of $v_{jet}$ for the search space $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm} \times L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$ using $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$,  and $M_0=[325,350,375,400,425]\,\mathrm{g}$. Not only the global optimization results obtained by different modelling methods agree strongly, the contour plots populated by the optimization processes of \acs{RSM} (Fig.\,\ref{fig:chapter/rsm/PMLSM/results}) and \acs{HM} (Fig.\,\ref{fig:chapter/hm/optimization search space result for differnt mass}) looked almost identical. This study has successfully demonstrated the effectiveness and accuracy of design and optimization process presented Section\,\ref{Chapter:RSM/outline}.
@@ -300,7 +300,7 @@ for the input and hidden layer,
     \section{Application to \ac{LFSM}}               \label{Chapter:RSM/LFSM}
     
     
-        This study attempts to clarify the performance characteristics of \acsp{LFSM} when applied to \acs{NFJI} applications. We chose to examine a C-core topology, because they typically produce more thrust than E-core topologies \cite{Min2011OptimizationMachines}. A conventional 6 slot/5 pole \acs{LFSM} as shown in Fig.\,\ref{fig:chapter/rsm/LFSM/structure/6-5} has minimal thrust ripple due to cancellation of even order and third order harmonics. However, we chose to study a 6 slot/7 pole LFSM structure as illustrated  in Fig.\,\ref{fig:chapter/rsm/LFSM/structure/6-7} because it is reported to also produce more thrust than other configurations, even though it may come at the expense of having more thrust ripple \cite{Chen2010}. 
+        This study attempts to clarify the performance characteristics of \acsp{LFSM} when applied to \acs{NFJI} applications. The C-core topology was the most favourable, because they typically produce more thrust than E-core topologies \cite{Min2011OptimizationMachines}. A conventional 6 slot/5 pole \acs{LFSM} as shown in Fig.\,\ref{fig:chapter/rsm/LFSM/structure/6-5} has minimal thrust ripple due to cancellation of even order and third order harmonics. However, this work chose to study a 6 slot/7 pole LFSM structure as illustrated  in Fig.\,\ref{fig:chapter/rsm/LFSM/structure/6-7} because it is reported to also produce more thrust than other configurations, even though it may come at the expense of having more thrust ripple \cite{Chen2010}. 
         
         
         \begin{figure*}[!ht]
@@ -415,7 +415,7 @@ for the input and hidden layer,
             Table\,\ref{table:chap/rsm/LFSM/sampling levels} shows incremental sampling steps for the structural design factors. From the sampling steps, a design grid of $46656$ cases are generated. Additionally, another $10000$ cases constructed by input variables created with random values within Table\,\ref{table:chap/rsm/LFSM/design range} range were added to help generalize the entire continuous design space better. In total, there were $56656$ independent motor designs to have their average thrust, maximum thrust, and cogging profile predicted by \acs{FEA}.
             
             
-            \begin{table}[!ht]
+            \begin{table}
                 \renewcommand{\arraystretch}{1.2}
                 \caption{Summary of the \acs{LFSM} motor parameter ranges}
                 \label{table:chap/rsm/LFSM/design range}
@@ -427,7 +427,7 @@ for the input and hidden layer,
                     $\alpha$	    & Ratio of $w_M$ over $L_{KC}$              &	$0.1-0.4$\\ 
                     $\beta$	        & Ratio of $w_C$ over $w_S$		            &	$0.4-0.9$\\ 
                     $\gamma$	    & Ratio of $h_{CM}$ over $h_C$			    &	$0.6-0.9$\\ 
-                    $\delta$	    & Ratio of $w_R$ or $L_{KS}$		        &	$0.1-0.2$\\ 
+                    $\delta$	    & Ratio of $w_R$ or $L_{KS}$		        &	$0.1-0.3$\\ 
                     $\epsilon$	    & Ratio of $h_{R1}$ or $h_{R2}$		        &	$0.4-0.6$\\ 
                     $r_{si}$	    & Inner radius of SMC stator core 	        &	$2\,\mathrm{mm}$\\ 
                     $r_{so}$	    & Outer radius of SMC stator core 			&	$4-10\,\mathrm{mm}$\\ 
@@ -442,7 +442,7 @@ for the input and hidden layer,
             \end{table}
             
             
-            \begin{table}[!ht]
+            \begin{table}
                 \renewcommand{\arraystretch}{1.2}
                 \caption{Summary of the \acs{LFSM} motor parameter sampling levels}
                 \label{table:chap/rsm/LFSM/sampling levels}
@@ -454,7 +454,7 @@ for the input and hidden layer,
                     $\alpha$     & 0.1     & 0.2  & 0.3 & 0.4 & -   & -   &               \\
                     $\beta$      & 0.4     & 0.5  & 0.6 & 0.7 & 0.8 & 0.9 &               \\
                     $\gamma$     & 0.6     & 0.7  & 0.8 & 0.9 & -   & -   &               \\
-                    $\delta$     & 0.1     & 0.15 & 0.2 & -   & -   & -   &               \\
+                    $\delta$     & 0.1     & 0.2  & 0.3 & -   & -   & -   &               \\
                     $\epsilon$   & 0.4     & 0.5  & 0.6 & -   & -   & -   &               \\
                     $r_{so}$     & 4       & 7    & 10  & -   & -   & -   &               \\
                     $h_C$        & 5       & 10   & 15  & 20  & 25  & 30  & $\mathrm{mm}$ \\
@@ -470,10 +470,56 @@ for the input and hidden layer,
         % -----------------------------------------------------------------------------------
         \subsection{\acs{FEA} data mining}          \label{Chapter:RSM/LFSM/data mining}
         
+            
+            There are abundant studies which have explored the effects of changing single design parameters or a few at a time; however, there has not been a study that examine the effect of scaling all \acs{LFSM} design parameters to benchmark a scaling law. The flux loading created by the permanent magnets pushes the iron structures close to saturation, thus the form of the scaling law cannot be simple. An arbitrary 6 slot/7 pole machine and a machine with the same structure but all dimensions doubled ("$2\times$ motor") were compared. Fig.\,\ref{fig:chap/rsm/LFSM/periodic_fea/thrust_waveform_study} compares the force production capability at different stroke positions for the original motor with the periodic \acs{FEA} setup in Fig.\,\ref{fig:chap/rsm/LFSM/periodic_fea/fea_for_studies}. The thrust waveforms are uneven, with high ripple and skewness, which grow as the current density increases. Due to the unevenness of the thrust waveform, the average thrust $\overline{F}$ and associated average \acs{NFJI} jet speed $\overline{v_{jet}}$ need to estimated by estimating the mean of thrust measurements at different coil-tooth offset.
+            
+            
+            \begin{figure*}[!ht]
+                \centering
+                \subfloat[\label{fig:chap/rsm/LFSM/periodic_fea/fea_for_studies} FEA setup for the thrust waveform plot and current scaling study. The teeth angle $\theta = 0^\circ$.]{
+                    \includegraphics[width=0.98\textwidth]{chap4/images2/LFSM_periodic_setup.pdf}
+                }
+                \par\bigskip
+                \subfloat[\label{fig:chap/rsm/LFSM/periodic_fea/thrust_waveform_study} 
+                    1x motor: 
+                    6 slots, 
+                    7 poles, 
+                    $r_{is}=\mathrm{2mm}$, 
+                    $h_{R1}=\mathrm{2.4mm}$, 
+                    $h_{R2}=\mathrm{6mm}$,
+                    $r_{ic}=\mathrm{9.2mm}$,
+                    $h_{C1}=\mathrm{12mm}$, 
+                    $h_{C2}=\mathrm{15mm}$, 
+                    $w_{M}=\mathrm{2.7mm}$,
+                    $w_{S}=\mathrm{10.6mm}$,
+                    $w_{C}=\mathrm{6.4mm}$,
+                    $w_{R}=\mathrm{3.4mm}$,
+                    $6\cdot L_{KC}=7\cdot L_{KS}=\mathrm{80mm}$, $\theta = 0^\circ$.
+                    ]{
+                    \includegraphics[width=0.45\textwidth]{chap4/images2/LFSM_thrust_waveform.png}
+                }
+                \,\,\,\,\,\,\,\,
+                \subfloat[\label{fig:chap/rsm/LFSM/periodic_fea/scaling_study}
+                    Plot of average thrust for the original motor and another motor with all dimensions doubled (``2x motor") at different current densities: $1$, $3$, $5$, $10$, $20$, $30$, $40$, and $50\,\mathrm{A/mm^2}$
+                    ]{
+                    \includegraphics[width=0.45\textwidth]{chap4/images2/LFSM_scaling_effect.png}
+                }
+                \caption{ 
+                    \label{fig:hap/rsm/LFSM/periodic_fea} The axis-symmetric \acs{FEA} model in ANSYS Mechanical APDL for evaluating force produced on the secondary $\mathrm{(a)}$. 
+                    A plot of maximum achievable force at different track positions for
+                    the original motor moving right $\rightarrow$ left $\mathrm{(b)}$.
+                    A plot that compares the original motor's force production capability to that of a motor twice the size $\mathrm{(c)}$.
+                }
+            \end{figure*}
+    
         
-            Due to the complex flux pattern inherent to the doubly-salient structure in the mover assembly, estimating average thrust of a design requires knowledge of the maximum achievable forces at different stroke positions.
+            In doubling the dimensions of a motor, the mass and volume are multiplied by a factor of $8$. Hence, when applying the same current density to the coil, the "$2\times$ motor" consume $8$ times more power. For a permanent magnet motor, one would expect that the force produced would also be $8$ times higher, in agreement to the motor constant scaling units of $\mathrm{N/\sqrt{W\cdot kg}}$\,\cite{Ruddy2011DesignMotors}. The scaling relationship is different in motors operating primarily on the principle of variable reluctance, in which the appropriate normalization for size and power gives units of $\mathrm{N/\sqrt{W\cdot kg}}$. The scaling difference arises because, in scaling the overall dimensions of the motor by a fixed number, the rates at which PM and winding induction lose effectiveness are different\,\cite{Melcher1981ContinuumElectromechanics}. In a \acs{LFSM}, the thrust is produced from the flux-switching action of the armature on uni-polar flux produced by the permanent magnet\,\cite{Cheng2011}, a combination of the two operating principles. These scaling relations apply only up to a certain power level, above which motor performance is impacted by saturation.  
+    
+    
+            The effect of scaling this \acs{LFSM} is shown in Fig.\,\ref{fig:chap/rsm/LFSM/periodic_fea/scaling_study}. In this particular example, for a current density up to $5\,\mathrm{A/ mm^2}$, the force produced by the "$2\times$ motor" is indeed $8$ times that of the original motor. This ratio drops to $7$ times at $10\,\mathrm{A/ mm^2}$ and to below $6$ times at $40\,\mathrm{A/ mm^2}$. When optimizing a motor to maximize the motor constant, one should incorporate an extra step to check whether the applied power has not exceeded the scaling relationship implied by the objective of the optimization. The motor constant $K_m$ with unit $\mathrm{N/\sqrt{W\cdot kg}}$ or $\mathrm{N/\sqrt{W}}$ cannot be used to reliably predict thrust given input power for \acs{LFSM}. To account for the unevenness in the thrust waveform non-linearity of the power-to-thrust ratio, there requires \acs{FEA} measurements of thrust at different axial offset, and at the exact power level that the optimization problem requires.
+            
 
-            The 6 slot/7 pole machine was modelled in ANSYS MAPDL to measure the force generated on the secondary, as shown in Fig.\,\ref{fig:chapter/rsm/LFSM/FEA}. The 2D axis-symmetric model implemented in ANSYS  $19.2$ uses a mapped mesh for the motor parts and a free mesh for the transition regions such as the air gap and the free space surrounding the structure. Periodic boundary conditions were not applied at each end of the armature repeat unit along the $\hat{z}$ direction. This setup therefore does not ignore end effects. If we were to apply the periodic boundary condition at each end of the armature, and at the same time experiment with a non zero secondary tooth angle, the ANSYS MAPDL becomes significantly more prone to execution errors. Instead the simulation setup adds 3 extra teeth on each end of the secondary. As the result all simulation test cases has exactly 6 armature slots, and 13 teeth.
+            The 6 slot/7 pole machine was modelled in ANSYS MAPDL to measure the force generated on the secondary, as shown in Fig.\,\ref{fig:chapter/rsm/LFSM/FEA}. The 2D axis-symmetric model implemented in ANSYS  $19.2$ uses a mapped mesh for the motor parts and a free mesh for the transition regions such as the air gap and the free space surrounding the structure. Periodic boundary conditions were not applied at each end of the armature repeat unit along the $\hat{z}$ direction. This setup therefore does not ignore end effects. If the ANSYS MAPDL script were to apply the periodic boundary condition at each end of the armature, and at the same time experiment with a non zero secondary tooth angle, the ANSYS MAPDL becomes significantly more prone to execution errors. Instead the simulation setup adds 3 extra teeth on each end of the secondary. As the result, all simulation test cases has exactly 6 armature slots, and 13 teeth. Fig.\,\ref{fig:chapter/rsm/LFSM/FEA/non_periodic_FEA_setup} illustrate the new \acs{FEA} setup for data mining step. This setup of \acs{LFSM} was chosen over the \acs{FEA} setup in Fig.\,\ref{fig:chap/rsm/LFSM/periodic_fea/fea_for_studies} because it is more robust for non-zero teeth angle $\theta$.
             
 
             The \acs{SMC} parts and magnets are made out of Sintex \acs{SMC} prototype materials and K$\&$J Magnetics Grade N45SH, respectively. The non-linear $\mathrm{B-H}$ relationship of the \acs{SMC} material is also fully captured in the FEA model. This setup will be crucial to the design optimization process, where many different design configurations need to be tested.
@@ -481,12 +527,16 @@ for the input and hidden layer,
             
             \begin{figure*}[!ht]
                 \centering
-                \subfloat[\label{fig:chapter/rsm/LFSM/FEA/position 1} \acs{FEA} mesh view of \acs{LFSM} for the beginning position]{
-                    \includegraphics[width=0.6\textwidth]{chap4/images2/FEA_position_1.png}
+                \subfloat[\label{fig:chapter/rsm/LFSM/FEA/non_periodic_FEA_setup} \acs{FEA} setup for mining data suitable with non-zero teeth angle $\theta$.]{
+                    \includegraphics[width=0.98\textwidth]{chap4/images2/FEA_LFSM_non_zero_teeth.pdf}
                 }
                 \\
+                \subfloat[\label{fig:chapter/rsm/LFSM/FEA/position 1} \acs{FEA} mesh view of \acs{LFSM} for the beginning position]{
+                    \includegraphics[width=0.45\textwidth]{chap4/images2/FEA_position_1.png}
+                }
+                \,\,\,\,\,\,\,\,
                 \subfloat[\label{fig:chapter/rsm/LFSM/FEA/position 10} \acs{FEA} mesh view of \acs{LFSM} for the middle position]{
-                    \includegraphics[width=0.6\textwidth]{chap4/images2/FEA_position_10.png}
+                    \includegraphics[width=0.45\textwidth]{chap4/images2/FEA_position_10.png}
                 }
                 \caption{ 
                     \label{fig:chapter/rsm/LFSM/FEA} FEA setup for obtaining the resultant thrust given a stroke position, a 3-phase current angle, a set of design parameters, and the fixed input power. The graphics cropped from ANSYS MAPDL $19.2$ shows the \acs{SMC} material in green, the free space in blue, the axial permanent magnet rings in dark purple, and the coil phases.
@@ -494,13 +544,13 @@ for the input and hidden layer,
             \end{figure*}
             
             
-            The base modelling script was constructed with the intention to allow for easy modification of the input parameters summarized in Table\,\ref{table:chap/rsm/LFSM/design range}. For the $56656$ motor designs, we need to determine the cogging force, average thrust, and peak thrust at $1500\,\mathrm{W}$ input power. We take force measurements at $20$ equally spaced stroke positions and $42$ current angle offsets. Since the the mesh of each simulation can be reused for all the different current angle offsets, only the different stroke positions require re-meshing. In total, there are $1133120$ input files which represent all the unique permutations of all motor design dimensions, stroke positions, and current angle offsets. Additionally, each input files contain an extra simulation at null applied current to learn about the cogging force at the various stroke positions. 
+            The base modelling script was constructed with the intention to allow for easy modification of the input parameters summarized in Table\,\ref{table:chap/rsm/LFSM/design range}. For the $56656$ motor designs, the unknowns are the cogging force, average thrust, and peak thrust at $1500\,\mathrm{W}$ input power. There are force measurements at $20$ equally spaced stroke positions and $42$ current angle offsets. Since the the mesh of each simulation can be reused for all the different current angle offsets, only the different stroke positions require re-meshing. In total, there are $1133120$ input files which represent all the unique permutations of all motor design dimensions, stroke positions, and current angle offsets. Additionally, each input files contain an extra simulation at null applied current to learn about the cogging force at the various stroke positions. 
             
             
-            We sent these $1133120$ input files to the high performance computing (HPC) infrastructure owned by the New Zealand eScience Infastructure (NeSI) for execution in parallel batches. Each input file is estimated to take $22$ minutes on a two-core Intel CPU with $3\,\mathrm{GBs}$ of RAM. Given that the HPC facility allows for any user to execute $1000$ jobs in parallel, this consumed $415506$ CPU hours, and took approximately $416$ hours to complete. All verbose output of jobs were collected and doubled checked for errors and warnings, totalling $435\,\mathrm{GBs}$ of raw data in text format. The necessary information was then reduced back to $52961$ fully captured motor designs in CSV format, demonstrating a high success rate of more than $93.5\,\%$. The computed thrust output by FEA batches was later further processed and refined into peak to peak cogging force $F_{\Delta cogging}$, average thrust $\overline{F}$, and peak thrust $F_{peak}$ for use in training the neural network.
+            The $1133120$ input files were sent to the \acf{HPC} infrastructure owned by the New Zealand eScience Infastructure (NeSI) for execution in parallel batches. Each input file is estimated to take $22$ minutes on a two-core Intel CPU with $3\,\mathrm{GBs}$ of RAM. Given that the \acs{HPC} facility allows for any user to execute $1000$ jobs in parallel, this consumed $415506$ CPU hours, and took approximately $416$ hours to complete. All verbose output of jobs were collected and doubled checked for errors and warnings, totalling $435\,\mathrm{GBs}$ of raw data in text format. The necessary information was then reduced back to $52961$ fully captured motor designs in CSV format, demonstrating a high success rate of more than $93.5\,\%$. The computed thrust output by FEA batches was later further processed and refined into peak to peak cogging force $F_{\Delta cogging}$, average thrust $\overline{F}$, and peak thrust $F_{peak}$ for use in training the neural network.
             
             
-            One additional advantage of having the data ready ahead of the optimization process is that the available data, though limited, can still provide valuable insights into identifying the principal design parameters. To investigate these hidden relationships, we plot a heat map in Fig.\,\ref{fig:chap/rsm/LFSM/data mining/heat map}. We can learn a number of useful relationships from this heat map:
+            One additional advantage of having the data ready ahead of the optimization process is that the available data, though limited, can still provide valuable insights into identifying the principal design parameters. To investigate these hidden relationships, a co-variance heat map is plotted in Fig.\,\ref{fig:chap/rsm/LFSM/data mining/heat map}. There are number of useful relationships identified from this heat map:
             
             
             \begin{itemize}
@@ -525,27 +575,7 @@ for the input and hidden layer,
         \subsection{Deep regression ANN training}   \label{Chapter:RSM/LFSM/ANN training}
         
         
-            The data set provides both the continuous input variables (structural design factors), and the continuous output variable (thrust characteristics at a given power), which classify our application as a supervised and regression type of machine learning problem. The ANN model was implemented in Keras and Tensorflow:
-
-            
-            \begin{itemize}
-                \item $8$ structural parameters are regarded as the Input Layer: $\alpha$, $\beta$, $\gamma$, $\epsilon$, $\delta$, $r_{so}$, $h_G$, and $L_{repeat}$,
-                \item $3$ performance outputs are regarded as the Output Layer: $F_{\Delta cogging}$, $\overline{F}$, and $F_{peak}$,
-                \item $\mathrm{Adam}$ optimizer is used for ANN training,
-                \item $6$ hidden layers of $256-512-512-512-512-512$ of densely connected nodes,
-                \item Rectified linear unit (ReLU) activation function is used
-for the input and hidden layer,
-                \item Linear activation function is used for the output layer,
-                \item The error to optimize for is \acs{MSE},
-                \item The training and validation split chosen at random for each of the three models are: $70\%-30\%$, $75\%-25\%$, and $80\%-20\%$,
-                \item The final \acs{ANN} model is ensembled from the average of three models above.
-            \end{itemize}
-
-
-            After 500 training iterations, the model was shown to have a \acf{MAPE} of under $2.41\,\%$. Fig.\,\ref{fig:chapter/rsm/LFSM/training result} is showing that he training and validation errors were similar, which means the deep regression model is not over-fitted to the training data set.
-            
-            
-            \begin{figure*}[!ht]
+            \begin{figure*}
                 \centering
                 \subfloat[$70\%-30\%$ split model
                 ]{
@@ -569,6 +599,26 @@ for the input and hidden layer,
             \end{figure*}
         
         
+            The data set provides both the continuous input variables (structural design factors), and the continuous output variable (thrust characteristics at a given power), which classify our application as a supervised and regression type of machine learning problem. The ANN model was implemented in Keras and Tensorflow:
+
+            
+            \begin{itemize}
+                \item $8$ structural parameters are regarded as the Input Layer: $\alpha$, $\beta$, $\gamma$, $\epsilon$, $\delta$, $r_{so}$, $h_G$, and $L_{repeat}$,
+                \item $3$ performance outputs are regarded as the Output Layer: $F_{\Delta cogging}$, $\overline{F}$, and $F_{peak}$,
+                \item $\mathrm{Adam}$ optimizer is used for \acs{ANN} training,
+                \item $6$ hidden layers of $256-512-512-512-512-512$ of densely connected nodes,
+                \item Rectified linear unit (ReLU) activation function is used
+for the input and hidden layers,
+                \item Linear activation function is used for the output layer,
+                \item The error to optimize for is \acs{MSE},
+                \item The training and validation split chosen at random for each of the three models are: $70\%-30\%$, $75\%-25\%$, and $80\%-20\%$,
+                \item The final \acs{ANN} model is ensembled from the average of three models above.
+            \end{itemize}
+
+
+            After 500 training iterations, the model was shown to have a \acf{MAPE} of under $2.41\,\%$. Fig.\,\ref{fig:chapter/rsm/LFSM/training result} is showing that he training and validation errors were similar, which means the deep regression model is not over-fitted to the training data set.
+        
+        
         % -----------------------------------------------------------------------------------
         % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- 
         % -----------------------------------------------------------------------------------
@@ -578,7 +628,7 @@ for the input and hidden layer,
             \subsubsection{Outer Optimization}          \label{Chapter:RSM/LFSM/Optimization/Outer}
             
             
-                In order to fairly compare the performance of \acsp{LFSM} to \acsp{PMLSM} in \acs{NFJI}, the optimization problem description needs to be simultaneously adaptable to \acsp{LFSM} and equivalent to that described in Equation\,\ref{eq:outer optimization for PMLSMs}. The overall optimization for \acs{LFSM} consists of strategic repetition of the inner optimization to maximize the achievable jet speed $v_{jet}$:
+                In order to fairly compare the performance of \acsp{LFSM} to \acsp{PMLSM} in \acs{NFJI}, the optimization problem description needs to be simultaneously adaptable to \acsp{LFSM} and equivalent to that described in Equation\,\ref{eq:outer optimization for PMLSMs}. The overall optimization for \acs{LFSM} consists of strategic repetition of the inner optimization to maximize the average jet speed $\overline{v_{jet}}$ derived from the predicted average thrust $\overline{F}$:
                 
                 \begin{equation}
                     \begin{array}{rll}
@@ -593,7 +643,7 @@ for the input and hidden layer,
                                                 &\quad \small{where}                &\quad L_{S-max} \in \left[120,121,122,...,160\right]\,\mathrm{mm} \\
                                                 & \small{other\,\,constraints}       & N_C, N_S \in 	\mathbb{N} \\ 
                                                 &\quad \small{where}                &\quad N_C = 6\\
-                                                &                                   &\quad N_S > 7
+                                                &                                   &\quad N_S \geq 8
                                                 \\ \\
                     \end{array}
                     \label{eq:outer optimization for LFSMs}
@@ -614,7 +664,7 @@ for the input and hidden layer,
                 
                 
                 
-                Given each combination of coil length $L_{C}$ and maximum motor length $L_{S-max}$, we can work out the maximum number of whole stator \acs{SMC} teeth $N_S$, the corresponding stator length $L_S$ that can be fitted, and the stroke length $L_{stroke}$:
+                Given each combination of coil length $L_{C}$ and maximum motor length $L_{S-max}$, the maximum number of whole stator \acs{SMC} teeth $N_S$, the corresponding stator length $L_S$ that can be fitted, and the stroke length $L_{stroke}$ can be derived:
 
 
                 \begin{equation}
@@ -682,7 +732,7 @@ for the input and hidden layer,
                         $\alpha$	    & Ratio of $w_M$ over $L_{KC}$              &	$0.1-0.4$\\ 
                         $\beta$	        & Ratio of $w_C$ over $w_S$		            &	$0.4-0.9$\\ 
                         $\gamma$	    & Ratio of $h_{CM}$ over $h_C$			    &	$0.6-0.9$\\ 
-                        $\delta$	    & Ratio of $w_R$ or $L_{KS}$		        &	$0.1-0.2$\\ 
+                        $\delta$	    & Ratio of $w_R$ or $L_{KS}$		        &	$0.1-0.3$\\ 
                         $\epsilon$	    & Ratio of $h_{R1}$ or $h_{R2}$		        &	$0.4-0.6$\\ 
                         $r_{so}$	    & Outer radius of SMC stator core 			&	$4-10\,\mathrm{mm}$\\ 
                         $h_C$           & Thickness of the mover assembly           &	$5-30\,\mathrm{mm}$\\ 
@@ -696,10 +746,86 @@ for the input and hidden layer,
                 \end{table}    
                 
                 
-                Each inner optimization aims at finding $\textbf{x}$ given $[N_C, L_{repeat}, L_{S-max}]$ will first find the maximum value of $L_{stroke}$ while rounding down the number of stator teeth $N_S$. The routine then works to define the unknown $\textbf{x}$ in order to maximize the jet speed $v_{jet}$ where the ranges in Table\,\ref{table:chap/rsm/LFSM/optimization unknown constraints} and the optimization problem in Equation\,\ref{eq:inner optimization for PMLSMs} are applied.
+                Each inner optimization aims at finding $\textbf{x}$ given $[N_C, L_{repeat}, L_{S-max}]$ will first find the maximum value of $L_{stroke}$ while rounding down the number of stator teeth $N_S$. The routine then works to define the unknown $\textbf{x}$ in order to maximize the jet speed $v_{jet}$ where the ranges in Table\,\ref{table:chap/rsm/LFSM/optimization unknown constraints}. Additionally, the optimization description in Equation\,\ref{eq:inner optimization for PMLSMs} is applicable for the inner optimization of \acs{LFSM} with the mass term $M$ obtained via the following set of equations:
+                
+                
+                \begin{equation}
+                    w_m = \frac{\alpha}{N_C} L_{repeat}
+                    \label{eq:rsm/LFSM/w_m}
+                \end{equation}
+                
+                
+                \begin{equation}
+                    w_c = \beta\bigg(\frac{L_{repeat}}{N_C}-w_m\bigg);
+                    \label{eq:rsm/LFSM/w_c}
+                \end{equation}
+                
+                
+                \begin{equation}
+                    w_{smc-top} = \frac{1-\beta}{2}\bigg(\frac{L_{repeat}}{N_C}-w_m\bigg)
+                    \label{eq:rsm/LFSM/w_smc_top}
+                \end{equation}
+                
+                
+                \begin{equation}
+                    w_{smc-bot} =  \frac{\delta }{N_S}L_{repeat}
+                    \label{eq:rsm/LFSM/w_smc_bot}
+                \end{equation}
+                
+                
+                \begin{equation}
+                    h_{smc} = r_{oc} - r_{mc}
+                    \label{eq:rsm/LFSM/h_smc}
+                \end{equation}
+                
+                
+                \begin{equation}
+                    \begin{array}{c}
+                        V_{stator-repeat} = \pi \bigg[  L_{repeat}  \big({r_{ms}}^2-{r_{is}}^2\big)\\
+                        + N_S  \big(r_{os}-r_{ms}\big) \tan{\theta} \big({r_{os}}^2-{r_{ms}}^2\big)\\
+                        + N_S w_{smc-bot}\big( {r_{so}}^2 - {r_{ms}}^2 \big)\bigg]
+                    \end{array}
+                    \label{eq:rsm/LFSM/V_stator_repeat}
+                \end{equation}
+                
+                
+                \begin{equation}
+                    V_{stator} = \frac{N_S}{N_C}V_{stator-repeat}
+                    \label{eq:rsm/LFSM/V_stator}
+                \end{equation}
+                
+                
+                \begin{equation}
+                    V_{conductor} = \pi N_C w_c \big( {r_{mc}}^2-{r_{ic}}^2 \big)
+                    \label{eq:rsm/LFSM/V_conductor}
+                \end{equation}
+                
+                
+                \begin{equation}
+                    V_{magnet} = \pi N_C w_m \big( {r_{oc}}^2-{r_{ic}}^2 \big)
+                    \label{eq:rsm/LFSM/V_magnet}
+                \end{equation}
+                
+                
+                \begin{equation}
+                    V_{smc-mover} = 2 \pi N_C w_{smc-top} \big( {r_{mc}}^2-{r_{ic}}^2 \big) + \pi \big( L_{repeat}-N_C w_m \big) \big( {r_{oc}}^2-{r_{mc}}^2 \big) 
+                    \label{eq:rsm/LFSM/V_smc_mover}
+                \end{equation}
+                
+                
+                \begin{equation}
+                    M= V_{stator} \rho_{smc} + V_{conductor} \big(0.6\rho_c + 0.4\rho_{ins} \big) + V_{magnet} \rho_{m} + V_{smc-mover} \rho_{smc}
+                    \label{eq:rsm/LFSM/M}
+                \end{equation} \\
+                
+                
+                where the copper fill factor is $60\%$, and material densities $\rho_{smc}$, $\rho_c$, $\rho_{ins}$, $\rho_{m}$ are $7500\,\mathrm{kg/m^3}$, $8920\,\mathrm{kg/m^3}$, $1350\,\mathrm{kg/m^3}$, $7600\,\mathrm{kg/m^3}$, respectively. 
                 
                 
                 Similar to the inner optimizations of \acsp{PMLSM} in Section\,\ref{Chapter:PMLSM design HM/design optimization/optimization formulation/inner} and Section\,\ref{Chapter:RSM/PMLSM/Optimization}, the inner optimization uses constrained nonlinear multi-variable optimization based on the interior point algorithm (MATLAB Optimization Toolbox) to minimize the objective function in Equation\,\ref{eq:inner optimization for PMLSMs}. It should be noted that the each objective function evaluation requires prediction of $v_{jet}$, which is predicted by the \acs{ANN} model described in Section\,\ref{Chapter:RSM/LFSM/ANN training}. The method at which the \acs{ANN} is inferred is depicted in Fig.\,\ref{fig:chapter/rsm/PMLSM/inference options/web services}. Upon finishing the inner optimizations for each pair $L_{C0} \times L_{S-max}$, the control flow saves the best performing motor configuration and moves on to the next $L_{C0} \times L_{S-max}$. Fig.\,\ref{fig:chapter/rsm/fsm/top level optmization} summarizes and illustrates both the outer and the inner optimization algorithms.
+                
+                
+                
                 
                     
 
@@ -708,7 +834,93 @@ for the input and hidden layer,
         % -----------------------------------------------------------------------------------
         \subsection{Results}                   \label{Chapter:RSM/LFSM/Results}        
                 
-            With the objective function evaluation using \acs{ANN} models at its core, the global optimization of \acs{LFSM} for the problem described is summarized in Table 4.2. The table shows the optimization results for different motor mass constraints $M0 = [325, 350, 375, 400, 425]\,\mathrm{g}$.
+            With the objective function evaluation using \acs{ANN} models at its core, the global optimization of \acs{LFSM} is summarized in Table\,\ref{table:chap/rsm/LFSM/result for global optimization of FSM via RSM method}. The table shows the optimization results for different motor mass constraints $M0 = [325, 350, 375, 400, 425]\,\mathrm{g}$.
+            
+            
+            Looking at one specific result for the global optimization of constraints set $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $r_{si}=2\,\mathrm{mm}$, $h_G=1.2\,\mathrm{mm}$, $N_C=6$, $M_0=325\,\mathrm{g}$, $\theta = \arctan{1/2}$ on the search space $L_C0:50-90\,\mathrm{mm}$, and $L_S-max:120-160\,\mathrm{mm}$, we found an under-hung \acs{LFSM} with $\alpha=0.36$, $\beta=0.44$, $\gamma=0.63$, $\delta=0.20$, $\epsilon=0.50$, $r_{so}=8.11\,\mathrm{mm}$, $h_C=5.37\,\mathrm{mm}$, $N_S=17$, $L_S=167.86\,\mathrm{mm}$, and $L_{stroke}=92.86\,\mathrm{mm}$. The motor is able to produce $\overline{F} = 129.01\,\mathrm{N}$ and average jet speed $\overline{v_{jet}}=154.79\,\mathrm{m/s}$. The achievable jet speed is still far from $200\,\mathrm{mm}$, a jet speed required for guarantee a \acs{NFJI} delivery. 
+            
+            
+            If we now adjust the radius of the drug ampoule so that the average jet speed can reach $200\,\mathrm{m/s}$, the maximum drug volume $V$ can be delivery is now $V_{new}=0.60\,\mathrm{mL}$. This conversion was explained in Equation\,\ref{eq:v_jet and V} and \ref{eq:v_jet and V ratio}. For the optimized motor configurations obtained at mass $M$ of $350\,\mathrm{g}$, $375\,\mathrm{g}$, $400\,\mathrm{g}$, $425\,\mathrm{g}$, the corresponding average jet speed $\overline{v_{jet}}$ are $159.16\,\mathrm{m/s}$, $164.00\,\mathrm{m/s}$, $168.38\,\mathrm{m/s}$, $172.27\,\mathrm{m/s}$, respectively. The reduced volume $V_{new}$ for these motors are $0.63\,\mathrm{mL}$, $0.67\,\mathrm{mL}$, $0.71\,\mathrm{mL}$, and $0.74\,\mathrm{mL}$, in the same order. Fig.\,\ref{fig:chapter/rsm/LFSM/optimization search space result for differnt mass} provides global optimization plots of $\overline{v_{jet}}$ for the search space $L_{S-max}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm} \times L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$ using $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $r_{si}=2\,\mathrm{mm}$, $h_G=1.2\,\mathrm{mm}$, $N_C=6$, $M_0=325\,\mathrm{g}$, $\theta = \arctan{1/2}$ and $M_0=[325,350,375,400,425]\,\mathrm{g}$. 
+ 
+            
+            \begin{landscape}
+                \begin{table}
+                    \renewcommand{\arraystretch}{1.2}
+                    \caption{Summary of \acs{LFSM} design optimization values and performance using \acs{RSM} method}
+                    \label{table:chap/rsm/LFSM/result for global optimization of FSM via RSM method}
+                    \centering
+                    \begin{tabular}{lllrrrrr}
+                        \hline
+                        \textbf{Params}     & \textbf{Description}                            & \textbf{Unit}           & $M_0=\mathbf{325\,g}$ & $\mathbf{350\,g}$ & $\mathbf{375\,g}$ & $\mathbf{400\,g}$ & $\mathbf{425\,g}$ \\
+                        \hline
+                        $P$                  & Fixed electrical power input              & $\mathrm{kW}$  & 1.50           & 1.50           & 1.50           & 1.50           & 1.50           \\
+                        $V$                  & Volume of NFJI drug ampoule               & $\mathrm{mL}$  & 1.00           & 1.00           & 1.00           & 1.00           & 1.00           \\
+                        \hline
+                        $L_{C0:optim}$       & Inner loop's $L_C$ at global optimum      & $\mathrm{mm}$  & 65.00          & 62.00          & 70.00          & 70.00          & 70.00          \\
+                        $L_{S-max:optim}$    & Inner loop's $L_S$ at global optimum      & $\mathrm{mm}$  & 160.00         & 160.00         & 90.00          & 90.00          & 90.00          \\
+                        $\alpha$             & Ratio of $w_M$ over $L_{KC}$              &                & 0.36           & 0.33           & 0.34           & 0.33           & 0.33           \\
+                        $\beta$              & Ratio of $w_C$ over $w_S$                 &                & 0.44           & 0.46           & 0.47           & 0.48           & 0.46           \\
+                        $\gamma$             & Ratio of $h_{CM}$ over $h_C$              &                & 0.63           & 0.65           & 0.65           & 0.64           & 0.64           \\
+                        $\delta$             & Ratio of $w_R$ or $L_{KS}$                &                & 0.20           & 0.18           & 0.19           & 0.18           & 0.19           \\
+                        $\epsilon$           & Ratio of $h_{R1}$ or $h_{R2}$             &                & 0.50           & 0.50           & 0.49           & 0.50           & 0.49           \\
+                        $r_{si}$             & Inner radius of SMC stator core           & $\mathrm{mm}$  & 2.00           & 2.00           & 2.00           & 2.00           & 2.00           \\
+                        $r_{so}$             & Outer radius of SMC stator core           & $\mathrm{mm}$  & 8.11           & 8.59           & 8.78           & 9.02           & 9.30           \\
+                        $h_C$                & Thickness of the mover assembly           & $\mathrm{mm}$  & 5.37           & 5.59           & 5.41           & 5.62           & 5.75           \\
+                        $h_G$                & Mover-stator air gap                      & $\mathrm{mm}$  & 1.20           & 1.20           & 1.20           & 1.20           & 1.20           \\
+                        $L_{repeat}$         & Length of each 6 slot/7 pole unit         & $\mathrm{mm}$  & 65.00          & 62.00          & 70.00          & 70.00          & 70.00          \\
+                        $\theta$             & Stator tooth angle                        & $\mathrm{^\circ}$   & 26.56           & 26.56         & 26.56          & 26.56          & 26.56  \\
+                        \hline
+                        $N_C$                & Number of armature slots                  &                & 6              & 6              & 6              & 6              & 6              \\
+                        $N_S$                & Number of mover poles/teeth                      &                & 17             & 18             & 16             & 16             & 16             \\
+                        $L_C$                & Length of the moving armature             & $\mathrm{mm}$  & 65.00          & 62.00          & 70.00          & 70.00          & 70.00          \\
+                        $L_S$                & Total length of all SMC teeth             & $\mathrm{mm}$  & 167.86         & 159.43         & 160.00         & 160.00         & 160.00         \\
+                        $L_{stroke}$         & Real stroke length                        & $\mathrm{m/s}$ & 92.86  & 97.43  & 90.00  & 90.00  & 90.00 \\
+                        \hline
+                        $\overline{v_{jet}}$ & Average jet speed predicted               & $\mathrm{m/s}$ & 154.79         & 159.16         & 164.00         & 168.38         & 172.27         \\
+                        $\overline{F}$       & Average thrust predicted by the ANN & $\mathrm{N}$   & 129.01         & 130.00         & 149.43         & 157.51         & 164.87        \\
+
+                        \hline
+                    \end{tabular}
+                \end{table}
+            \end{landscape}
+            
+            
+            \begin{figure*}[!ht]
+                \centering
+                \subfloat[$M_0=325\,\mathrm{g}$. Global optimum found at $L_{C0}=65\,\mathrm{mm}$, and $L_{S-max}=160\,\mathrm{mm}$.
+                ]{
+                    \includegraphics[width=0.45\textwidth]{chap4/images2/325g.png}
+                    \label{fig:chapter/rsm/LFSM/optimization/325}
+                }
+                \qquad
+                \subfloat[$M_0=350\,\mathrm{g}$. Global optimum found at $L_{C0}=62\,\mathrm{mm}$, and $L_{S-max}=160\,\mathrm{mm}$.
+                ]{
+                    \includegraphics[width=0.45\textwidth]{chap4/images2/350g.png}
+                    \label{fig:chapter/rsm/LFSM/optimization/350}
+                }
+                \\
+                \subfloat[$M_0=375\,\mathrm{g}$. Global optimum found at $L_{C0}=70\,\mathrm{mm}$, and $L_{S-max}=160\,\mathrm{mm}$.
+                ]{
+                    \includegraphics[width=0.45\textwidth]{chap4/images2/375g.png}
+                    \label{fig:chapter/rsm/LFSM/optimization/375}
+                }
+                \qquad
+                \subfloat[$M_0=400\,\mathrm{g}$. Global optimum found at $L_{C0}=70\,\mathrm{mm}$, and $L_{S-max}=160\,\mathrm{mm}$.
+                ]{
+                    \includegraphics[width=0.45\textwidth]{chap4/images2/400g.png}
+                    \label{fig:chapter/rsm/LFSM/optimization/400}
+                }
+                \\
+                \subfloat[$M_0=425\,\mathrm{g}$. Global optimum found at $L_{C0}=70\,\mathrm{mm}$, and $L_{S-max}=160\,\mathrm{mm}$.
+                ]{
+                    \includegraphics[width=0.45\textwidth]{chap4/images2/425g.png}
+                    \label{fig:chapter/rsm/LFSM/optimization/425}
+                }
+                \\
+                \caption{
+                    The global optimization plots of $v_{jet}$ for the search space $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm} \times L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$ using $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $r_{si}=2\,\mathrm{mm}$, $h_G=1.2\,\mathrm{mm}$, $N_C=6$, $M_0=325\,\mathrm{g}$, $\theta = \arctan{1/2}$,  and $M_0$ of: (a) $325\,\mathrm{g}$, (b) $350\,\mathrm{g}$, (c) $375\,\mathrm{g}$, (d) $400\,\mathrm{g}$, and (e) $425\,\mathrm{g}$.
+                }   \label{fig:chapter/rsm/LFSM/optimization search space result for differnt mass}
+            \end{figure*}
     
     
     % ===================================================================================================
