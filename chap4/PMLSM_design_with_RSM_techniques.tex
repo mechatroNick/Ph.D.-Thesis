@@ -1,7 +1,7 @@
 \chapter{\acsp{LSDDM} design with Response Surface Modelling}   \label{Chapter:PMLSM design RSM}
 
 
-    The concept of a “metamodel” is introduced as a reasonably accurate surrogate model, constructed via \acf{RSM} backed by reduced order models, neural network, or statistically derived models. The aim of this chapter is to focus on providing and applying an end-to-end \acs{RSM} design process that is viable for selected motor topologies and compare them. In order to achieve this goal, Section\,\ref{Chapter:RSM/outline} will delve deeper in the background of the \acs{RSM} method to establish with a suitable design process. Then, Section\,\ref{Chapter:RSM/PMLSM}, Section\,\ref{Chapter:RSM/LFSM}, and Section\,\ref{Chapter:RSM/LTFM} will look at applying the established process in optimizing linear motors for \acs{NFJI} using \acf{PMLSM}, \acf{LFSM}, \acf{LTFM}, respectively. The optimization problem statement, objective function and high level constraints for each motor topology explored in this chapter will be equivalent to the optimization problem already established in Section\,\ref{Chapter:PMLSM design HM/design optimization/optimization formulation/out}, specifically Equation\,\ref{eq:outer optimization for PMLSMs}. Comparing the optimization results obtained in Section\,\ref{Chapter:PMLSM design HM/design optimization/results} and Section\,\ref{Chapter:RSM/PMLSM} will yield a fair indicator for the effectiveness of the \ac{RSM} method. Toward the end of this chapter, Section\,\ref{Chapter:RSM/discussion} will aggregate the results collected in the previous optimization runs of different types of motors in order to choose the most suitable type for linear synchronous motor for \acs{NFJI} application.
+    The concept of a “metamodel” is introduced as a reasonably accurate surrogate model, constructed via \acf{RSM} and powered by reduced order models, neural network, or statistically derived models. The aim of this chapter is to focus on providing and applying an end-to-end \acs{RSM} design process that is viable for selected motor topologies. This processing should be both specific and flexible enough to make a fair comparison between different type of motors. In order to achieve this goal, Section\,\ref{Chapter:RSM/outline} will delve deeper in the background of the \acs{RSM} method to establish with a suitable design process. Then, Section\,\ref{Chapter:RSM/PMLSM}, Section\,\ref{Chapter:RSM/LFSM}, and Section\,\ref{Chapter:RSM/LTFM} will look at applying the established process in optimizing linear motors for \acs{NFJI} using \acf{PMLSM}, \acf{LFSM}, \acf{LTFM}, respectively. The optimization problem statement, objective function and high level constraints for each motor topology explored in this chapter will be equivalent to the optimization problem already established in Section\,\ref{Chapter:PMLSM design HM/design optimization/optimization formulation/out}, and more specifically  described in Equation\,\ref{eq:outer optimization for PMLSMs}. Comparing \acsp{PMLSM} optimization results obtained in Section\,\ref{Chapter:PMLSM design HM/design optimization/results} and Section\,\ref{Chapter:RSM/PMLSM} will yield a fair indicator for the effectiveness of the \ac{RSM} method. Toward the end of this chapter, Section\,\ref{Chapter:RSM/discussion} will aggregate the results collected in the previous optimization runs of different types of motors in order to choose the most suitable type of linear synchronous motor for \acs{NFJI} application.
 
 
     % ===================================================================================================
@@ -13,10 +13,10 @@
         \acf{DOE} together with \ac{RSM} have been applied to many engineering problems. These studies often include statistical processes to investigate how the input correlate to the output, and which inputs have the greatest effect on the outputs. In applications where the cost of acquiring an actual inputs and output pair is expensive, \ac{DOE} sampling methods are helpful in reducing the data acquisition cost. 
         
         
-        \ac{DOE} sampling methods can be divided into two classes: Factorial designs and Taguchi methods. Factorial designs include a full factorial, where all possible combinations of the factor levels are investigate, or only part of the full factorial are selected for acquisition. A full factorial is very useful because it allow the data analyst to observe the effects of changing the factor by providing the all the available data interactions. On the other hand, fractional factorial designs reduces the accuracy of the analysis in exchange for a lower data acquisition cost. In reality, an experiments can have full factorials for some inputs and fractional factorials for less important inputs. Taguchi methods uses orthogonal arrays that are a standard set of arrays used to gain detailed information about effects of factors with the minimum number of experiments. As a result, Taguchi method, with fewer simulations, provides an important advantage to factorial designs. 
+        \ac{DOE} sampling methods can be divided into two classes: Factorial designs and Taguchi methods. Factorial designs include a full factorial, where all possible combinations of the factor levels are investigate, or only part of the full factorial are selected for acquisition. A full factorial is very useful because it allow the data analyst to observe the effects of changing the factor by providing the all the available data interactions. It is recommended to use full factorial when possible. On the other hand, fractional factorial designs reduces the accuracy of the analysis in exchange for a lower data acquisition cost. In reality, an experiments can have full factorials for some inputs and fractional factorials for less important inputs. Taguchi methods uses orthogonal arrays that are a standard set of arrays used to gain detailed information about effects of factors with the minimum number of experiments. As a result, Taguchi method, with fewer simulations, provides an important advantage to factorial designs. 
         
         
-        In a high order \ac{RSM} problem  with many input variables, reaching large sampling levels for each input is the key to producing accurate model predictions. However, the time and computation effort required to reach the high sampling levels are growing exponentially with the number of input parameters. Only when the constraint on the data acquisition budget allows, obtaining an extra set of data based on a set of randomly generated input set will be helpful in increasing the "metamodel" accuracy. In this body of work, deep regression \acf{ANN} is employed to construct the most accurate and generalized models could be achieved.
+        In a high order \ac{RSM} problem  with many input variables, reaching large sampling levels for each input is the key to producing accurate model predictions. However, the time and computation effort required to reach the high sampling levels grow exponentially with the number of input parameters. Only when the constraint on the data acquisition budget allows, obtaining an extra set of data based on a set of randomly generated input set will be helpful in increasing the "metamodel" accuracy. In this body of work, deep regression \acf{ANN} is employed to construct the most accurate and generalized models could be achieved.
         
         
         All types of motor topology studies in this chapter will follow the common design creteria established in Section\,\ref{Chapter:PMLSM design HM/design optimization/design citeria}. The overall \ac{RSM} process to be applied widely in this chapter is outlined as follow:
@@ -84,7 +84,7 @@
         \subsection{\acs{HM} data mining}           \label{Chapter:RSM/PMLSM/data mining}
         
         
-            The base \acs{HM} computation model in Section\,\ref{Chapter:PMLSM design HM/electromagnetic model/hm solution} is re-purposed to help generate motor design data. To facilitate for the data mining and the optimization process later on, the same electromagnetic model was converted into a reusable function as illustrated in Fig.\,\ref{fig:chapter/rsm/PMLSM/mining process}. The free inputs include the repeat length $L_k$, the inner radius of the cylindrical magnet array $r_mi$, the magnet radial thickness $t_m$, the coil radial thickness $t_c$, and the proportion of the radially magnetized magnet against the total length of the magnet. The fixed input includes the number of half coil-phase $N_C$, the number of half magnet-phase $N_M$, and the power $P$. On the output side, the data mining function provides the half repeating unit mass $M$, motor constant $K_m$ and the linear force produced $F$.
+            The base \acs{HM} computation model in Section\,\ref{Chapter:PMLSM design HM/electromagnetic model/hm solution} is re-purposed to help generate motor design data. To facilitate for the data mining and the optimization process later on, the same electromagnetic model was converted into a reusable function as illustrated in Fig.\,\ref{fig:chapter/rsm/PMLSM/mining process}. The free inputs include the repeat length $L_k$, the inner radius of the cylindrical magnet array $r_{mi}$, the magnet radial thickness $t_m$, the coil radial thickness $t_c$, and the proportion of the radially magnetized magnet against the total length of the magnet. The fixed input includes the number of half coil-phase $N_C$, the number of half magnet-phase $N_M$, and the power $P$. On the output side, the data mining function provides the half repeating unit mass $M$, motor constant $K_m$ and the linear force produced $F$.
         
         
             \begin{figure}
@@ -267,25 +267,25 @@ for the input and hidden layer,
                 \qquad
                 \subfloat[$M_0=350\,\mathrm{g}$ Global optimum found at $L_{C0}=53\,\mathrm{mm}$, $L_{C0}=160\,\mathrm{mm}$, $N_C=3$, and $N_M=9$.
                 ]{
-                    \includegraphics[width=0.45\textwidth]{chap4/images/PMLSM_RSM_325g.png}
+                    \includegraphics[width=0.45\textwidth]{chap4/images/PMLSM_RSM_350g.png}
                     \label{fig:chapter/rsm/PMLSM/results/350}
                 }
                 \\
                 \subfloat[$M_0=375\,\mathrm{g}$. Global optimum found at $L_{C0}=53\,\mathrm{mm}$, $L_{C0}=160\,\mathrm{mm}$, $N_C=3$, and $N_M=9$.
                 ]{
-                    \includegraphics[width=0.45\textwidth]{chap4/images/PMLSM_RSM_325g.png}
+                    \includegraphics[width=0.45\textwidth]{chap4/images/PMLSM_RSM_375g.png}
                     \label{fig:chapter/rsm/PMLSM/results/375}
                 }
                 \qquad
                 \subfloat[$M_0=400\,\mathrm{g}$. Global optimum found at $L_{C0}=53\,\mathrm{mm}$, $L_{C0}=160\,\mathrm{mm}$, $N_C=3$, and $N_M=9$.
                 ]{
-                    \includegraphics[width=0.45\textwidth]{chap4/images/PMLSM_RSM_325g.png}
+                    \includegraphics[width=0.45\textwidth]{chap4/images/PMLSM_RSM_400g.png}
                     \label{fig:chapter/rsm/PMLSM/results/400}
                 }
                 \\
                 \subfloat[$M_0=425\,\mathrm{g}$. Global optimum found at $L_{C0}=53\,\mathrm{mm}$, $L_{C0}=160\,\mathrm{mm}$, $N_C=3$, and $N_M=9$.
                 ]{
-                    \includegraphics[width=0.45\textwidth]{chap4/images/PMLSM_RSM_325g.png}
+                    \includegraphics[width=0.45\textwidth]{chap4/images/PMLSM_RSM_425g.png}
                     \label{fig:chapter/rsm/PMLSM/results/425}
                 }
                 \\
@@ -750,19 +750,19 @@ for the input and hidden layers,
                 
                 
                 \begin{equation}
-                    w_m = \frac{\alpha}{N_C} L_{repeat}
+                    w_M = \frac{\alpha}{N_C} L_{repeat}
                     \label{eq:rsm/LFSM/w_m}
                 \end{equation}
                 
                 
                 \begin{equation}
-                    w_c = \beta\bigg(\frac{L_{repeat}}{N_C}-w_m\bigg);
+                    w_C = \beta\bigg(\frac{L_{repeat}}{N_C}-w_M\bigg);
                     \label{eq:rsm/LFSM/w_c}
                 \end{equation}
                 
                 
                 \begin{equation}
-                    w_{smc-top} = \frac{1-\beta}{2}\bigg(\frac{L_{repeat}}{N_C}-w_m\bigg)
+                    w_{smc-top} = \frac{1-\beta}{2}\bigg(\frac{L_{repeat}}{N_C}-w_M\bigg)
                     \label{eq:rsm/LFSM/w_smc_top}
                 \end{equation}
                 
@@ -837,7 +837,7 @@ for the input and hidden layers,
             With the objective function evaluation using \acs{ANN} models at its core, the global optimization of \acs{LFSM} is summarized in Table\,\ref{table:chap/rsm/LFSM/result for global optimization of FSM via RSM method}. The table shows the optimization results for different motor mass constraints $M0 = [325, 350, 375, 400, 425]\,\mathrm{g}$.
             
             
-            Looking at one specific result for the global optimization of constraints set $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $r_{si}=2\,\mathrm{mm}$, $h_G=1.2\,\mathrm{mm}$, $N_C=6$, $M_0=325\,\mathrm{g}$, $\theta = \arctan{1/2}$ on the search space $L_C0:50-90\,\mathrm{mm}$, and $L_S-max:120-160\,\mathrm{mm}$, we found an under-hung \acs{LFSM} with $\alpha=0.36$, $\beta=0.44$, $\gamma=0.63$, $\delta=0.20$, $\epsilon=0.50$, $r_{so}=8.11\,\mathrm{mm}$, $h_C=5.37\,\mathrm{mm}$, $N_S=17$, $L_S=167.86\,\mathrm{mm}$, and $L_{stroke}=92.86\,\mathrm{mm}$. The motor is able to produce $\overline{F} = 129.01\,\mathrm{N}$ and average jet speed $\overline{v_{jet}}=154.79\,\mathrm{m/s}$. The achievable jet speed is still far from $200\,\mathrm{mm}$, a jet speed required for guarantee a \acs{NFJI} delivery. 
+            Looking at one specific result for the global optimization of constraints set $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $r_{si}=2\,\mathrm{mm}$, $h_G=1.2\,\mathrm{mm}$, $N_C=6$, $M_0=325\,\mathrm{g}$, $\theta = \arctan{1/2}$ on the search space $L_{C0}:50-90\,\mathrm{mm}$, and $L_{S-max}:120-160\,\mathrm{mm}$, we found an under-hung \acs{LFSM} with $\alpha=0.36$, $\beta=0.44$, $\gamma=0.63$, $\delta=0.20$, $\epsilon=0.50$, $r_{so}=8.11\,\mathrm{mm}$, $h_C=5.37\,\mathrm{mm}$, $N_S=17$, $L_S=167.86\,\mathrm{mm}$, and $L_{stroke}=92.86\,\mathrm{mm}$. The motor is able to produce $\overline{F} = 129.01\,\mathrm{N}$ and average jet speed $\overline{v_{jet}}=154.79\,\mathrm{m/s}$. The achievable jet speed is still far from $200\,\mathrm{mm}$, a jet speed required for guarantee a \acs{NFJI} delivery. 
             
             
             If we now adjust the radius of the drug ampoule so that the average jet speed can reach $200\,\mathrm{m/s}$, the maximum drug volume $V$ can be delivery is now $V_{new}=0.60\,\mathrm{mL}$. This conversion was explained in Equation\,\ref{eq:v_jet and V} and \ref{eq:v_jet and V ratio}. For the optimized motor configurations obtained at mass $M$ of $350\,\mathrm{g}$, $375\,\mathrm{g}$, $400\,\mathrm{g}$, $425\,\mathrm{g}$, the corresponding average jet speed $\overline{v_{jet}}$ are $159.16\,\mathrm{m/s}$, $164.00\,\mathrm{m/s}$, $168.38\,\mathrm{m/s}$, $172.27\,\mathrm{m/s}$, respectively. The reduced volume $V_{new}$ for these motors are $0.63\,\mathrm{mL}$, $0.67\,\mathrm{mL}$, $0.71\,\mathrm{mL}$, and $0.74\,\mathrm{mL}$, in the same order. Fig.\,\ref{fig:chapter/rsm/LFSM/optimization search space result for differnt mass} provides global optimization plots of $\overline{v_{jet}}$ for the search space $L_{S-max}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm} \times L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$ using $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $r_{si}=2\,\mathrm{mm}$, $h_G=1.2\,\mathrm{mm}$, $N_C=6$, $M_0=325\,\mathrm{g}$, $\theta = \arctan{1/2}$ and $M_0=[325,350,375,400,425]\,\mathrm{g}$. 
@@ -928,6 +928,92 @@ for the input and hidden layers,
     % ===================================================================================================
     \section{Application to \ac{LTFM}}               \label{Chapter:RSM/LTFM}
     
+        
+        Conventional longitudinal flux motors like \acs{PMLSM} and \acs{LFSM} requires short repeat length for high force desnity because the magnetic circuit travels in-plane with the direction of motion. However, with shortening the pole pitch, the conductor component become increasingly more difficult to manufacture. In \acf{LTFM}, however, the electric circuit is decoupled from the magnetic circuit, and thus the motor can stay manufacturable as the pole pitch shortens. It is because the flux path lies perpendicular to the direction of motion. With this fundamental difference, it is expected that \acs{LTFM} might be able to perform better in short stroke, high thrust application starting from a near stall condition. 
+        
+        
+        \begin{figure}[!hb]
+            \centering
+            \subfloat[Schematic for a single phase \acs{LTFM}]{
+                \includegraphics[width=0.75\textwidth]{chap4/images3/TFM_illustration.pdf}
+                \label{fig:chapter/rsm/LTFM/illustration}
+            }
+            \\
+            \subfloat[3-phase arrangement for \acs{LTFM}]{
+                \includegraphics[width=0.75\textwidth]{chap4/images3/TFM_3phase.pdf}
+                \label{fig:chapter/rsm/LTFM/3 phase arrangement}
+            }
+            \caption{Outline of \acs{LTFM} topology.}
+            \label{fig:chapter/rsm/LTFM/different LTFM arrangement}
+        \end{figure}
+
+        
+        This section aims to study \acs{LTFM} using the motor design process for high volume \acs{NFJI} application already applied for \acs{PMLSM} and \acs{LFSM}. The chosen topology is the U-core \acs{LFSM} machine, with surface mounted permanent magnet blocks on a long iron stator as shown in Fig.\,\ref{fig:chapter/rsm/LTFM/illustration}. Unlike the inherent 3-phase winding structure of \acs{PMLSM} and \acs{LFSM}, the body of a \acs{LTFM} contains a single rectangular prism for a single conductor winding. Therefore, three copies of these structure must be placed in parallel, and $120^\circ$ apart to facilitate a relatively constant thrust profile with 3-phase current as shown in Fig.\,\ref{fig:chapter/rsm/LTFM/3 phase arrangement}. 
+        
+        
+        \begin{figure*}
+            \centering
+            \subfloat[Dimension outline for a single repeat unit of the \acs{LTFM}]{
+                \includegraphics[width=0.95\textwidth]{chap4/images3/TFM_dimensions.pdf}
+                \label{fig:chapter/rsm/LTFM/dimensions}
+            }
+            \\
+            \subfloat[The arrangement for using \acs{LTFM} for \acs{NFJI} application]{
+                \includegraphics[width=0.95\textwidth]{chap4/images3/TFM_for_NFJI.pdf}
+                \label{fig:chapter/rsm/LTFM/used for NFJI}
+            }
+            \caption{Outline of \acs{LTFM} in \acs{NFJI} application.}
+            \label{fig:chapter/rsm/LTFM/3-phase and NFJI}
+        \end{figure*}
+        
+        
+         The coil and U-core assembly is chosen to be the mover because it is more likely to lighter than the magnets and flux conductor plate assembly. Each coil repeating unit consists of a large conductor winding and U-core made out of \acs{SMC} materials. Each stator repeating unit consists of 4 pieces of magnet directed the $y$-axis, and a single long back plate made out of \acs{SMC} material to direct the flux path. Fig.\,\ref{fig:chapter/rsm/LTFM/dimensions} and \ref{fig:chapter/rsm/LTFM/illustration} depict the general parameters of a three-phase transverse flux motor:
+        
+        \begin{itemize}
+            \item The total number of armature repeating unit or pole $N_C$,
+            \item The total number of stator and magnets repeating unit or pole $N_M$,
+            \item Dimensions related the conductor winding $xx_C$, $yy_C$, and $zz_C$,
+            \item Dimensions related to the permanent magnet pieces $xx_M$, $yy_M$, and $zz_M$,
+            \item Dimensions related to the U-core made out of \acs{SMC} prototype material $xx_U$, $yy_U$, and $zz_U$,
+            \item Dimensions related to the the mover assembly's back plate made out also made out of \acs{SMC} prototype material $xx_B$, $yy_B$, and $zz_B$,
+            \item The air gap between the mover and stator assemblies  $zz_{gap}$
+            \item The whole of mover armature length $L_{C}$,
+            \item The whole track length or equivalent motor length $L_{M}$,
+            \item Length of an overall repeat unit $L_{repeat}$,
+            \item The motor stroke length $L_{stroke}$.
+        \end{itemize}
+        
+        
+        Additional design ratios were established to better capture the parametric representation of the \acs{LTFM}:
+        
+        
+        \begin{equation}
+            \alpha=\frac{xx_M}{2 L_{repeat}}
+            \label{eq:chap/rsm/LTFM/alpha}
+        \end{equation}
+        
+        
+        \begin{equation}
+            \beta=\frac{yy_C}{yy_M}
+            \label{eq:chap/rsm/LTFM/beta}
+        \end{equation}
+        
+        
+        \begin{equation}
+            \gamma=\frac{zz_U}{zz_C}
+            \label{eq:chap/rsm/LTFM/gamma}
+        \end{equation}
+        
+        
+        For rigidity of the structure, the coil and the SMC back plate should be made continuous in motors with non-unity pole numbers. For this very reason, the dimensions $xx_B$ and $xx_C$ are equal to $L_{repeat}$. To further simply the topology, $xx_M$, and $yy_M$ are set to be equal to $xx_U$, and $y$-dimension for the U-core leg $yy_{U-leg}$, in the same order. The thickness of the \acs{SMC} back plate is simplified to be half the value of $yy_{M}$. The way in which the \acs{LTFM} can be utilized to deliver \acs{NFJI} shots is illustrated in Fig.\,\ref{fig:chapter/rsm/LTFM/used for NFJI}. The process summary of optimizing the \acs{LTFM} topology described above is illustrated in Fig.\,\ref{fig:chapter/rsm/LTFM/design process}
+        
+        
+        \begin{figure*}[!ht]
+            \centering
+            \includegraphics[width=5in]{chap4/images3/TFM_process_summary.pdf}
+            \caption{Flowchart of the RSM motor design process adapted for \acs{LTFM}.}
+            \label{fig:chapter/rsm/LTFM/design process}
+        \end{figure*}
         
         % -----------------------------------------------------------------------------------
         % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- 
