@@ -1581,10 +1581,18 @@ for the input and hidden layers,
     % === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
     % ===================================================================================================
     \section{Discussion}                            \label{Chapter:RSM/discussion}
+    
+    
+        In this chapter, \acf{PMLSM}, \acf{LFSM}, \acf{LTFM} have been analyzed, investigated and optimized for \acf{NFJI} application with a common objective and set of constraints outlined earlier in Equation\,\ref{eq:outer optimization for PMLSMs}. The underlying method was a robust process of studying each types of motor in depth, making thoughtful assumptions that reduce the difficulties in modelling, mining the valuable design library with the available \acf{HPC} resource, applying advanced machine techniques to build highly accurate \acf{ANN} models, and efficiently conducting reproducible optimization studies. The advantage of the \acf{RSM} process generally applied in this chapter is flexibility. It could be used to study and optimize types of motors that the literature has little success in analytical modelling, for potentially a wide range of applications. This process includes a rather lengthy data collection process, however, once the data is collected, that same set of data could be utilized in multiple different ways and applications.
+        
+        
+        Table\,\ref{table:chap/rsm/overall optimization results} summarized important design characteristic and the performance of each types of motor at different mass constraints. The average thrust, the average jet speed, and the equivalent delivery volume data comparison concluded that \acs{PMLSM} significantly out-perform \acs{LFSM}, and \acs{LTFM} for the given \acs{NFJI} task. Therefore, \acs{PMLSM} is selected to be further studied, optimized and constructed for \acs{NFJI}.
+        
         \begin{landscape}
             \begin{table}[]
                 \renewcommand{\arraystretch}{1.2}
                 \caption{Summary of design optimization results for PMLSM, LFSM, and LTFM}
+                \label{table:chap/rsm/overall optimization results}
                 \begin{tabular}{l|rrr|rrr|rrr|r}
                 \hline
                 \multicolumn{1}{l|}{$\textbf{Types of motors}$}                         & \multicolumn{3}{c|}{$\textbf{PMLSM}$}            & \multicolumn{3}{c|}{$\textbf{LFSM}$}             & \multicolumn{3}{c|}{$\textbf{LTFM}$}             &  {$\textbf{Units}$}              \\ 
