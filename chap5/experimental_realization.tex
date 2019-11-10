@@ -1,7 +1,7 @@
 \chapter{Experimental realization and validation}   \label{Chapter:experiment}
     
     
-    Previously, Chapter\,\ref{Chapter:PMLSM design HM} has compared and contrasted the suitability of \acf{PMLSM}, \acf{LFSM}, and \acf{LTFM} for \acf{NFJI} application. The evidence gathered indicates that \acs{PMLSM} out-perform \acs{LFSM} and \acs{LTFM} for the application described in Section\,\ref{Chapter:PMLSM design HM/design optimization/design citeria}. Going forward there requires work to refine and prototype \acs{PMLSM} in order demonstrate the superior performance of permanent magnet synchronous motor in \acs{NFJI} applications.  
+    Previously, Chapter\,\ref{Chapter:PMLSM design RSM} has compared and contrasted the suitability of \acf{PMLSM}, \acf{LFSM}, and \acf{LTFM} for \acf{NFJI} application. The evidence gathered indicates that \acs{PMLSM} out-perform \acs{LFSM} and \acs{LTFM} for the application described in Section\,\ref{Chapter:PMLSM design HM/design optimization/design citeria}. To move forward, there requires additional work to refine and prototype a \acs{PMLSM} in order demonstrate the superior performance of permanent magnet synchronous motor in \acs{NFJI} applications when compared to \acfp{VCM}.  
     
     
 % ===================================================================================================
@@ -9,29 +9,36 @@
 % ===================================================================================================
 \section{Requirements}                              \label{Chapter:experiment/requirements}
     
-    To recall, the optimization problem translated from the requirement set in Section\,\ref{Chapter:PMLSM design HM/design optimization/design citeria} has the objective of finding motor configurations that produce the highest jet velocity $v_{jet}$ given fixed power input $P$, drug ampoule volume $V$, and motor mass $M$, and total motor length $L_{motor}$. While being suitable for determining the best type of motor for \acs{NFJI}, this optimization problem set does not aim to find the lightest motor that can produce a fixed jet velocity $v_{jet}$. Therefore, there requires a requirement set more appropriate for finding the lightest motor configuration for  \acs{NFJI} with a fixed jet speed $v_{jet}$ and a fixed volume $V$:
+    To recall, the optimization problem translated from the requirement set in Section\,\ref{Chapter:PMLSM design HM/design optimization/design citeria} has the objective of finding a motor configurations that produces the highest jet velocity $v_{jet}$ given the power input $P$, the drug ampoule volume $V$, the motor mass $M$, and the total motor length $L_{motor}$. While being suitable for determining the best type of motor for \acs{NFJI} under some practical constraints, this optimization problem set does not aim to find the lightest motor that can produce \acsp{NFJI} at a fixed jet velocity $v_{jet}$. Therefore, there requires a problem set that is more appropriate for finding the lightest motor configuration capable of providing jet injections with a fixed volume $V$ and a fixed jet speed $v_{jet}$. This new requirement set demands:
     
     
     \begin{itemize}
         \item The device needs to deliver $V = 1\,\mathrm{mL}$ volume of fluid at a peak jet speed of $200\,\mathrm m/\mathrm s$ ($200\,\mathrm{\mu m}$ nozzle diameter),
         \item Theoretical peak power consumption $P$ at the peak jet speed to be less than $1.2\,\mathrm{kW}$ (the motor driver will consume more to overcome friction),
         \item The total length of the device should not exceed $20\,\mathrm{cm}$  (including the mechanical structure and ampoule),
-        \item The motor must weigh less than $350\,\mathrm{g}$.
+        \item The motor mass $M$ must be minimized while the constraints above are applied.
     \end{itemize}
     
     
-    The target jet speed of $200\,\mathrm{m/s}$ was chosen to be adequate to overcome viscous losses in drug injection orifices while leading to practical ($100\,\mathrm{m/s}$ to $150\,\mathrm{m/s}$) injection velocities\,\cite{mitragotri2006}, while the power consumption of $1.2\,\mathrm{kW}$ is within the capability of practical self-contained power sources and power electronic drives. The duration of a typical injection is $<0.5\,\mathrm{s}$, so heat dissipation during an injection is of minimal concern.
+    The target jet speed of $200\,\mathrm{m/s}$ was chosen to be adequate to overcome viscous losses in drug injection orifices while leading to practical ($100\,\mathrm{m/s}$ to $150\,\mathrm{m/s}$) injection velocities\,\cite{mitragotri2006}, while the power consumption of $1.2\,\mathrm{kW}$ is within the capability of practical self-contained power sources and power electronic drives. The duration of a typical injection is $<0.5\,\mathrm{s}$, thus, heat dissipation during an injection is not taken into the design consideration list.
+    
 
+% ===================================================================================================
+% === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
+% ===================================================================================================
+\section{Design concept}                              \label{Chapter:experiment/design concept}
 
-    \begin{figure}[h]
-      \centering
-      \includegraphics[width=5in]{chap5/images/PMLSM_render.pdf}
-      \caption{Cut-away view of the optimized motor and jet injector design, showing the bobbin and coil riding on linear plastic bearings along the magnet array, as well as the supporting structure, piston, and drug ampoule.}
-      \label{fig:chap/experiment/PMLSM render}
-    \end{figure}
 
 
     The mechanical design concept required the Halbach magnet array to fit inside a thin tube of austenitic stainless steel, which in turn, slides against plastic bearings. Due to the availability of parts, we constrained $r_{mo}=7.8\,\mathrm{mm}$ to allow the use of thin stainless steel tubing of $16\,\mathrm{mm}$ outside diameter. Furthermore, we chose to use standard precision austenitic stainless steel rods to reduce the machining work for the piston. Working back from the required volume $V$, the minimum stroke length $L_s$ is $140\,\mathrm{mm}$, $80\,\mathrm{mm}$, and $50\,\mathrm{mm}$ for piston diameter or ampoule inner diameter of $3\,\mathrm{mm}$, $4\,\mathrm{mm}$, and $5\,\mathrm{mm}$, respectively. Fig.\,\ref{fig:chap/experiment/PMLSM render} shows a render of the mechanical design concept for the prototype \acs{PMLSM}. 
+    
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=5in]{chap5/images/PMLSM_render.pdf}
+        \caption{Cut-away view of the optimized motor and jet injector design, showing the bobbin and coil riding on linear plastic bearings along the magnet array, as well as the supporting structure, piston, and drug ampoule.}
+        \label{fig:chap/experiment/PMLSM render}
+    \end{figure}
     
 
 % ===================================================================================================
@@ -104,7 +111,7 @@
     We set the clearance gap between the magnet and coil $gap_{mc}\equiv r_{ci}-r_{mo} = 1.3\,\mathrm{mm}$, higher than the previously established value of $1.2\,\mathrm{mm}$,  to facilitate extra rigidity for the bobbin shell, and the gap between coil and back-iron $gap_{cf}\equiv r_{fi}-r_{co} = 0.1\,\mathrm{mm}$ to increase ease of assembly. Table~\ref{table:chap/experiment/table of optimization value ranges} summarizes the optimization constraints for the desired motor configuration. To reduce coupling between the radial dimensions, the thicknesses of the coil $t_c = r_{co} - r_{ci}$ and of the magnets $t_m = r_{mo} - r_{mi}$ were used in the optimization, instead of $r_{co}$ and $r_{mo}$. The five parameters for optimization were $L_k$, $r_{mi}$, $t_m$, $t_c$, and $\delta$. The parameters were also subjected to additional constraints: a minimum copper thickness of $\operatorname{Min}(t_c) = 4\,\mathrm{mm}$ to guarantee the structural integrity of the bobbin, outer magnet radii $r_{mo} = t_m + r_{mi} = 7.8\,\mathrm{mm}$ as noted above, a minimum inner magnet radius $\operatorname{Min}(r_{mi} ) = 2\,\mathrm{mm}$ to allow for structural support through the center of the magnet array, and minimum period length $\operatorname{Min}(L_k) = 12\,\mathrm{mm}$ to make coil winding more practical. 
     
     
-    The inner optimization routine uses constrained nonlinear multi-variable optimization based on the interior point algorithm (MATLAB Optimization Toolbox) to minimize power dissipation $P$, calculated via \eqref{eq:power dissipation for PMLSMs}, \eqref{eq:K_m}, and \eqref{eq:K_m dimless}. Many inner optimizations will be completed before the program can find the suitable motor. Across the inner optimization rounds, the following constraints are used: 
+    To gauge the performance of each motor design, the computation method outlined in Section \ref{Chapter:PMLSM design HM/electromagnetic model} is employed. The inner optimization routine uses constrained nonlinear multi-variable optimization based on the interior point algorithm (MATLAB Optimization Toolbox) to minimize power dissipation $P$, calculated via \eqref{eq:power dissipation for PMLSMs}, \eqref{eq:K_m}, and \eqref{eq:K_m dimless}. Many inner optimizations will be completed before the program can find the suitable motor. Across the inner optimization rounds, the following constraints are used: 
     
     
     \begin{itemize}
@@ -263,7 +270,7 @@
         \subsection{Motor constant measurement}     \label{Chapter:experiment/validation/motor constant}
         
             
-            The motor constant was evaluated by measurement of the phase back-EMF during externally-induced motion plotted on Fig.~\ref{fig:chap/experiment/motor_constant/kms_plot}, with the phases connected in a wye topology. A load cell (Futek LCM300, $250\,\mathrm{lb.}$ capacity) was used to simultaneously determine the cogging force exhibited by the prototype. 
+            The motor constant was evaluated by measurement of the phase back-EMF during the externally-induced motions were applied on the armature mover. The phase voltage constant measurements for each of the three phases are plotted on Fig.~\ref{fig:chap/experiment/motor_constant/kms_plot}, with the phases connected in a wye topology. A load cell (Futek LCM300, $250\,\mathrm{lb.}$ capacity) was used to simultaneously determine the cogging force exhibited by the prototype. 
 
         
             \begin{figure}[h]
@@ -308,7 +315,7 @@
 
             \begin{figure}[h]
                 \centering
-                \includegraphics[width=3.2in]{chap5/images/injection_setup.pdf}
+                \includegraphics[width=4in]{chap5/images/injection_setup.pdf}
                 \caption{Experimental setup in which the motor ejects water onto a piezoelectric force sensor, driven with constant motor input voltage}
                 \label{fig:chap/experiment/validation/injection_test/injection_setup}
             \end{figure}
@@ -331,9 +338,6 @@
             The average jet speed calculated from the force measurement was slightly higher than the jet speed estimated by the position profile, at $144\,\mathrm{m/s}$. This is likely because the flow exiting the nozzle does not have a uniform velocity profile, which tends to increase the apparent jet speed obtained via force measurement. These jet speeds are well within the range of speeds useful in jet injection, and in line with other jet speeds obtained with this nominal pressure \cite{Williams2016}.
 
 
-            Despite the use of an open-loop, constant-voltage-amplitude control approach, the jet speed was relatively steady throughout the stroke, and most variations observed correspond to changes in the friction and cogging forces. The dip in velocity near the beginning of the injection may be due to the fact that during the loading process, an air bubble made its way into the ampoule. When the bubble approaches the output nozzle, the lack of fluid can cause sudden changes in velocity. Air bubbles can only be avoided through careful filling procedures.
-            
-            
             \begin{figure}[h]
             	\centering
             	\subfloat[Measured motor position]{
@@ -353,15 +357,32 @@
                 \caption{Measured piston position for a constant-voltage injection corresponding to a nominal power of $1.4\mathrm{kW}$ (a); the jet velocity determined from the force of the water jet acting upon the force sensor (b); and the current profile across the motor phases during the injection (c).}
                 \label{fig:chap/experiment/injection_test/injection_test}
             \end{figure}
+
+
+            Despite the use of an open-loop, constant-voltage-amplitude control approach, the jet speed was relatively steady throughout the stroke, and most variations observed correspond to changes in the friction and cogging forces. The dip in velocity near the beginning of the injection may be due to the fact that during the loading process, an air bubble made its way into the ampoule. When the bubble approaches the output nozzle, the lack of fluid can cause sudden changes in velocity. Air bubbles can only be avoided through careful filling procedures.
             
             
             These results validate that the prototype motor is capable delivering large volume needle free jet injection (up to $1\,\mathrm{mL}$) when given $1.4\,\mathrm{kW}$ of electrical power, close to the theoretical design value of $1.2\,\mathrm{kW}$. Improvements to the motor control strategy will allow for further enhancements to injection consistency and repeatability.
             
     
+            \begin{figure}[h]
+            	\centering
+            	\includegraphics[width=3.4in]{chap5/images/injection_velocity_waveform_2_phase.png}
+                \caption{Demonstration of 2 speeds injection: $v_{jet1}=150\,\mathrm{m/s}$ for the duration of $t_1=100\,\mathrm{ms}$, and then $v_{jet2}=100\,\mathrm{m/s}$ for the duration of $t_2=200\,\mathrm{ms}$}
+                \label{fig:chap/experiment/injection_test/injection_velocity_waveform_2_phase}
+            \end{figure}
+        
+        
+            To demonstrate the speed control capability of the \acs{NFJI} system, an additional experiment was conducted. The closed loop velocity-controlled system was programmed to move to piston filled with water at the speed of $v_{jet1}=150\,\mathrm{m/s}$ for the duration of $t_1=100\,\mathrm{ms}$, and then at the speed of $v_{jet2}=100\,\mathrm{m/s}$ for the duration of $t_2=200\,\mathrm{ms}$. Fig.\,\ref{fig:chap/experiment/injection_test/injection_velocity_waveform_2_phase} plots the measured jet velocity over time from the sensor force measurement. The average jet profile though has shown overshoot still quickly settles toward $v_{jet1}=150\,\mathrm{m/s}$. The transition to $v_{jet2}=100\,\mathrm{m/s}$ was very smooth. Even though the system has some difficulty with piston position-control, it excels in velocity control. This experiment proved that the \acs{NFJI} system and especially the \acs{PMLSM} prototype as the whole is capable of delivering high volume and real-time velocity-controlled needle free jet injection.
         
         
         % -----------------------------------------------------------------------------------
         % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION ---
         % -----------------------------------------------------------------------------------
-        \subsection{Discussion}                     \label{Chapter:experiment/validation/discussion}
+        \section{Discussion}                     \label{Chapter:experiment/validation/discussion}
         
+        
+        To summarize, this work utilized the modeling method presented in Chapter\,\ref{Chapter:PMLSM design HM} and a new optimization methodology to find a globally optimized motor configuration for NFJI that is complemented by an iron length that produces the minimal amount of cogging. The motor was designed to deliver $1\,\mathrm{mL}$ NFJIs, at rated motor speed of $0.5\,\mathrm{m/s}$, rated force of $250\,\mathrm{N}$, and rated electrical power requirement of $1.2\,\mathrm{kW}$. 
+        
+        
+        The measured motor constant, peak-to-peak cogging force, and bearing friction of the prototype motor constructed corresponding to the optimized design were $6.6\,\mathrm{N/\sqrt{W}}$, $4\,\mathrm{N}$ and $4.2\,\mathrm{N}$, respectively. In a test injection provided with $1.4\,\mathrm{kW}$ of electrical power, the prototype motor produced a $200\,\mathrm{\mu m}$ thin jet of water into a force sensor with an average jet velocity of $134\,\mathrm{m/s}$, well within the practical jet injection velocity range \cite{mitragotri2006}. Thereby, this prototype successfully demonstrated the capability for large volume needle-free jet injection. It is also worth mentioning that it is possible for the prototype motor to employ a compound ampoule similar to that reported in \cite{Ruddy2015a,McKeage2018}, making the device capable of delivering close to\,$4\,\mathrm{mL}$ of liquid drug, and thus surpassing the volume needed for most protein based formulations \cite{Hogan2015}.
