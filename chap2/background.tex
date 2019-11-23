@@ -1,5 +1,7 @@
 \chapter{Background}                                \label{Chapter:background}
 
+    In this chapter, an introduction is given on the needle-free jet injection and the progress of applying the use of linear direct-drive machines on jet injection, which lead to the definition of the research goal of this thesis. Then this chapter further provided electromagnetic field theory, available motors modeling techniques and optimization approaches to realize the methods later discussed in this thesis.
+
 
 % ===================================================================================================
 % === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
@@ -91,7 +93,7 @@
                 \includegraphics[width=0.3\textwidth]{chap2/images/jet_injection_mechanics_3.png}
                 \label{fig:chapter/background/underlying mechanics/3}
             }
-            \caption[LoF entry]{
+            \caption[Needle-free injection into a polyacrylamide gel containing $20\%$ acrylamide]{
                 Needle-free injection into a polyacrylamide gel containing $20\%$ acrylamide\,\cite{schramm2004}.
             }   \label{fig:chapter/background/underlying mechanics}
         \end{figure*}
@@ -110,7 +112,7 @@
                 \includegraphics[width=0.20\textwidth]{chap2/images/2_sppeds_injection.png}
                 \label{fig:chapter/background/2 speeds mechanics/2 speeds}
             }
-            \caption[LoF entry]{
+            \caption[Need for temporal control of jet velocity in needle-free transdermal drug delivery: (a) constant low-velocity delivery (left), medium-velocity delivery (centre), and high-velocity delivery (right); (b)Desired drug delivery showing sufficient penetration depth and minimal pooling. Dotted line represents the desired depth of injection.]{
                 Need for temporal control of jet velocity in needle-free transdermal drug delivery\,\cite{Mitragotri2005}: (a) constant low-velocity delivery (left), medium-velocity delivery (centre), and high-velocity delivery (right); (b)Desired drug delivery showing sufficient penetration depth and minimal pooling. Dotted line represents the desired depth of injection.
             }   \label{fig:chapter/background/2 speeds mechanics}
         \end{figure*}
@@ -122,7 +124,7 @@
         \begin{figure}[h]
             \centering
             \includegraphics[width=0.75\textwidth]{chap2/images/2_jet_speeds_idea.png}
-            \caption[LoF entry]{A typical 2 speeds jet injection trajectory; $v_{jet}=200\,\mathrm{m/s}$ to reach the desired injection depth and $v_{follow}=20\,\mathrm{m/s}$ to reduce ‘splash back’ \,\cite{taberner2012}}
+            \caption[A typical 2 speeds jet injection trajectory; $v_{jet}=200\,\mathrm{m/s}$ to reach the desired injection depth and $v_{follow}=20\,\mathrm{m/s}$ to reduce ‘splash back’]{A typical 2 speeds jet injection trajectory; $v_{jet}=200\,\mathrm{m/s}$ to reach the desired injection depth and $v_{follow}=20\,\mathrm{m/s}$ to reduce ‘splash back’ \,\cite{taberner2012}}
           \label{fig:chapter/background/2 speeds ideas}
         \end{figure}
     
@@ -150,7 +152,7 @@
                 \includegraphics[width=0.45\textwidth]{chap2/images/pharma_jet_stratis_cut_view.png}
                 \label{fig:chapter/background/pharma jet stratis/cut view}
             }
-            \caption[LoF entry]{
+            \caption[SUNFJI Pharma Jet Stratis™ from PharmaJet™]{
                 SUNFJI Pharma Jet Stratis™ from PharmaJet™\,\cite{PharmaJet2011}
             }   \label{fig:chapter/background/pharma jet stratis}
         \end{figure*}
@@ -170,7 +172,7 @@
                 \includegraphics[width=0.45\textwidth]{chap2/images/jet_injection_delivery_study.png}
                 \label{fig:chapter/background/jet injection effectiveness/delivery statistic}
             }
-            \caption[LoF entry]{
+            \caption[Results of different jet injection study on mechanically powered \acs{NFJI} devices demonstrating rough pressure profile and poor adaptability.]{
                 Results of different jet injection study on mechanically powered \acs{NFJI} devices demonstrating rough pressure profile and poor adaptability\,\cite{schramm2002}.
             }   \label{fig:chapter/background/jet injection effectiveness}
         \end{figure*}
@@ -218,7 +220,7 @@
     \begin{figure}[!ht]
       \centering
       \includegraphics[width=0.5\textwidth]{chap2/images/vcm_cut_view.png}
-      \caption[LoF entry]{Construction of a voice coil motor with moving coil\,\cite{taberner2006}.}
+      \caption[Construction of a voice coil motor with moving coil]{Construction of a voice coil motor with moving coil\,\cite{taberner2006}.}
       \label{fig:chapter/background/vcm cut view}
     \end{figure}
     
@@ -243,7 +245,7 @@
             \includegraphics[width=0.28\textwidth]{chap2/images/vcm_ruddy2014.png}
             \label{fig:chapter/background/vcm injectors/ruddy2014}
         }
-        \caption[LoF entry]{
+        \caption[Lorentz-force \acs{VCM} actuated \ac{NFJI}: Handheld injector and cRIO controller system (a)\,\cite{taberner2006}; Hand-held injector and charged capacitor amplifier/controller system (b).]{
             Lorentz-force \acs{VCM} actuated \ac{NFJI}: Handheld injector and cRIO controller system (a)\,\cite{taberner2006}; Hand-held injector and charged capacitor amplifier/controller system (b)\,\cite{ruddy2014}.
         }   \label{fig:chapter/background/vcm injectors}
     \end{figure*}
@@ -252,7 +254,7 @@
     \begin{figure}[!ht]
       \centering
       \includegraphics[width=0.5\textwidth]{chap2/images/vcm_for_nfji.png}
-      \caption[LoF entry]{A basic schematic of a voice coil actuated \acs{NFJI}. $L$ and $D$ are the cylinder’s working length (stroke length) and diameter, respectively\,\cite{ruddy2014}.}
+      \caption[A basic schematic of a voice coil actuated \acs{NFJI}. $L$ and $D$ are the cylinder’s working length (stroke length) and diameter, respectively.]{A basic schematic of a voice coil actuated \acs{NFJI}. $L$ and $D$ are the cylinder’s working length (stroke length) and diameter, respectively\,\cite{ruddy2014}.}
       \label{fig:chapter/background/vcm for nfji}
     \end{figure}
     
@@ -344,23 +346,19 @@
         The tubular motor concept can be realized by rolling a flat linear machine about its longitudinal axis. Tubular permanent-magnet machines offer the highest efficiency and power over force density and have excellent servo characteristics\,\cite{Eastham1990}. The advantages that the tubular structure can offer over the flat structure includes introducing even magnetic field distribution, reducing wasted winding, and easing the modelling step. Despite superior performance, tubular machines are only more popular than flat machines in research because they are more difficult to manufacture at scale.
         
         
-        The ferromagnetic core, whether it is a magnet core or an iron core, exists to provide a low magnetic resistance path between the excitation source and the armature. The subset of \ac{PM} synchronous motors with the use of an iron core has to deal with cogging force. This force stands for the mutual attraction between the PM and iron in the armature. Cogging force is undesirable because it can contribute to a reduction in axial force, vibration and deteriorating control characteristics at low speed\,\cite{Jung1999}. The slotted iron core causes the cogging ripples while the limited iron length causes end effect cogging\,\cite{Lim2002}. Cogging force can be reduced by PM width adjustment\,\cite{Bianchi2002}, asymmetric PM arrangement\,\cite{Chung2016,Bianchi2003a,Cai2012}, a semi-closed slot for the iron core\,\cite{Zhu1997,Bai2015,Zhu2008}, and optimizing iron core geometry\,\cite{Inoue2000,Zhu1997,Wu2008,Zhu2009conf,Zhang2013,Kim2016,Lee2014}. It is better to improve the cogging force profile using mechanical design than to rely on complex control mechanism\,\cite{Jahn1996}. Recently, the number of research on actuators using permanent magnets has increased significantly. This is due to the availability of high energy rare earth permanent magnet materials from which compact actuators with a high efficiency can be realized. As the size approaches the form factor required for power application such as electric vehicle or energy generation, the difference in performance of induction and permanent magnet machines is small. However, in small form factor use-cases, permanent magnet machines have been reported to outperform induction machines. 
+        The ferromagnetic core, whether it is a magnet core or an iron core, exists to provide a low magnetic resistance path between the excitation source and the armature. The subset of \ac{PM} synchronous motors with the use of an iron core has to deal with cogging force. This force stands for the mutual attraction between the PM and iron in the armature. Cogging force is undesirable because it can contribute to a reduction in axial force, vibration and deteriorating control characteristics at low speed\,\cite{Jung1999}. The slotted iron core causes the cogging ripples while the limited iron length causes end effect cogging\,\cite{Lim2002}. Cogging force can be reduced by PM width adjustment\,\cite{Bianchi2002}, asymmetric PM arrangement\,\cite{Chung2016,Bianchi2003a,Cai2012}, a semi-closed slot for the iron core\,\cite{Zhu1997,Bai2015,Zhu2008}, and optimizing iron core geometry\,\cite{Inoue2000,Zhu1997,Wu2008,Zhu2009conf,Zhang2013,Kim2016,Lee2014}. It is better to improve the cogging force profile using mechanical design than to rely on complex control mechanism\,\cite{Jahn1996}. 
+        
+        
+        Recently, the number of research on actuators using permanent magnets has increased significantly. This is due to the availability of high energy rare earth permanent magnet materials from which compact actuators with a high efficiency can be realized. As the size approaches the form factor required for power application such as electric vehicle or energy generation, the difference in performance of induction and permanent magnet machines is small\,\cite{WoosukSung2012Energy-EfficientVehicles,2014Almeida,Chau2008OverviewVehicles,deSantiago2012ElectricalReview}. However, in small form factor use-cases, permanent magnet machines have been reported to outperform induction machines\,\cite{Zhu2007ElectricalVehicles,Yang2015ComparativeApplications}. 
         
         
         The most important distinction for motors perhaps lies in the arrangement of the flux path. Longitudinal flux means that the magnetic field lines are parallel to the direction of motion. Transverse flux, on the other hand, means that the magnetic field lines are perpendicular to the direction of the motion\,\cite{Laithwaite1975}. Further definition of \acfp{LTFM} includes having three-dimensional magnetic flux flow, and there is no coupling between the individual armature and secondary phases. \acsp{LTFM} are especially suitable for low speed and high thrust applications\,\cite{Zhao2015,Shin2015}. This topology allows for containing a large number of poles without compromising the space available for the windings\,\cite{Laithwaite1971}. The structure of this type of motor results in a complex, coupled magnetic and electric circuit. An increase in the number of poles is roughly proportional to the increase in force density. A transversal flux motor, in both rotary and linear forms, can achieve very high work output\,\cite{Ueda2014,Hsu2011,Wang2016,Arshad2001,Siatkowski2008}. Longitudinal flux machines may have discrete structural poles, but for transversal flux machines, discretization of the poles is compulsory\,\cite{Baoming2009}. This structure offers easier and cheaper design, manufacturing and maintenance. However, the segmented core construction and widely open conductor loop lead to high leakage flux, high winding inductance, and low power factor\,\cite{Harris1997,Lu2003}. The iron core takes significantly more volume and weight in transversal flux motors, thus, eddy losses and nonlinear permeability effects must be included to model this type of motor accurately.
         
         
-        Both transversal flux motors, or longitudinal flux when called alone, refers to motors that have the flux source (\acs{PM} for instance) separated from the current source, and both sources will not move at the same time as the motor operates. Since the flux source interacts with the current source through an air gap without hard mechanical coupling, we refer to those motors as singly salient motors. On the other hand, motors with magnets and coils on the same moving or stationary side are called doubly salient machines. Belonging  to  the  the  family of doubly-salient permanent magnet motors \,\cite{Cheng2011}, \acp{LFSM} have high  thrust  density, high  tolerance  to  current  overload, lower use  of  permanent  magnet  material,  and  a generally robust construction. They use a passive secondary that can be made out of steel laminations or \ac{SMC} material to reduce eddy current loss to a minimum. Being  able  to ignore eddy currents will play an important role in improving the efficiency of design simulation. The amount of \acs{PM} in a \acs{LFSM} in long stroke applications can be significantly less than that used by a \acs{PMLSM}\,\cite{Aleksandrov2018}. All these advantages are important in bringing a  prototype into manufacturing at scale to reach high reliability. In hindsight, air is a very poor magnetic conductor, thus machines like \acsp{LFSM} with very small flux path resistance should vastly improve motors output. However, since the \acs{LFSM} is still a relatively unexplored topology, the literature has opposing opinions about whether \acsp{LFSM} outperform \acsp{PMLSM}\,\cite{Aleksandrov2018,Wang2008}.
-    
-    
-    % -----------------------------------------------------------------------------------
-    % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- 
-    % -----------------------------------------------------------------------------------
-    \subsection{Advantages and disadvantages}   \label{Chapter:background/linear synchronous motors for NFJI/advantages and disadvantages}
+        Both transverse flux motors, or longitudinal flux when called alone, refers to motors that have the flux source (\acs{PM} for instance) separated from the current source, and both sources will not move at the same time as the motor operates. Since the flux source interacts with the current source through an air gap without hard mechanical coupling, we refer to those motors as singly salient motors. On the other hand, doubly-salient motors have "teeth" on both the primary and secondary, resulting in both sides contributing to variation in flux linkage/inductance with position. Belonging  to  the  the  family of doubly-salient permanent magnet motors \,\cite{Cheng2011}, \acp{LFSM} have high  thrust  density, high  tolerance  to  current  overload, lower use  of  permanent  magnet  material,  and  a generally robust construction. They use a passive secondary that can be made out of steel laminations or \ac{SMC} material to reduce eddy current loss to a minimum. Being  able  to ignore eddy currents will play an important role in improving the efficiency of design simulation. The amount of \acs{PM} in a \acs{LFSM} in long stroke applications can be significantly less than that used by a \acs{PMLSM}\,\cite{Aleksandrov2018}. All these advantages are important in bringing a  prototype into manufacturing at scale to reach high reliability. In hindsight, air is a very poor magnetic conductor, thus machines like \acsp{LFSM} with very small flux path resistance should vastly improve motors output. However, since the \acs{LFSM} is still a relatively unexplored topology, the literature has opposing opinions about whether \acsp{LFSM} outperform \acsp{PMLSM}\,\cite{Aleksandrov2018,Wang2008}.
         
         
-        One of the disadvantages of synchronous motors is that once the motion and rotating magnetic fields were out synchronism, the motors would not move. A way to work around this problem is to incorporate absolute position sensors or Hall sensors into the control algorithm of the motor. In some cases where the armature requires a large starting torque, the motor needs a cleverly fitted a ‘Squirrel Cage’\,\cite{Marcic2008} at the poles tips because the motor is inherently unable to start itself. Squirrel Cage is a popular self-start mechanism, often seen in rotary synchronous motors to allow for asynchronous starting and catching up with synchronism. Even with the help of methods to speed up to synchronism, the armature can always lag if the power supplied is insufficient to cope with the load.
-        
+        One of the disadvantages of synchronous motors is that once the motion and rotating magnetic fields were out synchronism, the motors would not move. A way to work around this problem is to incorporate absolute position sensors or Hall sensors into the control algorithm of the motor. In some cases where the armature requires a large starting torque, the motor is inherently unable to start itself. Even with the help of methods to speed up to synchronism, the armature can always lag if the power supplied is insufficient to cope with the load.
         
         
         Compared to \acsp{VCM}, \acsp{PMLSM} and \acsp{LFSM} in general require far less power to operate. Thus, the same portable power supply built for powering \acsp{VCM} is also capable of driving the other \acsp{PMLSM} and \acsp{LFSM}, provided the technology used has room to expand for multiphase control.
@@ -384,16 +382,16 @@
 \section{Electromagnetic field theory}              \label{Chapter:background/electromagnetic field theory}
 
 
-    Magnetism was one of the first natural force discovered and harvested by humans. The emergence of energy convergence of energy conversion applications and modern electronics have led to a large variety of magnetic materials supplied in all shapes and size. The phenomenon of a material forming a permanent magnet or temporary microscopic dipoles under the influence of a magnetic field is known as ferromagnetism. While all materials are magnetic to some extent, only ferromagnetic materials can form strong magnetic flux density $B$ under the influence of an external magnetizing field $H$. In this body of work, they are referred as ‘$B$-field’ and ‘$H$-field’. 
+    The emergence of energy convergence of energy conversion applications and modern electronics have led to a large variety of magnetic materials supplied in all shapes and size. The phenomenon of a material forming a permanent magnet or temporary microscopic dipoles under the influence of a magnetic field is known as ferromagnetism. While all materials are magnetic to some extent, only ferromagnetic materials can form strong magnetic flux density $B$ under the influence of an external magnetizing field $H$. In this body of work, they are referred as ‘$B$-field’ and ‘$H$-field’. 
     
 
     % -----------------------------------------------------------------------------------
     % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- 
     % -----------------------------------------------------------------------------------
-    \subsection{Quasi-static Maxwell equations}     \label{Chapter:background/electromagnetic field theory/quasi-static maxwell equations}
+    \subsection{Quasi-static Maxwell's equations}     \label{Chapter:background/electromagnetic field theory/quasi-static maxwell equations}
     
     
-        Maxwell equations describe how electric and magnetic fields are generated by charges, current, or the result of changes in each other. As a set of \acp{PDE}, they provide a foundation for understanding classical electromagnetism, optics and even electrical circuits. In the case of motors, the electromagnetic fields travel drastically slower than the maximum speed possible for electromagnetic waves, known as the speed of light. The time rates of changes of relevant electromagnetic fields are sufficiently low that they can be simplified to the set of quasi-static Maxwell equations\,\cite{Melcher1981}. The quasi-static Maxwell equations in differential forms are defined as:
+        Maxwell's equations describe how electric and magnetic fields are generated by charges, current, and the changes in either magnetic or electric fields. As a set of \acp{PDE}, they provide a foundation for understanding classical electromagnetism, optics and even electrical circuits. In the case of motors, the electromagnetic fields travel drastically slower than the maximum speed possible for electromagnetic waves, known as the speed of light. The time rates of changes of relevant electromagnetic fields are sufficiently low that they can be simplified to the set of quasi-static Maxwell's equations\,\cite{Melcher1981}. The quasi-static Maxwell's equations in differential forms are defined as:
     
     
         \begin{equation}
@@ -420,7 +418,7 @@
         where $J_f$ is the free current density in the conductor, $E$ is the electric field, $D$ is the electric flux density and $\rho$ is the free electrical charge destiny. Bold symbols here represent vector quantities. Even existing in a simplified form, these equations are coupled \acsp{PDE}, which are often very difficult to solve analytically. Like any differential equation, boundary conditions and initial conditions are necessary for a unique solution. Numerical methods can be used to approximate the result, but an exact solution is not yet found.
         
         
-        The Maxwell equation can be rewritten to by introducing the magnetic vector potential $A$, true for quasi-static conditions:
+        The Maxwell's equations can be rewritten to by introducing the magnetic vector potential $A$, free space permeability ${\mu}_0$, and the conductor relative permeability ${\mu}_r$, true for quasi-static conditions:
         
         
         \begin{equation}
@@ -570,33 +568,34 @@
         \end{equation} 
         
         
-        Instead of calculating the cross product of the free current density and the magnetic flux density, the total current density in the domain has to be considered, i.e., the sum of all free and microscopic currents at an atomic level. The Maxwell stress tensor $\sigma$ description can derived on a body enclosed by surface area $S$:
+        Calculating the cross product of the free current density and the magnetic flux density requires knowledge of the total current density in the domain considered, i.e., the sum of all free and microscopic currents at an atomic level.
+        Instead, to calculate the electromagnetic force acting on a body, we can perform surface integration of the Maxwell's stress tensor $\mathbb{T}$ around the body enclosed by surface area $S$ and an outward unit normal to the bounding surface $\overrightarrow{n}$:
         
         
         \begin{equation}
-            \overrightarrow{F} = \oint_{S} \sigma \cdot \overrightarrow{n} \mathrm{d}s
+            \overrightarrow{F} = \oint_{S} \mathbb{T} \cdot \overrightarrow{n} \mathrm{d}s
             \label{eq:surface generalized lorentz}
         \end{equation}     
 
 
-        where the Maxwell stress tensor, $\sigma$, consists of only the magnetic field component but not the electric field component, is coordinate system independent and defined as:
+        % where the Maxwell's stress tensor, $\sigma$, consists of only the magnetic field component but not the electric field component, is coordinate system independent and defined as:
 
 
-        \begin{equation}
-            \label{eq:maxwell stress tensor}
-            \sigma_{ij} = \frac{B_i B_j}{\mu_0} - \delta_{ij} \frac{| \overrightarrow{B} |^{2}}{2\mu_0}
-        \end{equation}
+        % \begin{equation}
+        %     \label{eq:maxwell stress tensor}
+        %     \sigma_{ij} = \frac{B_i B_j}{\mu_0} - \delta_{ij} \frac{| \overrightarrow{B} |^{2}}{2\mu_0}
+        % \end{equation}
                 
-        \begin{equation}
-            \notag
-            \begin{split}
-                \text{where Krocher delta} \quad \delta_{ij} =
-                    \begin{cases}
-                        1       & \text{if $i=j$,}\\
-                        0       & \text{if otherwise}
-                    \end{cases}
-            \end{split}
-        \end{equation}
+        % \begin{equation}
+        %     \notag
+        %     \begin{split}
+        %         \text{where Krocher delta} \quad \delta_{ij} =
+        %             \begin{cases}
+        %                 1       & \text{if $i=j$,}\\
+        %                 0       & \text{if otherwise}
+        %             \end{cases}
+        %     \end{split}
+        % \end{equation}
         
 
 % ===================================================================================================
@@ -605,7 +604,7 @@
 \section{Modelling techniques for motors}           \label{Chapter:background/modelling techniques for designing motors}
 
 
-    Electric machines are devices that either produce force as a product of electric current and magnetic field, or harvest electric current from a conductor in contact with a changing magnetic field. It is necessary to estimate rated power, efficiency, and losses to optimize and achieve design goals. These estimations often require calculation in one or more machine characteristics using different forms of Maxwell equations, governed by the relationship between constitutional materials, geometry, and configurations that apply to individual machines. Quasi-static or low-frequency assumption has been extensively used to model synchronous motors. Methods to solve quasi-static Maxwell equations indirectly via either magnetic vector potential $A$ or scalar potential $\varphi$ are mentioned in Section\,\ref{Chapter:background/electromagnetic field theory/quasi-static maxwell equations}. The method for solving Maxwell equations to model electric machines can fall under three categories: numerical, analytical or semi-analytical. Recently, motor types yet to be well understood can be modelled using empirical methods by collecting a vast amount of simulation data and fitting the motor variables and performance onto a set of non-linear equations.
+    Electric machines are devices that either produce force as a product of electric current and magnetic field, or harvest electric current from a conductor in contact with a changing magnetic field. It is necessary to estimate rated power, efficiency, and losses to optimize and achieve design goals. These estimations often require calculation to work out one or more machine characteristics using different forms of Maxwell's equations, governed by the relationship between constitutional materials, geometry, and configurations that apply to individual machines. Quasi-static or low-frequency assumption has been extensively used to model synchronous motors. Methods to solve quasi-static Maxwell's equations indirectly via either magnetic vector potential $A$ or scalar potential $\varphi$ are mentioned in Section\,\ref{Chapter:background/electromagnetic field theory/quasi-static maxwell equations}. The method for solving Maxwell's equations to model electric machines can fall under three categories: numerical, analytical or semi-analytical. Recently, motor types yet to be well understood can be modelled using empirical methods by collecting a vast amount of simulation data and fitting the motor variables and performance onto a set of non-linear equations.
 
 
     % -----------------------------------------------------------------------------------
@@ -614,9 +613,9 @@
     \subsection{Numerical methods}                  \label{Chapter:background/modelling techniques for designing motors/numerical methods}
     
     
-        Mathematically speaking, Maxwell equations are \acsp{PDE}. Numerical methods approximate the \acsp{PDE} into a system of linear equations by discretization of the spatial domain into smaller building blocks. These components are also called meshes, which are often triangular in the case of two-dimensional and tetrahedral for three-dimensional problems. Fine discretization, at the cost of an increase in computation effort, generally gives better results than coarse discretization. Boundary conditions will alter the set of governing equations appropriately. If discretization occurs throughout the body of the materials, this method is referred to as a \ac{FEM} or \ac{FEA}. In case the discretization happens only at the surface of the materials, it is referred to as a \ac{BEM}. 
+        Mathematically speaking, Maxwell's equations are \acsp{PDE}. Numerical methods approximate the \acsp{PDE} into a system of linear equations by discretization of the spatial domain into smaller building blocks. These components are also called meshes, which are often triangular in the case of two-dimensional and tetrahedral for three-dimensional problems. Fine discretization, at the cost of an increase in computation effort, generally gives better results than coarse discretization. Boundary conditions will alter the set of governing equations appropriately. If discretization occurs throughout the body of the materials, this method is referred to as a \ac{FEM} or \ac{FEA}\,\cite{Boglietti2009EvolutionMachines,Huang2009}. In case the discretization happens only at the surface of the materials, it is referred to as a \ac{BEM}\,\cite{Fetter1998TransientCoil,Qaseer2014HybridMotor}. 
         
-        \acs{FEA} is widely used because it can solve complex geometry, include nonlinear material properties and account for coupling between multiple types of physics (thermal, magnetic, mechanical) using nonlinear iterative algorithms. Out of the three categories, the numerical method requires the most computation effort. Often, \acs{FEA} requires too much computational effort to be used directly in optimization. Tuning for a single parameter may take several hours or days, depending on the mesh density. \acs{FEA} is usually used to evaluate the accuracy of analytical and semi-analytical models.
+        \acs{FEA} is widely used because it can solve complex geometry, include nonlinear material properties and account for coupling between multiple types of physics (thermal, magnetic, mechanical) using nonlinear iterative algorithms\,\cite{Sizov2013AutomatedEvolution}. Out of the three categories, the numerical method requires the most computation effort. Often, \acs{FEA} requires too much computational effort to be used directly in optimization. Tuning for a single parameter may take several hours or days, depending on the mesh density. \acs{FEA} is usually used to evaluate the accuracy of analytical and semi-analytical models.
 
     
     % -----------------------------------------------------------------------------------
@@ -625,7 +624,7 @@
     \subsection{Analytical methods}                 \label{Chapter:background/modelling techniques for designing motors/analytical methods}
     
     
-        The most commonly used analytical modeling method is known as \ac{MEC}. Similar to \acs{FEA}, the geometry is discretized. However, the number of elements is much smaller. Prior knowledge of flux distribution is necessary to construct an accurate model. Discretized flux tubes with assumed constant flux distribution are used to simplify the real problem. Instead of finding a direct solution for the Maxwell equations, the flux distribution represented in terms of lumped flux tubes is modelled using electric circuit analogy. Magnetic flux is obtained as a product of given \ac{MMF} due to the magnetic field source.  
+        The most commonly used analytical modeling method is known as \ac{MEC}. Similar to \acs{FEA}, the geometry is discretized. However, the number of elements is much smaller. Prior knowledge of flux distribution is necessary to construct an accurate model. Discretized flux tubes with assumed constant flux distribution are used to simplify the real problem. Instead of finding a direct solution for the Maxwell's equations, the flux distribution represented in terms of lumped flux tubes is modelled using electric circuit analogy. Magnetic flux is obtained as a product of given \ac{MMF} due to the magnetic field source.  
         
         
         \acs{MEC} takes a simple form and very low computational time. Saturation can be taken into account by splitting a soft magnetic object into multiple flux tubes with permanence dependent upon the magnetic field strength through each tube. Effects such as flux leakage and fringing are difficult to take into account because this approach assumes flux enters and leaves solely in the axial direction of the flux tubes. The differences in relative permeability between the regions are usually not taken into account, and relative permeability for air is assumed as unity. For the stated reasons, \acs{MEC} performs poorly in structures with large air gaps or structures with no magnetic bridge (iron) at all\,\cite{DeBoeij2006}. 
@@ -640,13 +639,13 @@
     \subsection{Semi-analytical methods}            \label{Chapter:background/modelling techniques for designing motors/semi-analytical methods}
     
     
-        One of the most popular semi-analytical methods takes the form of \ac{HM}. This approach uses the harmonic series or Fourier series to express the magnetic field formulation in 2D and 3D, based on the theory of transfer relation\,\cite{Melcher1981}. The problem is divided into material regions whose boundaries are orthogonal with axes of the coordinate system. The magnetic potentials in the quasi-Halbach magnet array and poly phase winding can be described in terms of a Fourier series. In each region, the equations for vector or scalar magnetic potential can take the form of Laplace or Poisson equations in Cartesian coordinates\,\cite{Trumper1993,Wang1999}. In cylindrical coordinates, the equation for magnetic potential takes the form of the Bessel function\cite{Gysen2008,Ruddy2011a,Gysen2011a}. Two methods to solve for the magnetic potential are separation of a variable method or Green theorem. The coefficients in magnetic flux density equations, made up of magnetic potential terms are obtained by applying the boundary equations. The magnetic field can then simply be found via the constitutive relationship with magnetic flux density.
+        One of the most popular semi-analytical methods takes the form of \ac{HM}. This approach uses the harmonic series or Fourier series to express the magnetic field formulation in 2D and 3D, based on the theory of transfer relation\,\cite{Melcher1981}. The problem is divided into material regions whose boundaries are orthogonal with axes of the coordinate system. The magnetic potentials in the quasi-Halbach magnet array and poly phase winding can be described in terms of a Fourier series. In each region, the equations for vector or scalar magnetic potential can take the form of Laplace or Poisson equations in Cartesian coordinates\,\cite{Trumper1993,Wang1999}. In cylindrical coordinates, the equation for magnetic potential takes the form of the Bessel function\cite{Gysen2008,Ruddy2011a,Gysen2011a}. The most widely used method to solve for the magnetic potential is separation of variables method. The coefficients in magnetic flux density equations, made up of magnetic potential terms are obtained by applying the boundary equations. The magnetic field can then simply be found via the constitutive relationship with magnetic flux density.
         
         
         This modelling technique is excellent for periodic geometry as in long stroke linear machines. Since long stroke synchronous motors have repeating segments of the same structure, the analysis only needs to be limited to a single wavelength with periodic boundary conditions. The end effect is dealt with separately. \acs{HM} is capable of taking linear material properties into account although iron is often assumed to be infinitely permeable. Models which can account for saturation exist in form or diffusion equation or adopt an iterative method that calculates the magnetic field based on the nonlinear B-H curve. \acs{HM} can compute slower than \acs{MEC} but faster than \acs{FEM}. High accuracy and relatively good speed allow HM approaches to be used directly in multi-variable optimization. Different motor geometry configuration requires a different set of \acsp{PDE} to be solved in order to determine the general solution for the magnetic potential in each spatial region. This is a mathematically rigorous process. In validating solutions to the \acsp{PDE}, the tests are checking for continuity behaviour of underlying magnetic fields, and strong agreement with \acs{FEM} results.
         
         
-        \ac{MCM} is an alternative method resulting from the use of Green’s integrals to solve Maxwell equations. Volume integrals are used to obtain magnetic scalar potential under the assumption that the materials used are current free. It is not possible to model the magnetic field due to current using the scalar potential, and thus reduced scalar potential\,\cite{Gong2009} is introduced for this purpose. The reduced scalar potential is robust and convenient for calculating eddy loss in soft ferromagnetic materials\,\cite{Xu2004,Bowler1987,Rubinacci2004}. Magnetization in permanent magnets is replaced by equivalent surface and volume magnetic charge terms with unit permeability. Only constant permeability on the whole domain is considered. \acs{MCM} has not achieved the level of accuracy that \acs{HM} has.
+        \ac{MCM} is an alternative method resulting from the use of Green’s integrals to solve Maxwell's equations. Volume integrals are used to obtain magnetic scalar potential under the assumption that the materials used are current free. It is not possible to model the magnetic field due to current using the scalar potential, and thus reduced scalar potential\,\cite{Gong2009} is introduced for this purpose. The reduced scalar potential is robust and convenient for calculating eddy loss in soft ferromagnetic materials\,\cite{Xu2004,Bowler1987,Rubinacci2004}. Magnetization in permanent magnets is replaced by equivalent surface and volume magnetic charge terms with unit permeability. Only constant permeability on the whole domain is considered. \acs{MCM} has not achieved the level of accuracy that \acs{HM} has.
         
     
     % -----------------------------------------------------------------------------------
