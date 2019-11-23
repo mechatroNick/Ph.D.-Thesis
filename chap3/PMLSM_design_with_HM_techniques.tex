@@ -1,10 +1,10 @@
 \chapter{\acsp{LSDDM} design with a Harmonics Modelling}   \label{Chapter:PMLSM design HM}
 
 
-    Previously explored by Ruddy et al. \cite{Ruddy2015}, \acsp{PMLSM} or more precisely tubular, slotless, permanent magnet excited, longitudinal flux, and linear 3-phase motors have shown superior potential when compared to \acsp{VCM} in \acs{NFJI} applications. The scaling laws for \acsp{PMLSM} allow the overall system to operate at a magnitude higher efficiency. The potential of a better actuator for \acs{NFJI} has been proven with \acsp{PMLSM}, accompanied with computationally efficient, exact semi-analytical magnetic field \acsp{HM} solutions. However, a large efficiency gain is only possible if the total length of the motor is allowed to be very long which will be impractical for fitting into an actual injector device. An appropriate optimization scheme with the necessary constraints will be required to not only realize a practical actuator for an \acs{NFJI} but be flexible enough to compare with other types of \acsp{LSDDM} in existence.
-    
-    
-    This chapter considers the requirements tailored to \acsp{NFJI} to describe a modified design of \acs{PMLSM} from that already presented in \cite{Ruddy2015}. Then, an universal optimization scheme for \acsp{LSDDM} with fixed maximum motor length, motor mass, and input power dissipation is presented. This optimization method helps determine a \acs{PMLSM} motor design that will produce the fastest water jet injection velocity with the given constraints. 
+    From the previous chapter, it was pointed out that the scaling laws for \acsp{PMLSM} allow the overall \acs{NFJI} system to operate at a much higher efficiency when compared to \acs{VCM}. \acsp{PMLSM} or more precisely tubular, slotless, permanent magnet excited, longitudinal flux, and linear 3-phase motors have shown superior potential when compared to \acsp{VCM} in \acs{NFJI} applications\,\cite{Ruddy2015}. This chapter considers the requirements tailored to \acsp{NFJI} to describe a modified design of the present \acs{PMLSM} . 
+
+
+    The potential of a better actuator for \acs{NFJI} has been proven with \acsp{PMLSM}, accompanied with computationally efficient, exact semi-analytical magnetic field \acsp{HM} solutions. However, a large efficiency gain is only possible if the total length of the motor is allowed to be very long which will be impractical for fitting into an actual injector device. An appropriate optimization scheme with the necessary constraints will be required to not only realize a practical actuator for an \acs{NFJI} but be flexible enough to compare with other types of \acsp{LSDDM} in existence. To address this challenge, an universal optimization scheme for \acsp{LSDDM} with fixed maximum motor length, motor mass, and input power dissipation is required. This optimization method helps determine a \acs{PMLSM} motor design that will produce the fastest water jet injection velocity with the given constraints. 
 
 
 % ===================================================================================================
@@ -27,7 +27,7 @@
         \end{figure*}
 
 
-        Ignoring resistance due to fluid viscosity and atmospheric pressure, due to Bernoulli's equation for an incompressible and steady fluid flow, the actuator force $F$ and jet speed $v_{jet}$ have the following relationship:
+        Ignoring resistance due to fluid viscosity, due to Bernoulli's equation for an incompressible and steady fluid flow, the actuator force $F$ and jet speed $v_{jet}$ have the following relationship:
         
         
         \begin{equation}
@@ -54,7 +54,7 @@
         \end{equation}
         
         
-        Typically the application determines $\rho$, $V$, $v$, and $L_s$ (or $D$). Thus, either motor mass $M$ must be fixed to search for a motor with the optimum power consumption $P$, or $P$ must be fixed to find a motor with the optimum motor mass.
+        Typically the application determines $\rho$, $V$, $v$, and $L_s$ (or $D$). Thus, either motor mass $M$ must be fixed to search for a motor with the optimum power consumption $P$, or $P$ must be fixed to find a motor with the minimum motor mass.
 
 
     % -----------------------------------------------------------------------------------
@@ -282,13 +282,13 @@
             \item The motor is powered by a single \acs{LSDDM}, regardless of which type,
             \item The device needs to deliver $1\,\mathrm{mL}$ of volume of fluid with a $200\,\mathrm{\mu m}$ nozzle outlet,
             \item The maximum power consumption allowed is $P=1500\,\mathrm{W}$,
-            \item The benchmark weighs for the motor optimization will be $325\,\mathrm{g}$, $350\,\mathrm{g}$, $375\,\mathrm{g}$, $400\,\mathrm{g}$, and $425\,\mathrm{g}$,
+            \item The benchmark weights for the motor optimization will be $325\,\mathrm{g}$, $350\,\mathrm{g}$, $375\,\mathrm{g}$, $400\,\mathrm{g}$, and $425\,\mathrm{g}$,
             \item The total length of the motor will be between $120\,\mathrm{mm}$ and $160\,\mathrm{mm}$,
             \item The total length of all coil phases ($N_C=1,2,3...$) will be between between $50\,\mathrm{mm}$ and $90\,\mathrm{mm}$.
         \end{itemize}
         
         
-        The target volume $1\mathrm{mL}$ is standard to many macro-molecule drug formulations. The motor weighs between $325\,\mathrm{g}$ and $425\,\mathrm{g}$ is the range for a comfortable handheld device. The power level is decided to be within the capability of practical self-contained power sources such as Texas Instrument's $\mathrm{TMDSHVMTRPFCKIT}$ or ST Microelectronics' $\mathrm{STEVAL-IHM028V2}$. As mentioned in Section\,\ref{Chapter:background/needle-free jet injection/how it works}, the jet minimum jet speed required to puncture the skin is $100\,\mathrm{m/s}$. 
+        The target volume $1\mathrm{mL}$ is standard to many macro-molecule drug formulations\,\cite{Hogan2015a}. Between $325\,\mathrm{g}$ and $425\,\mathrm{g}$ in weight is the ideal range for a comfortable handheld device. The power level is decided to be within the capability of practical self-contained power sources such as Panasonic Industrial's $\mathrm{	MDDHT5540E}$ or Omron Automation' $\mathrm{3G3MX2-A4015-V1}$. As mentioned in Section\,\ref{Chapter:background/needle-free jet injection/how it works}, the jet minimum jet speed required to puncture the skin is $100\,\mathrm{m/s}$. 
         
         
         This set of common design criteria will allow for a common optimization scheme that attempts to find the motor configuration with the highest achievable jet velocity across different types of \acsp{LSDDM}. The following content in this chapter and Chapter\,\ref{Chapter:PMLSM design RSM} will demonstrate that the implementation for each type of \acsp{LSDDM} studied by this thesis has to be adapted to the motor's unique characteristic.
@@ -443,25 +443,10 @@
         The global optimization of \acs{PMLSM} for the problem described in Equation\,\ref{eq:outer optimization for PMLSMs} at different mass constraints $M_0=[325,350,375,400,425]\,\mathrm{g}$ is summarized in Table\,\ref{table:result for global optimization of PMLSM via HM method}.
             
             
-        Taking an example for the global optimization of constraints set $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$, $M_0=325\,\mathrm{g}$ on the search space of $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm}$, and $L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$, we found an under-hung motor with $N_C=4$, $N_M=12$, $L_k=26.5\,\mathrm{mm}$, $r_{mi}=2\,\mathrm{mm}$, $t_m=6.15\,\mathrm{mm}$, $t_c=3\,\mathrm{mm}$, $\delta=0.30$. The motor is able to theoretically produce $246.64\,\mathrm{N}$ at the rated power, which corresponds to a motor constant $K_m=6.37\,\mathrm{N/\sqrt{W}}$ and peak jet speed $v_{jet}=228.92\,\mathrm{m/s}$. The typical motor constant of \acsp{PMLSM} far exceeds the typical motor constant achieved by \acsp{VCM}\,\cite{ruddy2014}. The achievable jet speed $v_{jet}$ is beyond what is required for a successful needle free injection.
+        Taking an example for the global optimization of constraints set $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$, $M_0=325\,\mathrm{g}$ on the search space of $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm}$, and $L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$, we found an under-hung motor with $N_C=4$, $N_M=12$, $L_k=26.5\,\mathrm{mm}$, $r_{mi}=2\,\mathrm{mm}$, $t_m=6.15\,\mathrm{mm}$, $t_c=3\,\mathrm{mm}$, $\delta=0.30$. The motor is able to theoretically produce $246.64\,\mathrm{N}$ at the rated power, which corresponds to a motor constant $K_m=6.37\,\mathrm{N/\sqrt{W}}$ and peak jet speed $v_{jet}=228.92\,\mathrm{m/s}$. The motor constant achieved by an optimized \acsp{VCM} of similar weight constraint is $3.6\,\mathrm{N/\sqrt{W}}$\,\cite{ruddy2014}. Even with additional lengths constraint is in place, \acs{PMLSM} still outperforms \acs{VCM} in power efficiency. The achievable jet speed $v_{jet}$ is beyond what is required for a successful needle free injection.
             
             
-        According to Equation\,\ref{eq:power dissipation for PMLSMs}, and provided that $P$, $\rho_w$, $K_m$, $L_S$ are unchanged:
-            
-            
-        \begin{equation}
-            v_{jet}\propto\frac{1}{\sqrt{V}}
-            \label{eq:v_jet and V}
-        \end{equation}
-            
-            
-        \begin{equation}
-            V_{new}={\bigg(\frac{v_{jet:old}}{v_{jet:new}} \bigg)}^2 V_{old}
-            \label{eq:v_jet and V ratio}
-        \end{equation}
-        
-        
-        \begin{landscape}
+            \begin{landscape}
                 \begin{table}
                     \renewcommand{\arraystretch}{1.2}
                     \caption{Summary of motor design optimization values and performance using \acs {HM} method}
@@ -501,10 +486,7 @@
             \end{landscape}
             
             
-        If we now choose to adjust the ampoule cross-sectional area to reduce the peak jet speed $v_{jet}$ to $200\,\mathrm{m/s}$, the maximum volume $V$ of drug delivery can now be $V_{new}=1.31\,\mathrm{mL}$. 
-            
-            
-        \begin{figure*}
+        \begin{figure}[!ht]
             \centering
             \subfloat[$M_0=325\,\mathrm{g}$. Global optimum found at $L_{C0}=53\,\mathrm{mm}$, $L_{C0}=160\,\mathrm{mm}$, $N_C=4$, and $N_M=12$.
             ]{
@@ -539,10 +521,34 @@
             \caption{
                 The global optimization plots of $v_{jet}$ for the search space $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm} \times L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$ using $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$,  and $M_0$ of: (a) $325\,\mathrm{g}$, (b) $350\,\mathrm{g}$, (c) $375\,\mathrm{g}$, (d) $400\,\mathrm{g}$, and (e) $425\,\mathrm{g}$.
             }   \label{fig:chapter/hm/optimization search space result for differnt mass}
-        \end{figure*}
+        \end{figure}
+        
             
-        As expected, the more relaxed the mass constraint $M_0$, the higher the achievable jet speed $v_{jet}$ can be. Globally optimized motors at mass constraints $M_0$ of $350\,\mathrm{g}$, $350\,\mathrm{g}$, $375\,\mathrm{g}$, $400\,\mathrm{g}$, and $425\,\mathrm{g}$ can produce $v_{jet}$ of $229\,\mathrm{m/s}$, $234\,\mathrm{m/s}$, $240\,\mathrm{m/s}$, $245\,\mathrm{m/s}$, and $250\,\mathrm{m/s}$, respectively. Fig.\,\ref{fig:chapter/hm/optimization search space result for differnt mass} provides global optimization plots of $v_{jet}$ for the search space $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm} \times L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$ using $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$,  and $M_0=[325,350,375,400,425]\,\mathrm{g}$. Although the 2D contour patterns appear similar across the different plots, the color shade gradually gets darker with easier mass constraints $M_0$, indicating an increase in the motor performance.
+        According to Equation\,\ref{eq:power dissipation for PMLSMs}, and provided that $P$, $\rho_w$, $K_m$, $L_S$ are unchanged:
             
+            
+        \begin{equation}
+            v_{jet}\propto\frac{1}{\sqrt{V}}
+            \label{eq:v_jet and V}
+        \end{equation}
+            
+            
+        \begin{equation}
+            V_{new}={\bigg(\frac{v_{jet:old}}{v_{jet:new}} \bigg)}^2 V_{old}
+            \label{eq:v_jet and V ratio}
+        \end{equation}
+        
+        
+
+            
+            
+        If we now choose to adjust the ampoule cross-sectional area to reduce the peak jet speed $v_{jet}$ to $200\,\mathrm{m/s}$, the maximum volume $V$ of drug delivery can now be $V_{new}=1.31\,\mathrm{mL}$. 
+            
+            
+        As expected, the more relaxed the mass constraint $M_0$, the higher the achievable jet speed $v_{jet}$ can be. Globally optimized motors at mass constraints $M_0$ of $350\,\mathrm{g}$, $350\,\mathrm{g}$, $375\,\mathrm{g}$, $400\,\mathrm{g}$, and $425\,\mathrm{g}$ can produce $v_{jet}$ of $229\,\mathrm{m/s}$, $234\,\mathrm{m/s}$, $240\,\mathrm{m/s}$, $245\,\mathrm{m/s}$, and $250\,\mathrm{m/s}$, respectively. Fig.\,\ref{fig:chapter/hm/optimization search space result for differnt mass} provides global optimization plots of $v_{jet}$ for the search space $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm} \times L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$ using $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$,  and $M_0=[325,350,375,400,425]\,\mathrm{g}$. 
+        
+        Although the 2D contour patterns appear similar across the different plots, the color shade gradually gets darker with easier mass constraints $M_0$, indicating an increase in the motor performance as the response to easing the mass constraint. The ring patterns of the optimization search space contour plot appears non-convex with many steps and sudden changes. This is due the rounding operation such as $ceil$ and $floor$ on the number of armature and secondary repeats $N_C$, and $N_M$. It is also worth noticing that the optimums are found closed to the edge the $L_{M0} \times L_{C0}$ search space. This means that the performance of the optimum motor configurations found are limited by the constraints placed. In the case that the optimization constraints could be relaxed, a marginal performance gain would be realized. 
+
 
     % ===================================================================================================
     % === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
