@@ -1,15 +1,15 @@
 \chapter{Experimental realization and validation}   \label{Chapter:experiment}
     
     
-    Previously, Chapter\,\ref{Chapter:PMLSM design RSM} has compared and contrasted the suitability of \acf{PMLSM}, \acf{LFSM}, and \acf{LTFM} for \acf{NFJI} application. The evidence gathered indicates that \acs{PMLSM} out-perform \acs{LFSM} and \acs{LTFM} for the application described in Section\,\ref{Chapter:PMLSM design HM/design optimization/design citeria}. To move forward, there requires additional work to refine and prototype a \acs{PMLSM} in order demonstrate the superior performance of permanent magnet synchronous motor in \acs{NFJI} applications when compared to \acfp{VCM}.  
+    Previously, Chapter\,\ref{Chapter:PMLSM design RSM} has compared and contrasted the suitability of \acf{PMLSM}, \acf{LFSM}, and \acf{LTFM} for \acf{NFJI} application. The evidence gathered indicates that \acs{PMLSM} out-perform \acs{LFSM} and \acs{LTFM} for the application described in Section\,\ref{Chapter:PMLSM design HM/design optimization/design citeria}. To move forward, there requires refinement and prototyping work in order demonstrate the superior performance of \acsp{PMLSM} in \acs{NFJI} applications when compared to \acfp{VCM}.  
     
     
 % ===================================================================================================
 % === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
 % ===================================================================================================
-\section{Requirements}                              \label{Chapter:experiment/requirements}
+\section{New requirements}                          \label{Chapter:experiment/requirements}
     
-    To recall, the optimization problem translated from the requirement set in Section\,\ref{Chapter:PMLSM design HM/design optimization/design citeria} has the objective of finding a motor configurations that produces the highest jet velocity $v_{jet}$ given the power input $P$, the drug ampoule volume $V$, the motor mass $M$, and the total motor length $L_{motor}$. While being suitable for determining the best type of motor for \acs{NFJI} under some practical constraints, this optimization problem set does not aim to find the lightest motor that can produce \acsp{NFJI} at a fixed jet velocity $v_{jet}$. Therefore, there requires a problem set that is more appropriate for finding the lightest motor configuration capable of providing jet injections with a fixed volume $V$ and a fixed jet speed $v_{jet}$. This new requirement set demands:
+    To recall, the optimization problem translated from the requirement set in Section\,\ref{Chapter:PMLSM design HM/design optimization/design citeria} has the objective of finding a motor configuration that produces the highest jet velocity $v_{jet}$ given the power input $P$, the drug ampoule volume $V$, the motor mass $M$, and the total motor length $L_{motor}$. While being suitable for determining the best type of motor for \acs{NFJI} under some practical constraints, this optimization problem set does not aim to find the lightest motor that can produce \acsp{NFJI} at a fixed jet velocity $v_{jet}$. Therefore, we needed a problem description that is more appropriate for finding the lightest motor configuration capable of providing jet injections with a fixed volume $V$ and a fixed jet speed $v_{jet}$. This new requirement set demands:
     
     
     \begin{itemize}
@@ -28,18 +28,68 @@
 % ===================================================================================================
 \section{Design concept}                              \label{Chapter:experiment/design concept}
 
-
-
-    The mechanical design concept required the Halbach magnet array to fit inside a thin tube of austenitic stainless steel, which in turn, slides against plastic bearings. Due to the availability of parts, we constrained $r_{mo}=7.8\,\mathrm{mm}$ to allow the use of thin stainless steel tubing of $16\,\mathrm{mm}$ outside diameter. Furthermore, we chose to use standard precision austenitic stainless steel rods to reduce the machining work for the piston. Working back from the required volume $V$, the minimum stroke length $L_s$ is $140\,\mathrm{mm}$, $80\,\mathrm{mm}$, and $50\,\mathrm{mm}$ for piston diameter or ampoule inner diameter of $3\,\mathrm{mm}$, $4\,\mathrm{mm}$, and $5\,\mathrm{mm}$, respectively. Fig.\,\ref{fig:chap/experiment/PMLSM render} shows a render of the mechanical design concept for the prototype \acs{PMLSM}. 
+    
+    
+    The most basic components of a \acs{PMLSM} consists of the magnet array and the coil winding in individual phases, as shown in Fig.\,\ref{fig:chap/experiment/design concept/magnet_coil_iron}. The mechanical design concept requires the Halbach magnet array to fit inside a thin tube of austenitic stainless steel like in Fig.\,\ref{fig:chap/experiment/design concept/magnet_stainlessSteelTube}. The magnet array is enclosed inside the stainless steel because the surface of the tube is used as a low-friction sliding contact for the moving armature assembly. The moving armature assembly includes the coil windings, a cylindrical bobbin made out of PEEK, phase winding terminals, an winding terminal end cap, the iron shell, linear plastic bearings, as well as a translator end cap to attach the drug ampoule piston rod with o-rings for water tight sealing.  Fig.\,\ref{fig:chap/experiment/design concept/bobbin_iron_coil_piston.pdf} and \ref{fig:chap/experiment/design concept/moving_mechanism.pdf} render the moving armature assembly and how it placed in the hand-piece device. 
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=3.8in]{chap5/images_concept/magnet_coil_iron.pdf}
+        \caption{Render of the core elements for a PMLSM: the coil winding array, the magnet array, and the iron shell.}
+        \label{fig:chap/experiment/design concept/magnet_coil_iron}
+    \end{figure}
     
     
     \begin{figure}[h]
         \centering
-        \includegraphics[width=5in]{chap5/images/PMLSM_render.pdf}
-        \caption{Cut-away view of the optimized motor and jet injector design, showing the bobbin and coil riding on linear plastic bearings along the magnet array, as well as the supporting structure, piston, and drug ampoule.}
-        \label{fig:chap/experiment/PMLSM render}
+        \includegraphics[width=4.2in]{chap5/images_concept/magnet_stainlessSteelTube.pdf}
+        \caption{The magnet array is fitted inside a thin stainless steel tube with polished surface for minimum friction.}
+        \label{fig:chap/experiment/design concept/magnet_stainlessSteelTube}
     \end{figure}
     
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=3.3in]{chap5/images_concept/bobbin_iron_coil_piston.pdf}
+        \caption{The moving armature assembly: coil windings, PEEK bobbin, phase terminals, plastic bearings, terminal end cap, translator end cap, and the drug piston rod with o-rings for water tight sealing.}
+        \label{fig:chap/experiment/design concept/bobbin_iron_coil_piston.pdf}
+    \end{figure}
+    
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=5in]{chap5/images_concept/moving_mechanism.pdf}
+        \caption{The stainless steel tube, the bobbin and the linear plastic bearings facilitate the sliding mechanism.}
+        \label{fig:chap/experiment/design concept/moving_mechanism.pdf}
+    \end{figure}
+    
+    
+    As illustrated by Fig.\,\ref{fig:chap/experiment/design concept/magnet_stainlessSteelTube_endCap}, on two ends of the magnet tube, there are two enclosing reinforcement end caps held together by a threaded rod, nylon spacers (not shown), and tightened nuts (not shown). Together with the middle support plate and the nine support rods all made out of aluminium, the drug ampoule and nozzle are held precisely parallel with the core \acs{PMLSM} parts in Fig.\,\ref{fig:chap/experiment/design concept/magnetAssembly_supportStructure}. This design concept allows the total length of the motor to be shorter than placing drug ampoule in line with the magnet and armature assemblies. Now the actual length of the magnet array can be longer, which allows for higher performance motor designs. The support parts and the magnet end caps allow the whole motor structure to be extremely resilient against the axial moment left as translator end cap pushes the piston rod. Lastly, the frame of the motor incorporates a linear slide potentiometer as a position sensor, and a slide guide to couple the position of the armature assembly to the position of the slide knob. A cut view of the whole hand-piece is presented in Fig.\,\ref{fig:chap/experiment/design concept/full_cut_view_of_motor}.
+    
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=4in]{chap5/images_concept/magnet_stainlessSteelTube_endCap.pdf}
+        \caption{The magnet array is held in place by end caps, a threaded rod, nylon spacers (hidden), and tightening nuts on each end (hidden).}
+        \label{fig:chap/experiment/design concept/magnet_stainlessSteelTube_endCap}
+    \end{figure}
+    
+ 
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=3in]{chap5/images_concept/magnetAssembly_supportStructure.pdf}
+        \caption{The magnet assembly, support structure and the drug ampoule assembly.}
+        \label{fig:chap/experiment/design concept/magnetAssembly_supportStructure}
+    \end{figure}
+    
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=4.5in]{chap5/images_concept/full_cut_view_of_motor.pdf}
+        \caption{Cut view of the PMLSM hand-piece for high volume NFJI.}
+        \label{fig:chap/experiment/design concept/full_cut_view_of_motor}
+    \end{figure}
+
 
 % ===================================================================================================
 % === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
@@ -47,7 +97,13 @@
 \section{Optimization}                              \label{Chapter:experiment/optimization}
 
 
-    Based upon our previous development of power systems for jet injection \cite{Ruddy2017}, it was determined that the power electronics could support $1200\,\mathrm{W}$ of nominal motor power, with adequate margins, and with this new requirement, we focus on simultaneously minimizing the mass of the motor that would meet all the requirements. Since the number of half magnet-phase $N_M$ and half coil-phase $N_C$ were the only parameters subjected to integer constraints, each pair of $N_M$ and $N_C$ was treated as an independent non-linear optimization problem. In order to find a solution for this mixed-integer optimization problem, we used a method that can be divided into an outer optimization loop and an inner optimization routine. Fig.\,\ref{fig:chap/experiment/optimization/illustraion of algo} summarizes and illustrates the optimization algorithm. The optimization problem is summarized as below:
+    With the new set of design requirements established in Section\,\ref{Chapter:experiment/requirements}, an optimization scheme more suitable for finding the lightest motor with a list of fixed performance characteristics was realized. Based upon our previous development of power systems for jet injection \cite{Ruddy2017}, it was determined that the power electronics could support $1200\,\mathrm{W}$ of nominal motor power, with adequate margins, and with this new requirement, we focus on simultaneously minimizing the mass of the motor that would meet all the requirements. Since the number of half magnet-phase $N_M$ and half coil-phase $N_C$ were the only parameters subjected to integer constraints, each pair of $N_M$ and $N_C$ was treated as an independent non-linear optimization problem. In order to find a solution for this mixed-integer optimization problem, we used a method that can be divided into an outer optimization loop and an inner optimization routine.
+    
+    
+    In a bird's eye view, the outer optimization loop executes a strategic repetition of the inner optimization routine. The inner optimization routine searches for the most power-efficient motor configuration at each given $N_{Mi}$, $N_{Ci}$, and $M_i$. The inner optimization problem is convex, and readily converges to a solution. The outer loop performs a grid search across a localized region in the ($N_M$, $N_C$) space, repeated around the optimum point until that optimum lies in the center of the search grid. This approach overcomes an observed lack of local convexity in terms of $N_M$ and $N_C$, by using a larger search grid than the scale of the non-convexity. This means that the program can gradually approach the best combination of $N_M$ and $N_C$ without getting stuck in numerous local minima. 
+    
+    
+    Fig.\,\ref{fig:chap/experiment/optimization/illustraion of algo} summarizes and illustrates the optimization algorithm. The optimization problem is summarized as below:
     
     
     \begin{equation}
@@ -71,9 +127,6 @@
         \caption{Summary of the top-level motor optimization algorithm and inner optimization routine. The algorithm uses motor specifications $V$, $v$, $L_s$, and $P_{desired}$ to determine the motor parameters $L_k$, $r_mi$, $t_m$, $t_c$, $\delta$, $N_C$, $N_M$ and motor mass\,$M$ at which all specifications are satisfied.}
         \label{fig:chap/experiment/optimization/illustraion of algo}
     \end{figure*}
-    
-    
-    In a bird's eye view, the outer optimization loop executes a strategic repetition of the inner optimization routine. The inner optimization routine searches for the most power-efficient motor configuration at each given $N_{Mi}$, $N_{Ci}$, and $M_i$. The inner optimization problem is convex, and readily converges to a solution. The outer loop performs a grid search across a localized region in the ($N_M$, $N_C$) space, repeated around the optimum point until that optimum lies in the center of the search grid. This approach overcomes an observed lack of local convexity in terms of $N_M$ and $N_C$, by using a larger search grid than the scale of the non-convexity. This means that the program can gradually approach the best combination of $N_M$ and $N_C$ without getting stuck in numerous local minima. 
     
     
     In the very first round, the outer optimization routine first chooses an initial mass $M_0 = m_0$ and starts searching for the most power efficient motor that it can possibly achieve in the grid of $(N_M:0\rightarrow9)\times (N_C:0\rightarrow9)$. Each execution of outer optimization loop runs at most a hundred inner optimizations at a time in each grid search of $\left(N_{M:start}\rightarrow N_{M:start}+9\right)\times\left(N_{C:start}\rightarrow N_{C:start}+9\right)$, excluding overhung configurations (when $N_C \geq N_M$). After each grid search, the outer optimization loop identifies the most power efficient motor configuration so far to obtain the period numbers $N_{M\beta}$, $N_{C\beta}$. The search stops once this motor configuration with power consumption $P$ is found to be near enough to the desired power. If this motor configuration has not met the power requirement, the next grid search takes $N_{M\beta}$, $N_{C\beta}$ as its new center for the next grid search ($N_{M:start}=N_{M\beta}-5$, $N_{C:start}=N_{C\beta}-5$), and the $M_i$ set point in the outer optimization is increased by a small amount ($M_i=M_{i-1}+\mathrm{small\,increment}$). In this approach, the mass $M$ allowed in the motor search is increasing, while the power consumption $P$ of motor configurations found by inner optimization is decreasing to approach the desired power. 
@@ -108,7 +161,18 @@
     \end{table}
     
     
-    We set the clearance gap between the magnet and coil $gap_{mc}\equiv r_{ci}-r_{mo} = 1.3\,\mathrm{mm}$, higher than the previously established value of $1.2\,\mathrm{mm}$,  to facilitate extra rigidity for the bobbin shell, and the gap between coil and back-iron $gap_{cf}\equiv r_{fi}-r_{co} = 0.1\,\mathrm{mm}$ to increase ease of assembly. Table~\ref{table:chap/experiment/table of optimization value ranges} summarizes the optimization constraints for the desired motor configuration. To reduce coupling between the radial dimensions, the thicknesses of the coil $t_c = r_{co} - r_{ci}$ and of the magnets $t_m = r_{mo} - r_{mi}$ were used in the optimization, instead of $r_{co}$ and $r_{mo}$. The five parameters for optimization were $L_k$, $r_{mi}$, $t_m$, $t_c$, and $\delta$. The parameters were also subjected to additional constraints: a minimum copper thickness of $\operatorname{Min}(t_c) = 4\,\mathrm{mm}$ to guarantee the structural integrity of the bobbin, outer magnet radii $r_{mo} = t_m + r_{mi} = 7.8\,\mathrm{mm}$ as noted above, a minimum inner magnet radius $\operatorname{Min}(r_{mi} ) = 2\,\mathrm{mm}$ to allow for structural support through the center of the magnet array, and minimum period length $\operatorname{Min}(L_k) = 12\,\mathrm{mm}$ to make coil winding more practical. 
+    Due to the availability of parts, we constrained $r_{mo}=7.8\,\mathrm{mm}$ to allow the use of thin stainless steel tubing of $16\,\mathrm{mm}$ outside diameter. Furthermore, we chose to use standard precision austenitic stainless steel rods to reduce the machining work for the piston. Working back from the required volume $V$, the minimum stroke length $L_s$ is $140\,\mathrm{mm}$, $80\,\mathrm{mm}$, and $50\,\mathrm{mm}$ for piston diameter or ampoule inner diameter of $3\,\mathrm{mm}$, $4\,\mathrm{mm}$, and $5\,\mathrm{mm}$, respectively.
+    
+    
+    We set the clearance gap between the magnet and coil $gap_{mc}\equiv r_{ci}-r_{mo} = 1.3\,\mathrm{mm}$, higher than the previously established value of $1.2\,\mathrm{mm}$,  to facilitate extra rigidity for the bobbin shell, and the gap between coil and back-iron $gap_{cf}\equiv r_{fi}-r_{co} = 0.1\,\mathrm{mm}$ to increase ease of assembly. Table~\ref{table:chap/experiment/table of optimization value ranges} summarizes the optimization constraints for the desired motor configuration. To reduce coupling between the radial dimensions, the thicknesses of the coil $t_c = r_{co} - r_{ci}$ and of the magnets $t_m = r_{mo} - r_{mi}$ were used in the optimization, instead of $r_{co}$ and $r_{mo}$. The five parameters for optimization were $L_k$, $r_{mi}$, $t_m$, $t_c$, and $\delta$. The parameters were also subjected to additional constraints: a minimum copper thickness of $\operatorname{Min}(t_c) = 4\,\mathrm{mm}$ to guarantee the structural integrity of the bobbin, outer magnet radii $r_{mo} = t_m + r_{mi} = 7.8\,\mathrm{mm}$ as noted above, a minimum inner magnet radius $\operatorname{Min}(r_{mi} ) = 2\,\mathrm{mm}$ to allow for structural support through the center of the magnet array, and minimum period length $\operatorname{Min}(L_k) = 12\,\mathrm{mm}$ to make coil winding more practical. A visualization for dimensions $t_c$, $t_m$, $gap_{cf}$, and $gap_{mc}$ are shown in Fig.\,\ref{fig:chap/experiment/design concept/additional_dimensions}.
+    
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=5.6in]{chap5/images_concept/additional_dimensions.pdf}
+        \caption{Coil thickness $t_c$, magnet thickness $t_m$, coil to iron gap $gap_{cf}$, and magnet to coil gap $gap_{mc}$ are shown.}
+        \label{fig:chap/experiment/design concept/additional_dimensions}
+    \end{figure}
     
     
     To gauge the performance of each motor design, the computation method outlined in Section \ref{Chapter:PMLSM design HM/electromagnetic model} is employed. The inner optimization routine uses constrained nonlinear multi-variable optimization based on the interior point algorithm (MATLAB Optimization Toolbox) to minimize power dissipation $P$, calculated via \eqref{eq:power dissipation for PMLSMs}, \eqref{eq:K_m}, and \eqref{eq:K_m dimless}. Many inner optimizations will be completed before the program can find the suitable motor. Across the inner optimization rounds, the following constraints are used: 
@@ -194,8 +258,6 @@
     
 
     The chosen motor configuration consists of four half-coil-poles with the minimum back-iron length $L_f = 64\,\mathrm{mm}$. The automation script swept for extra back-iron lengths of $\lambda = 0 \rightarrow 32\,\mathrm{mm}$, with increment of $\operatorname d\lambda = 0.5\,\mathrm{mm}$, over the entire stroke length of $\Delta = 0 \rightarrow 80\,\mathrm{mm}$, with increment of $\operatorname d\Delta = 0.5\,\mathrm{mm}$. We chose the back-iron tube length to be $L_f = 71\,\mathrm{mm}$ for having the least peak to peak cogging force $\operatorname{Max}(F_C) - \operatorname{Min}(F_C ) = 4.07\,\mathrm{N}$. The chosen back-iron length of $L_f = 71\,\mathrm{mm}$ reduces cogging force $71.5\,\%$ compared to the minimal choice of $L_f = L_C = 64\,\mathrm{mm}$, as shown in  Fig.~\ref{fig:chap/experiment/cogging/Cogging_sweep_FEA}. With a maximum FEA axis-xymmetric grid size of $0.5\,\mathrm{mm}$, the whole process took $14$\,hours on an Intel i7 - 4970 CPU.
-    
-
 
 
 % ===================================================================================================
@@ -210,7 +272,15 @@
         \subsection{Construction}                   \label{Chapter:construction}
         
         
-            Based upon the results of these optimizations obtained summarized in Table\,\ref{table:chap/validation/construction/final_motor_design_params}, we constructed a prototype motor and jet injector structure as shown in Fig.\,\ref{fig:chap/experiment/validation/construction/overall_construction}. In this prototype, each phase coil was wound using $180$ turns of $28.5\,\mathrm{AWG}$ wire; four coils were joined in series to form each phase, with a phase resistance of $11.6\,\Omega$. The back-iron was provided with a $2\,\mathrm{mm}$ slit to facilitate electrical connection; narrow slits of this sort have been shown to have negligible effect on motor performance, and may have advantageous effects in reducing eddy currents\,\cite{Meessen2009}. In this initial prototype, a back-iron length of $79\,\mathrm{mm}$ was chosen, so as to explore the properties of a high-cogging-force regime, as well as the optimal length of $71\,\mathrm{mm}$.
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=5in]{chap5/images/PMLSM_render.pdf}
+                \caption{Cut-away view of the optimized motor and jet injector design, showing the bobbin and coil riding on linear plastic bearings along the magnet array, as well as the supporting structure, piston, and drug ampoule.}
+                \label{fig:chap/experiment/PMLSM render}
+            \end{figure}
+                
+        
+            Based upon the results of these optimizations obtained summarized in Table\,\ref{table:chap/validation/construction/final_motor_design_params}, we constructed a prototype motor and jet injector structure as shown in Fig.\,\ref{fig:chap/experiment/validation/construction/overall_construction}. In this prototype, each phase coil was wound using $180$ turns of $28.5\,\mathrm{AWG}$ wire; four coils were joined in series to form each phase, with a phase resistance of $11.6\,\Omega$. The back-iron was provided with a $2\,\mathrm{mm}$ slit to facilitate electrical connection; narrow slits of this sort have been shown to have negligible effect on motor performance, and may have advantageous effects in reducing eddy currents\,\cite{Meessen2009}. Fig.\,\ref{fig:chap/experiment/PMLSM render} shows a render of the mechanical design concept for the prototype \acs{PMLSM} with the optimized dimensions. In this initial prototype, a back-iron length of $79\,\mathrm{mm}$ was chosen, so as to explore the properties of a high-cogging-force regime, as well as the optimal length of $71\,\mathrm{mm}$.
         
         
             \begin{table}[h]
@@ -270,7 +340,7 @@
         \subsection{Motor constant measurement}     \label{Chapter:experiment/validation/motor constant}
         
             
-            The motor constant was evaluated by measurement of the phase back-EMF during the externally-induced motions were applied on the armature mover. The phase voltage constant measurements for each of the three phases are plotted on Fig.~\ref{fig:chap/experiment/motor_constant/kms_plot}, with the phases connected in a wye topology. A load cell (Futek LCM300, $250\,\mathrm{lb.}$ capacity) was used to simultaneously determine the cogging force exhibited by the prototype. 
+            The motor constant was evaluated by measurement of the phase back-EMF during the externally-induced motion was applied on the armature mover. The phase voltage constant measurements for each of the three phases are plotted on Fig.~\ref{fig:chap/experiment/motor_constant/kms_plot}, with the phases connected in a wye topology. A load cell (Futek LCM300, $250\,\mathrm{lb.}$ capacity) was used to simultaneously determine the cogging force exhibited by the prototype. 
 
         
             \begin{figure}[h]
@@ -382,7 +452,16 @@
         \section{Discussion}                     \label{Chapter:experiment/validation/discussion}
         
         
-        To summarize, this work utilized the modeling method presented in Chapter\,\ref{Chapter:PMLSM design HM} and a new optimization methodology to find a globally optimized motor configuration for NFJI that is complemented by an iron length that produces the minimal amount of cogging. The motor was designed to deliver $1\,\mathrm{mL}$ NFJIs, at rated motor speed of $0.5\,\mathrm{m/s}$, rated force of $250\,\mathrm{N}$, and rated electrical power requirement of $1.2\,\mathrm{kW}$. 
-        
-        
-        The measured motor constant, peak-to-peak cogging force, and bearing friction of the prototype motor constructed corresponding to the optimized design were $6.6\,\mathrm{N/\sqrt{W}}$, $4\,\mathrm{N}$ and $4.2\,\mathrm{N}$, respectively. In a test injection provided with $1.4\,\mathrm{kW}$ of electrical power, the prototype motor produced a $200\,\mathrm{\mu m}$ thin jet of water into a force sensor with an average jet velocity of $134\,\mathrm{m/s}$, well within the practical jet injection velocity range \cite{mitragotri2006}. Thereby, this prototype successfully demonstrated the capability for large volume needle-free jet injection. It is also worth mentioning that it is possible for the prototype motor to employ a compound ampoule similar to that reported in \cite{Ruddy2015a,McKeage2018}, making the device capable of delivering close to\,$4\,\mathrm{mL}$ of liquid drug, and thus surpassing the volume needed for most protein based formulations \cite{Hogan2015}.
+            To summarize, this work utilized the modeling method presented in Chapter\,\ref{Chapter:PMLSM design HM} and a new optimization methodology to find a globally optimized motor configuration for NFJI that is complemented by an iron length that produces the minimal amount of cogging. The motor was designed to deliver $1\,\mathrm{mL}$ NFJIs, at rated motor speed of $0.5\,\mathrm{m/s}$, rated force of $250\,\mathrm{N}$, and rated electrical power requirement of $1.2\,\mathrm{kW}$. 
+            
+            
+            The measured motor constant, peak-to-peak cogging force, and bearing friction of the prototype motor constructed corresponding to the optimized design were $6.6\,\mathrm{N/\sqrt{W}}$, $4\,\mathrm{N}$ and $4.2\,\mathrm{N}$, respectively. Based upon the voltage constants and the phase resistance measurements, the motor constant found was within $10\,\%$ of the design value of $7.2\,\mathrm{N/ \sqrt{ \mathrm{W}}}$. This reflects a good modelling result, although the modelling accuracy could be still be improved by tightening the modelling assumptions. 
+            
+            
+            Together with the weights of the support structure and all related parts to contain and delivery the drug, the hand piece weighs $622\,\mathrm{g}$. The first place to look at to reduce the weight for the hand piece device would be the current aluminium drug ampoule. While rigid and robust, the drug amouple would be replaced with  poly-carbonate to save $60\,\%$ weight on this part without compromising the structure rigidity. From then, one can look at optimizing the weight of the support plate and rods. 
+            
+            
+            In a test injection provided with $1.4\,\mathrm{kW}$ of electrical power, the prototype motor produced a $200\,\mathrm{\mu m}$ thin jet of water into a force sensor with an average jet velocity of $134\,\mathrm{m/s}$, well within the practical jet injection velocity range \cite{mitragotri2006}. Thereby, this prototype successfully demonstrated the capability for large volume needle-free jet injection. The \acs{NFJI} system performed not so well in closed loop position control mode but very well in speed control mode as illustrated in Fig.\,\ref{fig:chap/experiment/injection_test/injection_test} and \ref{fig:chap/experiment/injection_test/injection_velocity_waveform_2_phase}. Future effort could aim at system advanced identification and improvement for closed loop position control.
+            
+            
+            It is also worth mentioning that it is possible for the prototype motor to employ a compound ampoule similar to that reported in \cite{Ruddy2015a,McKeage2018}, making the device capable of delivering close to\,$4\,\mathrm{mL}$ of liquid drug, and thus surpassing the volume needed for most protein based formulations \cite{Hogan2015}.
