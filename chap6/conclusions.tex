@@ -1,19 +1,62 @@
 \chapter{Conclusions}                   \label{Chapter:conclusions}
 
 
+    This thesis has explored the application of linear synchronous motor in \acf{NFJI} by developing different modelling techniques for three types of linear synchronous motor. The prototype injector built in this work has appropriate form factor for clinical injection device and it could be used to deliver $1\,\mathrm{mL}$ jet injections. This work has demonstrated the power efficiency gain that linear synchronous motor promised. This chapter concludes with a discussion of significant findings, additional work required to improve the overall \acs{NFJI} powered by \acf{PMLSM}, and a summary of published outputs from this thesis.
+    
+
 % ===================================================================================================
 % === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
 % ===================================================================================================
 \section{Significant outcome}           \label{Chapter:experiment/significant outcome}
+        
+        
+    \subsection{Harmonic Modelling solution for Permanent Magnet Linear Synchronous Motor}   
+        
+        A semi-analytical \acf{HM} solution for the electromagnetic model of slotless tubular \acsp{PMLSM} adapted to large volume \acs{NFJI} and an efficient optimization scheme for a fixed motor mass at a given power dissipation were developed. Utilizing these modeling and optimization methodologies,  we conducted a case study and found globally optimized motor configurations for \acs{NFJI} under different mass constraints. The optimization results of this study provided clear evidence that \acs{PMLSM} outperform \acf{VCM} in term of power efficiency, which results in jet injection actuator designs that weigh less, consume less power and can deliver more drug volume. The modeling and optimization techniques developed here can be readily used to design entirely new and optimized motors with a different set of \acs{NFJI} characteristics such as desired injection volume, power, and motor mass.
+        
+    
+    \subsection{Response Surface Modeling of linear synchronous motors for Needle-free Injection}
+    
+    
+        An end-to-end \acf{RSM} design process for optimizing \acs{NFJI} actuator was developed to be generally applied across selected types of motors including \acs{PMLSM}, \acf{LFSM}, and \acf{LTFM}. This design process was specifically constructed to maximize the jet speed achieved in $1\,\mathrm{mL}$ jet injections given the fixed electrical power input, motor length, and motor mass. To be able to generally applied for different types of linear synchronous motors, the flexible modelling step allowed each type of motors to include their unique sets of structural parameters. Each types of motor were then optimized to the same list of \acs{NFJI} problem statement, objective function, and high level constraints for find the best performing type of motor under the same design circumstance. Instead of adopting exact semi-analytical equations like in the \acs{HM} approach, the method of constructing and inferring deep regression \acf{ANN} was employed to train the most accurate and generalized \acs{RSM} models that could be achieved. The underlying method was a series of studying each types of motor in-depth, making thoughtful assumptions that reduce the difficulties in modelling, mining the valuable design library with the available \acf{HPC} resource. The \acs{ANN} inference cycle time for each motor performance estimation was shorten drastically by implementing a scalable client-server web architecture instead of the usual sub-routine architecture. The optimization results for \acs{PMLSM} using the \acf{RSM} design process were almost identical to the results obtained by \acf{HM} method. This confirms the validity of the \acf{RSM} design process. Out of the linear synchronous motor types that participated in the \acs{NFJI} optimization study to maximize the achievable jet speed, \acs{PMLSM} demonstrated the superior performance, then followed by \acs{LTFM} and lastly \acs{LFSM}. The key advantage of the \acs{RSM} process is flexibility. It could be used to study and optimize types of motors that the literature has little success in analytical modelling, for potentially a wide range of applications. The \acs{RSM} design process includes a rather lengthy data collection process, however, once the data is collected, that same set of data could be utilized in multiple different ways and applications.
+        
+    
+    \subsection{A Needle-free Jet Injector powered by Permanent Magnet Linear Synchronous Motor}
+    
+        
+        While being suitable for determining the best type of motor for NFJI under some practical constraints, the previous optimization problem set does not aim to find the lightest motor that can produce \acs{NFJI} at a fixed jet velocity. To move forward with instrumentation, the optimization objection function was changed to minimizing the motor mass for a fixed jet velocity with other dimensional constraints. Starting from the most basic components of the motor such as the coil winding, the magnet array and the iron shell, a full design for a robust handheld jet injection powered by \acs{PMLSM} was conceptualized and modeled. The prototype motor was optimized to deliver $1\,\mathrm{mL}$ NFJIs, at the rated motor speed of $0.5\,\mathrm{m/s}$, the rated force of $250\,\mathrm{N}$, and the rated electrical power of $1.2\,\mathrm{kW}$. The measured motor constant, peak-to-peak cogging force, and bearing friction of the prototype motor constructed corresponding to the optimized design were $6.6\,\mathrm{N/\sqrt{W}}$, $4\,\mathrm{N}$ and $4.2\,\mathrm{N}$, respectively. In a test injection provided with $1.4\,\mathrm{kW}$ of electrical power, the prototype motor produced a $200\,\mathrm{\mu m}$ thin jet of water into a force sensor with an average jet velocity of $134\,\mathrm{m/s}$. The two-phase injection tests into porcine tissue as an average volume delivery rate of $85.7\,\%$. Thereby, this prototype successfully demonstrated the capability for large volume needle-free jet injection in both the lab and potentially the clinical environment. With some improvements, the prototype design can be taken into mass production. This device was the first handheld injector powered by \acs{PMLSM} that could deliver up to $1\,\mathrm{mL}$. 
+        
+        
+% ===================================================================================================
+% === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
+% ===================================================================================================
+\section{Future work}                  
+
+
+    Additional work to improve the outcome of this thesis has been identified:
+    
+    \begin{itemize}
+        \item Via the optimization study the produce the prototype injector, the \acs{HM} modelling solution for \acs{PMLSM} was found to an error lower than $10\,\%$. The accuracy of \acs{HM} modelling solution could be further improved if end-effects could be accounted for.
+        \item The position control of the prototype injector system did not produce a good result. Future efforts should revisit to include feed-forward calibration in the control algorithm. 
+        \item The \acf{MAPE} for the \acs{ANN} that represents \acs{LTFM} is $3.68\,\%$. This is a high error rate when compared to the modelling accuracy of \acs{PMLSM}, and \acs{LFSM}. Ways to improve this error rate includes mining more \acf{FEA} data prior to training the \acs{ANN} model, adopt hyper-parameters tuning techniques and increase complexity of the \acs{ANN}.
+        \item The \acs{RSM} design process chose to sample with full factorials and additional randomly generated design cases in order to maximize the modelling accurcy. Future efforts could be spent on finding the right sampling technique to minimize the required compute hours.
+        \item The \acs{RSM} optimization step could be further improved by adopting an optimization technique that allow multi-threading implementation. Only then, the multi-threading capability of the client-server architecture could be fully utilized.   
+        \item During the construction of the prototype handheld jet injector, the significant difficulty came from winding the coil array, and placing tight-fit magnets into the thin stainless steel tube. Future work should look at improving these two steps in order bring the injector design to mass production.
+        \item It is also worth mentioning that it is possible for the prototype motor to employ a compound ampoule similar to that reported in \cite{Ruddy2015a,McKeage2018}, making the device capable of delivering close to\,$4\,\mathrm{mL}$ of liquid drug, and thus surpassing the volume needed for most protein based formulations \cite{Hogan2015}.
+    \end{itemize}
 
 
 % ===================================================================================================
 % === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
 % ===================================================================================================
-\section{Future work}                   \label{Chapter:experiment/future work}
+\section{Thesis outputs}
 
+The research performed in this thesis have been reported in 5 publications: 3 peer-reviewed IEEE conference papers with the fast-track option to become peer-reviewed journal papers, and a pair of fast tracked IEEE conference paper and the associated IEEE journal paper. 
 
-% ===================================================================================================
-% === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
-% ===================================================================================================
-\section{Thesis output}                 \label{Chapter:experiment/thesis output}
+\begin{itemize}
+    \item \textbf{N. N. L. Do}, A. J. Taberner, and B. P. Ruddy, “Design of a linear permanent magnet synchronous motor for needle-free jet injection,” in \textit{2017 IEEE Energy Conversion Congress and Exposition (ECCE)}, 2017, pp. 4734–4740.
+    \item \textbf{N. N. L. Do}, A. J. Taberner, and B. P. Ruddy, “Design of a Portable Pulsed Power System for Needle-free Jet Injection,” \textit{2018 IEEE Energy Convers. Congr. Expo.}, vol. i, pp. 6633–6640, 2018.
+    \item \textbf{N. N. L. Do}, A. J. Taberner, and B. P. Ruddy, “A Linear Permanent Magnet Synchronous Motor for Large Volume Needle-free Jet Injection,” \textit{IEEE Trans. Ind. Appl.}, vol. PP, no. c, pp. 1–1, 2018.
+    \item \textbf{N. N. L. Do}, A. J. Taberner, and B. P. Ruddy, “Design of a linear permanent magnet synchronous motor for needle-free jet injection,” in \textit{2017 IEEE Energy Conversion Congress and Exposition (ECCE)}, 2017, vol. 2017-Janua, pp. 4734–4740.
+    \item \textbf{N. N. L. Do}, A. J. Taberner, and B. P. Ruddy, “Application of Linear Permanent Magnet Flux-Switching Motorsto Needle-free Jet Injection,” \textit{2019 IEEE Energy Convers. Congr. Expo.}
+\end{itemize}

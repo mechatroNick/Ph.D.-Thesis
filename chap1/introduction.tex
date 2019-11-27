@@ -3,10 +3,39 @@
 
 \section{Motivation}        \label{Chapter:intro/motivation}
 
-
+        
+    Transdermal drug delivery is a method of delivery for pharmaceutical solutions that are unsuitable for ingestion or cannot penetrate through the skin. Many vaccines and insulin are delivered by this approach\,\cite{sadrzadeh2007}. While being efficient and precise, transdermal drug delivery via hypodermic needle is time-consuming, labour intensive, and hazardous. The procedure requires the operator to attach a hollow needle to a syringe, then extract the drug, eliminate air bubbles in the syringe and sterilize the applied area thoroughly. Once prepared, the operator can slowly inject a high volume of drug. During disposal, needle stick is a safety hazard. Needle-stick injuries hold a high risk of transmitting contagious diseases such as HIV, HBV, and HCV. Percutaneous sharps injuries have affected millions of individuals across the world\,\cite{pruss2005}. 
+    
+    Today, needle sticks and sharp objects still represent a significant challenge in creating a safe environment for professional health care practitioners. Pain\,\cite{schneider1994} and needle-phobia\,\cite{hamilton2005,Nir2003} are other motivations to develop and popularize alternative strategies. Some distinct transdermal drug delivery methods were invented to tackle issues of needle injection. They include iontophoresis\,\cite{dhote2012}, sonophoresis\,\cite{bommanan1992}, permeation enhancement by chemicals\,\cite{karande2006}, micro-needles on patches\,\cite{cormier2004}, and voice coil motor powered injectors\,\cite{taberner2006}. 
+    
+        
+    \acf{NFJI} is a transdermal drug delivery technique, achieved by pushing a liquid drug through a small orifice to create a narrow jet, which penetrates through the skin and disperses in the underlying tissue. \acs{NFJI} provides many advantages over traditional needle injections, including higher needle safety, decreased risk of cross-contamination, and needle phobia. Although \acs{NFJI} in the form of spring or gas powered devices was a popular method for mass vaccine delivery in the 1960s , the modern needle-free injection technology has only a small market share. While energetically efficient, the mechanically-powered needle-free injection devices has poor jet speed controllability and adaptability for different types of skin. On the other hand, controllable devices such as and voice coil motor injectors have only been able to achieve the ability to deliver up to $300\,\mathrm{\mu L}$ in a compact form. Being able to deliver $1\,\mathrm{mL}$ doses is an important benchmark because the volume starting from $1\,\mathrm{mL}$ is very common in vaccine and macro-molecule drug delivery\,\cite{Hogan2015a}. Due to poor power efficiency scaling, voice coil driven injection may require an impractical motor mass that is far more than the mass required to produce a clinically appropriate injector\,\cite{ruddy2014}. With similar operating principles to the voice coil motors, linear synchronous motors have much higher force producing capability. Previously, they have not been explored for the use of \acs{NFJI}.
+    
+    
+    The aim of this work is to investigate linear synchronous motors in order to drastically increase the delivery volume for controllable \acs{NFJI}. Different types of linear synchronous motors will be modelled and optimized to produce $1\,\mathrm{mL}$ jet injections, while maintaining the form of a clinically appropriate injectors. As the result, this research develops original modelling approaches and understanding about selected types of linear synchronous motors in needle-free jet injection application.
+    
+    
 \section{Thesis Outline}    \label{Chapter:intro/outline} 
+
+
     \subsection{Chapter 2}  \label{Chapter:intro/outline/chapter2}
+    
+    Following this introductory chapter, Chapter 2 provided an in-depth background on \acs{NFJI} and the progress of applying linear motors on jet injection. Afterwards, electromagnetic field theory together with the available motor modelling methods and optimization techniques were introduced. Here, the conclusions were made on choosing the types of linear synchronous motors and the modelling methods to be studied for needle-free injection application in this thesis. The chosen types of linear synchronous motors included \acf{PMLSM}, \acf{LFSM}, and \acf{LTFM}.
+    
     \subsection{Chapter 3}  \label{Chapter:intro/outline/chapter3}
+    
+    
+    Chapter 3 considered the requirements on linear synchronous motors tailored to produce $1\,\mathrm{mL}$ jet injections in the form of a clinically appropriate injectors. These requirement set the standard for comparing the suitability of different types of linear synchronous motors. A semi-analytical solution for \acf{HM} of \acf{PMLSM} was provided. Using a creative optimization technique, globally optimized configurations of \acf{PMLSM} and their predicted performance at different mass constraints were found and saved for later comparison with other types of motors. 
+    
+    
     \subsection{Chapter 4}  \label{Chapter:intro/outline/chapter4}
+    
+    
+    Chapter 4 introduced a method for modelling and optimizing linear synchronous motor with the use of \acf{RSM}, powered by \acf{ANN}. Using optimization results of \acs{PMLSM} for $1\,\mathrm{mL}$ jet injection as the benchmark, the \acf{RSM} method was proven to be highly accurate and especially suitable for types of motor that has not been effectively modelled by \acs{HM}. Those types of motor were \acs{LFSM} and \acs{LTFM}. Using \acf{RSM} to predict the motor performance, \acs{LFSM} and \acs{LTFM} were optimized to the same set of requirements that \acs{PMLSM} went through with minor adaptations. Toward the end of this chapter, the optimization results for $1\,\mathrm{mL}$ jet injection of \acs{PMLSM}, \acs{LFSM} and \acs{LTFM} were compared. \acs{PMLSM} was found to be the best performing type of motor in this case study.
+    
+    
     \subsection{Chapter 5}  \label{Chapter:intro/outline/chapter5}
-    \subsection{Chapter 6}  \label{Chapter:intro/outline/chapter6}
+    
+    
+    The previous optimization method generally applied to \acs{PMLSM}, \acs{LFSM} and \acs{LTFM} was suitable for identifying the best performing type motor in term of the highest jet speed produced. This optimization goal, however, was not suitable for finding the lightest motor that satisfy a required \acs{NFJI} jet speed. Therefore, Chapter 5 established a new optimization requirements for that goal. The final design configuration of \acs{PMLSM} was found. The design concept, cogging force improvement and prototype construction were described in-depth. The position control, jet speed control, and tissue injection validation studies confirmed the capability of the $1\,\mathrm{mL}$ jet injector powered by \acs{PMLSM}.
+    

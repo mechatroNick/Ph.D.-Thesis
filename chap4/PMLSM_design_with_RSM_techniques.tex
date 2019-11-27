@@ -81,7 +81,7 @@
         % -----------------------------------------------------------------------------------
         % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- 
         % -----------------------------------------------------------------------------------
-        \subsection{\acs{HM} data mining}           \label{Chapter:RSM/PMLSM/data mining}
+        \subsection{HM data mining}           \label{Chapter:RSM/PMLSM/data mining}
         
         
             The base \acs{HM} computation model in Section\,\ref{Chapter:PMLSM design HM/electromagnetic model/hm solution} was re-purposed to help generate motor design data. To facilitate for the data mining and the optimization process later on, the same electromagnetic model was converted into a re-usable function as illustrated in Fig.\,\ref{fig:chapter/rsm/PMLSM/mining process}. The free inputs included the repeat length $L_k$, the inner radius of the cylindrical magnet array $r_{mi}$, the magnet radial thickness $t_m$, the coil radial thickness $t_c$, and the proportion of the radially magnetized magnet against the total length of the magnet. The fixed input included the number of half coil-phase $N_C$, the number of half magnet-phase $N_M$, and the power $P$. On the output side, the data mining function provided the half repeating unit mass $M$, motor constant $K_m$ and the linear force produced $F$.
@@ -90,7 +90,7 @@
             \begin{figure}
                 \centering
                 \includegraphics[width=4in]{chap4/images/HM_mining_for_PMLSM.pdf}
-                \caption{A re-usable function to obtain \acs{RSM} training data based on \ac{HM} calculations of \ac{PMLSM}.}
+                \caption{A re-usable function to obtain RSM training data based on HM calculations of PMLSM.}
                 \label{fig:chapter/rsm/PMLSM/mining process}
             \end{figure}
             
@@ -297,7 +297,7 @@ for the input and hidden layer,
     % ===================================================================================================
     % === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
     % ===================================================================================================
-    \section{Application to \ac{LFSM}}               \label{Chapter:RSM/LFSM}
+    \section{Application to LFSM}               \label{Chapter:RSM/LFSM}
     
     
         This study attempts to clarify the performance characteristics of \acsp{LFSM} when applied to \acs{NFJI} applications. The C-core topology was the most favourable, because they typically produce more thrust than E-core topologies \cite{Min2011}. A conventional 6 slot/5 pole \acs{LFSM} as shown in Fig.\,\ref{fig:chapter/rsm/LFSM/structure/6-5} has minimal thrust ripple due to cancellation of even order and third order harmonics. However, this work chose to study a 6 slot/7 pole LFSM structure as illustrated  in Fig.\,\ref{fig:chapter/rsm/LFSM/structure/6-7} because it is reported to also produce more thrust than other configurations, even though it may come at the expense of having more thrust ripple \cite{Chen2010}. 
@@ -943,7 +943,7 @@ for the input and hidden layers,
     % ===================================================================================================
     % === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
     % ===================================================================================================
-    \section{Application to \ac{LTFM}}               \label{Chapter:RSM/LTFM}
+    \section{Application to LTFM}               \label{Chapter:RSM/LTFM}
     
         
         Conventional longitudinal flux motors like \acs{PMLSM} and \acs{LFSM} requires short repeat lengths for high force density applications because the magnetic circuit travels in-plane with the direction of motion. However, with shortening the pole pitch, the conductor component become increasingly more difficult to manufacture. In \acf{LTFM}, however, the electric circuit is decoupled from the magnetic circuit, and thus the motor can stay manufacturable as the pole pitch shortens. This is because the flux path lies perpendicular to the direction of motion. With this fundamental difference, it is expected that \acs{LTFM} might be able to perform better in short stroke, high thrust applications starting from a near stall condition. 
@@ -951,16 +951,16 @@ for the input and hidden layers,
         
         \begin{figure}[!ht]
             \centering
-            \subfloat[Schematic for a single phase \acs{LTFM}]{
+            \subfloat[Schematic for a single phase LTFM]{
                 \includegraphics[width=0.75\textwidth]{chap4/images3/TFM_illustration.pdf}
                 \label{fig:chapter/rsm/LTFM/illustration}
             }
             \\
-            \subfloat[3-phase arrangement for \acs{LTFM}]{
+            \subfloat[3-phase arrangement for LTFM]{
                 \includegraphics[width=0.5\textwidth]{chap4/images3/TFM_3phase.pdf}
                 \label{fig:chapter/rsm/LTFM/3 phase arrangement}
             }
-            \caption{Outline of \acs{LTFM} topology.}
+            \caption{Outline of LTFM topology.}
             \label{fig:chapter/rsm/LTFM/different LTFM arrangement}
         \end{figure}
 

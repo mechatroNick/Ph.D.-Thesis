@@ -377,7 +377,7 @@
         % -----------------------------------------------------------------------------------
         % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION ---
         % -----------------------------------------------------------------------------------
-        \subsection{Injection test}                 \label{Chapter:experiment/validation/injection test}
+        \subsection{Injection test in air}              \label{Chapter:experiment/validation/injection test}
         
         
             The other key component in a practical injection system is the power electronic drive, which needs to provide a burst of high power for a short time from a compact package. We have recently reported on such a system designed for a voice coil actuator\,\cite{Ruddy2017}. The newest iteration of the device was built to be capable of three-phase drive to control the prototype motor for NFJI.
@@ -449,6 +449,57 @@
         % -----------------------------------------------------------------------------------
         % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION ---
         % -----------------------------------------------------------------------------------
+        \subsection{Injection test into tissue}              \label{Chapter:experiment/validation/injection test in tissue}
+        
+        
+            \begin{figure}[!ht]
+            	\centering
+            	\subfloat[Injection test labelled "1"]{
+            		\includegraphics[width=3in]{chap5/images_exp/injection_label_1.jpg}
+            		\label{fig:chap/experiment/injection_test_tissue/1}
+            	}
+            	\\
+            	\subfloat[Injection test labelled "3"]{
+            		\includegraphics[width=3in]{chap5/images_exp/injection_label_3.jpg}
+            		\label{fig:chap/experiment/injection_test_tissue/3}
+            	}
+            	\\
+                \subfloat[Injection test labelled "5"]{
+            		\includegraphics[width=3in]{chap5/images_exp/injection_label_5.jpg}
+            		\label{fig:chap/experiment/injection_test_tissue/4}
+            	}
+                \caption{Results from two-phase jet injection into tissue: images of samples which have been injectioned, frozen and sectioned.}
+                \label{fig:chap/experiment/injection_test_tissue}
+            \end{figure}
+        
+        
+            Injections were performed into $3\,\mathrm{cm} \times 3\,\mathrm{cm}$ cubes of porcine tissue harvested post-mortem from the abdomen animals of approximately 3 months of age. The tissue was obtained in compliance with the University of Auckland Code of Ethical Conduct for the Use of Animals for Teaching and Research. The porcine tissues included skin, subcutaneous fat and the foremost muscle layer was frozen and stored at $-80^{\circ}\mathrm{C}$. Prior to the injections, three tissues were left at room temperature of roughly $-22^{\circ}\mathrm{C}$ for 4 hours. Each injection was performed into each sample using water with $0.1\,\%$ blue dye (Brilliant Blue FCF, Queen Fine Foods Pty. Ltd.) to allow visualisation of the destination of the injected liquid.
+            
+            
+            The jet injector device were programmed to deliver colored water at the speed of $v_{jet1}=150\,\mathrm{m/s}$ for the duration of $t_1=100\,\mathrm{ms}$, and then at the speed of $v_{jet2}=100\,\mathrm{m/s}$ for the duration of $t_2=150\,\mathrm{ms}$. The expected volume to be delivered is $V=0.9375\,\mathrm{mL}$. Fig.\,\ref{fig:chap/experiment/injection_test_tissue} displays images of the samples which have been injected, frozen, then sectioned. Table records the volume of drug held after an injection by the tissues. The average rate of volume delivery is sitting very high at $85.7\,\%$. In all the tests, there are clear evidences that that the liquid all dispersed in between the fat and the muscle layers. Further than that, the drug penetrated all the way down into the muscle layer. One should note that the actual volume expended in the table was calculated based on how far the piston has traveled down the drug ampoule. Table\,\ref{table:chap/validation/exp/injection_into_tissue} summarizes the \acs{NFJI} delivery results for each of the samples in Fig.\,\ref{fig:chap/experiment/injection_test_tissue}.
+            
+            
+            \begin{table}[h]
+                \renewcommand{\arraystretch}{1.2}
+                \caption{Summary of jet injection into tissues}
+                \label{table:chap/validation/exp/injection_into_tissue}
+                \centering
+                \begin{tabular}{c|cccc|r}
+                \hline
+                \textbf{Sample} & \textbf{Weight of tissue} & \textbf{Weight of tissue} & \textbf{Volume}     & \textbf{Volume} & \% \textbf{volume}  \\
+                             & \textbf{before injection} & \textbf{after injection}  & \textbf{delivered}  & \textbf{expended}        & \textbf{delivered}\\
+                \hline
+                "1"          & $32.31\,\mathrm{g}$               & $33.11\,\mathrm{g}$              & $0.80\,\mathrm{mL}$ & $0.94\,\mathrm{mL}$      & $85.1\,\%$          \\
+                "3"          & $32.16\,\mathrm{g}$               & $32.97\,\mathrm{g}$              & $0.81\,\mathrm{mL}$ & $0.96\,\mathrm{mL}$      & $84.4\,\%$          \\
+                "5"          & $32.18\,\mathrm{g}$               & $33.02\,\mathrm{g}$              & $0.84\,\mathrm{mL}$ & $0.97\,\mathrm{mL}$      & $86.6\,\%$         \\
+                \hline
+                \end{tabular}
+            \end{table}
+        
+        
+        % -----------------------------------------------------------------------------------
+        % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION ---
+        % -----------------------------------------------------------------------------------
         \section{Discussion}                     \label{Chapter:experiment/validation/discussion}
         
         
@@ -461,7 +512,7 @@
             Together with the weights of the support structure and all related parts to contain and delivery the drug, the hand piece weighs $622\,\mathrm{g}$. The first place to look at to reduce the weight for the hand piece device would be the current aluminium drug ampoule. While rigid and robust, the drug amouple would be replaced with  poly-carbonate to save $60\,\%$ weight on this part without compromising the structure rigidity. From then, one can look at optimizing the weight of the support plate and rods. 
             
             
-            In a test injection provided with $1.4\,\mathrm{kW}$ of electrical power, the prototype motor produced a $200\,\mathrm{\mu m}$ thin jet of water into a force sensor with an average jet velocity of $134\,\mathrm{m/s}$, well within the practical jet injection velocity range \cite{mitragotri2006}. Thereby, this prototype successfully demonstrated the capability for large volume needle-free jet injection. The \acs{NFJI} system performed not so well in closed loop position control mode but very well in speed control mode as illustrated in Fig.\,\ref{fig:chap/experiment/injection_test/injection_test} and \ref{fig:chap/experiment/injection_test/injection_velocity_waveform_2_phase}. Future effort could aim at system advanced identification and improvement for closed loop position control.
+            In a test injection provided with $1.4\,\mathrm{kW}$ of electrical power, the prototype motor produced a $200\,\mathrm{\mu m}$ thin jet of water into a force sensor with an average jet velocity of $134\,\mathrm{m/s}$, well within the practical jet injection velocity range \cite{mitragotri2006}. Thereby, this prototype successfully demonstrated the capability for large volume needle-free jet injection. The \acs{NFJI} system performed not so well in closed loop position control mode but very well in speed control mode as illustrated in Fig.\,\ref{fig:chap/experiment/injection_test/injection_test} and \ref{fig:chap/experiment/injection_test/injection_velocity_waveform_2_phase}. In three injection tests into porcine tissue, the average volume delivery rate was $85.7\,\%$ which demonstrated the repeatability and realiablity of the \acs{NFJI} system powered by \acs{PMLSM}. Future effort could aim at system advanced identification and improvement for closed loop position control. 
             
             
             It is also worth mentioning that it is possible for the prototype motor to employ a compound ampoule similar to that reported in \cite{Ruddy2015a,McKeage2018}, making the device capable of delivering close to\,$4\,\mathrm{mL}$ of liquid drug, and thus surpassing the volume needed for most protein based formulations \cite{Hogan2015}.
