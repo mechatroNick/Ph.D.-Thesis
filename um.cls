@@ -36,7 +36,7 @@
 
 \RequirePackage{longtable}           % For very long tables
 \RequirePackage{pdflscape}			 % For landscape tables (instead of portrait)
-
+\usepackage{epigraph}
 
 \usepackage[printonlyused,withpage]{acronym}
 \usepackage{subfig}
