@@ -22,7 +22,7 @@
         \begin{figure*}[ht]
           \centering
           \includegraphics[width=0.7\textwidth]{chap3/images/PMLSM_scaling_law_illustration.pdf}
-          \caption[A basic schematic of a synchronous motor, driving a jet injector. Ampoule diameter $D$ and piston stroke $L$ are illustrated.]{A basic schematic of a synchronous motor, driving a jet injector. Ampoule diameter $D$ and piston stroke $L$ are illustrated\,\cite{Ruddy2015}.}
+          \caption[A basic schematic of a synchronous motor, driving a jet injector. Ampoule diameter $D$ and piston stroke $L$ are illustrated.]{A basic schematic of a synchronous motor, driving a jet injector. Ampoule diameter $D$ and piston stroke $L$ are illustrated. ©2015 IEEE. Reprinted, with permission, from \cite{Ruddy2015}.}
           \label{fig:chapter/hm/PMLSM scaling law illustrated}
         \end{figure*}
 
@@ -288,7 +288,7 @@
         \end{itemize}
         
         
-        The target volume $1\mathrm{mL}$ is standard to many macro-molecule drug formulations\,\cite{Hogan2015a}. Between $325\,\mathrm{g}$ and $425\,\mathrm{g}$ in weight is the ideal range for a comfortable handheld device. The power level is decided to be within the capability of practical self-contained power sources such as Panasonic Industrial's $\mathrm{	MDDHT5540E}$ or Omron Automation' $\mathrm{3G3MX2-A4015-V1}$. As mentioned in Section\,\ref{Chapter:background/needle-free jet injection/how it works}, the jet minimum jet speed required to puncture the skin is $100\,\mathrm{m/s}$. 
+        The target volume $1\mathrm{mL}$ is standard to many macro-molecule drug formulations\,\cite{Hogan2015a}. Between $325\,\mathrm{g}$ and $425\,\mathrm{g}$ in weight is the ideal range for a comfortable handheld device. The power level is decided to be within the capability of practical self-contained power sources such as Panasonic Industrial's MDDHT5540E or Omron Automation' 3G3MX2 - A4015 - V1. As mentioned in Section\,\ref{Chapter:background/needle-free jet injection/how it works}, the jet minimum jet speed required to puncture the skin is $100\,\mathrm{m/s}$. 
         
         
         This set of common design criteria will allow for a common optimization scheme that attempts to find the motor configuration with the highest achievable jet velocity across different types of \acsp{LSDDM}. The following content in this chapter and Chapter\,\ref{Chapter:PMLSM design RSM} will demonstrate that the implementation for each type of \acsp{LSDDM} studied by this thesis has to be adapted to the motor's unique characteristic.
@@ -443,7 +443,7 @@
         The global optimization of \acs{PMLSM} for the problem described in Equation\,\ref{eq:outer optimization for PMLSMs} at different mass constraints $M_0=[325,350,375,400,425]\,\mathrm{g}$ is summarized in Table\,\ref{table:result for global optimization of PMLSM via HM method}.
             
             
-        Taking an example for the global optimization of constraints set $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$, $M_0=325\,\mathrm{g}$ on the search space of $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm}$, and $L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$, we found an under-hung motor with $N_C=4$, $N_M=12$, $L_k=26.5\,\mathrm{mm}$, $r_{mi}=2\,\mathrm{mm}$, $t_m=6.15\,\mathrm{mm}$, $t_c=3\,\mathrm{mm}$, $\delta=0.30$. The motor is able to theoretically produce $246.64\,\mathrm{N}$ at the rated power, which corresponds to a motor constant $K_m=6.37\,\mathrm{N/\sqrt{W}}$ and peak jet speed $v_{jet}=228.92\,\mathrm{m/s}$. The motor constant achieved by an optimized \acsp{VCM} of similar weight constraint is $3.6\,\mathrm{N/\sqrt{W}}$\,\cite{ruddy2014}. Even with additional lengths constraint is in place, \acs{PMLSM} still outperforms \acs{VCM} in power efficiency. The achievable jet speed $v_{jet}$ is beyond what is required for a successful needle free injection.
+        Taking an example for the global optimization of constraints set $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$, $M_0=325\,\mathrm{g}$ on the search space of $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm}$, and $L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$, we found an under-hung motor with $N_C=4$, $N_M=12$, $L_k=26.5\,\mathrm{mm}$, $r_{mi}=2\,\mathrm{mm}$, $t_m=6.15\,\mathrm{mm}$, $t_c=3\,\mathrm{mm}$, $\delta=0.30$. 
             
             
             \begin{landscape}
@@ -522,6 +522,9 @@
                 The global optimization plots of $v_{jet}$ for the search space $L_{M0}:120\,\mathrm{mm}\rightarrow 160\,\mathrm{mm} \times L_{C0}:50\,\mathrm{mm}\rightarrow 90\,\mathrm{mm}$ using $P=1500\,\mathrm{W}$, $V=1\,\mathrm{mL}$, $gap_{mc}=1.2\,\mathrm{mm}$, $gap_{cf}=0.1\,\mathrm{mm}$,  and $M_0$ of: (a) $325\,\mathrm{g}$, (b) $350\,\mathrm{g}$, (c) $375\,\mathrm{g}$, (d) $400\,\mathrm{g}$, and (e) $425\,\mathrm{g}$.
             }   \label{fig:chapter/hm/optimization search space result for differnt mass}
         \end{figure}
+        
+        
+        The motor is able to theoretically produce $246.6\,\mathrm{N}$ at the rated power, which corresponds to a motor constant $K_m=6.4\,\mathrm{N/\sqrt{W}}$ and peak jet speed $v_{jet}=228.2\,\mathrm{m/s}$. The motor constant achieved by an optimized \acsp{VCM} of similar weight constraint is $3.6\,\mathrm{N/\sqrt{W}}$\,\cite{ruddy2014}. Even with additional lengths constraint is in place, \acs{PMLSM} still outperforms \acs{VCM} in power efficiency. The achievable jet speed $v_{jet}$ is beyond what is required for a successful needle free injection.
         
             
         According to Equation\,\ref{eq:power dissipation for PMLSMs}, and provided that $P$, $\rho_w$, $K_m$, $L_S$ are unchanged:

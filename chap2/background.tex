@@ -1,6 +1,6 @@
 \chapter{Background}                                \label{Chapter:background}
 
-    In this chapter, an introduction is given on the needle-free jet injection and the progress of applying the use of linear direct-drive machines on jet injection, which lead to the definition of the research goal of this thesis. Then this chapter further provided electromagnetic field theory, available motors modeling techniques and optimization approaches to realize the methods later discussed in this thesis.
+    In this chapter, an introduction is given on the field of needle-free jet injection and the progress of linear direct-drive machines in jet injection, which lead to the definition of the research goal of this thesis. Then this chapter further provided electromagnetic field theory, available motors modeling techniques and optimization approaches to realize the methods later discussed in this thesis.
 
 
 % ===================================================================================================
@@ -27,25 +27,25 @@
     % -----------------------------------------------------------------------------------
     \subsection{How it works}                       \label{Chapter:background/needle-free jet injection/how it works}
     
-        \ac{NFJI}, commonly called “hypo-spray” in science fiction, was patented in 1960\,\cite{ismach1962}. Figure\,\ref{fig:chapter/background/explain needle free/original injector} shows the original \acs{NFJI} device, “Ped-O-Jet” in use for the purpose of mass vaccination\,\cite{DictionnairesetEncyclopediessurAcademic}. This device was invented  upon realizing that pressurized fluid can penetrate human skin. Fluid streams of appropriate diameter and velocity can produce sufficient pressure to breach through the skin layers up to a particular desired depth. 
+        \ac{NFJI}, commonly called “hypo-spray” in science fiction, was first patented in 1960\,\cite{ismach1962}. This class of devices was invented upon realizing that high speed liquid jet can penetrate human skin. Fluid streams of appropriate diameter and velocity can produce sufficient pressure to breach through the skin layers up to a particular desired depth. 
         
         \begin{figure*}[!ht]
             \centering
-            \subfloat[Ped-O-Jet in use\,\cite{DictionnairesetEncyclopediessurAcademic}]{
-                \includegraphics[width=0.35\textwidth]{chap2/images/original_injector.png}
-                \label{fig:chapter/background/explain needle free/original injector}
-            }
-            \qquad
-            \subfloat[Needle injection versus Needle-free injection\,\cite{injex2012}]{
-                \includegraphics[width=0.5\textwidth]{chap2/images/needle_vs_needle_free.png}
-                \label{fig:chapter/background/explain needle free/needle vs no needle}
-            }
+            % \subfloat[Ped-O-Jet in use. This figure was reproduced from \cite{DictionnairesetEncyclopediessurAcademic}.]{
+            %     \includegraphics[width=0.35\textwidth]{chap2/images/original_injector.png}
+            %     \label{fig:chapter/background/explain needle free/original injector}
+            % }
+            % \qquad
+            % \subfloat[Needle injection versus Needle-free injection. This figure was reproduced from \cite{injex2012}.]{
+                \includegraphics[width=0.8\textwidth]{chap2/images/needle_vs_needle_free.png}
+                % \label{fig:chapter/background/explain needle free/needle vs no needle}
+            % }
             \caption{
-                Needle-free jet injection's history and concept explained.
+                Needle-free jet injection concept explained.
             }   \label{fig:chapter/background/explain needle free}
         \end{figure*}
         
-        A subcutaneous or intramuscular jet injection could be realized by forcing a fluid jet of $\mathrm{76-360\,\mu m}$  diameter to penetrate the human skin at a speed faster than $\mathrm{100 \,m/s}$\,\cite{mitragotri2006,Hogan2006}. Figure\,\ref{fig:chapter/background/explain needle free/needle vs no needle} shows that an ideal jet injection would deliver the drug in a similar manner to a hypodermic needle injection\,\cite{InsuJet2013}.
+        A subcutaneous or intramuscular jet injection could be realized by forcing a fluid jet of $\mathrm{76\,\mu m-360\,\mu m}$  diameter to penetrate the human skin at a speed faster than $\mathrm{100 \,m/s}$\,\cite{mitragotri2006,Hogan2006}. Figure\,\ref{fig:chapter/background/explain needle free} shows that an ideal jet injection would deliver the drug in a similar manner to a hypodermic needle injection\,\cite{InsuJet2013}.
         
         % Even though this method adopts the use of needle-free apparatus, biological material can still be unwillingly transferred if there are no appropriate decontamination schemes. Concerns have been raised in the literature about potential transmission of blood-borne infections by multiple-use \acs{NFJI} since the early 1970s\,\cite{kremer1970, weintraub1988}. Figure\,\ref{fig:chapter/background/injection mechanism} illustrates three possible mechanisms of how blood contamination can take place\,\cite{hoffman2001}. 
         
@@ -94,7 +94,7 @@
                 \label{fig:chapter/background/underlying mechanics/3}
             }
             \caption[Needle-free injection into a polyacrylamide gel containing $20\%$ acrylamide]{
-                Needle-free injection into a polyacrylamide gel containing $20\%$ acrylamide\,\cite{schramm2004}.
+                Needle-free injection into a polyacrylamide gel containing $20\%$ acrylamide. This figures were reproduced from \,\cite{schramm2004} with permission from ©2004 Science Direct.
             }   \label{fig:chapter/background/underlying mechanics}
         \end{figure*}
     
@@ -113,7 +113,7 @@
                 \label{fig:chapter/background/2 speeds mechanics/2 speeds}
             }
             \caption[Need for temporal control of jet velocity in needle-free transdermal drug delivery: (a) constant low-velocity delivery (left), medium-velocity delivery (centre), and high-velocity delivery (right); (b)Desired drug delivery showing sufficient penetration depth and minimal pooling. Dotted line represents the desired depth of injection.]{
-                Need for temporal control of jet velocity in needle-free transdermal drug delivery\,\cite{Mitragotri2005}: (a) constant low-velocity delivery (left), medium-velocity delivery (centre), and high-velocity delivery (right); (b)Desired drug delivery showing sufficient penetration depth and minimal pooling. Dotted line represents the desired depth of injection.
+                Need for temporal control of jet velocity in needle-free transdermal drug delivery: (a) constant low-velocity delivery (left), medium-velocity delivery (centre), and high-velocity delivery (right); (b)Desired drug delivery showing sufficient penetration depth and minimal pooling. Dotted line represents the desired depth of injection. These figures were reproduced from \cite{Mitragotri2005} with permission from ©2005 Springer Nature.
             }   \label{fig:chapter/background/2 speeds mechanics}
         \end{figure*}
         
@@ -124,7 +124,7 @@
         \begin{figure}[h]
             \centering
             \includegraphics[width=0.75\textwidth]{chap2/images/2_jet_speeds_idea.png}
-            \caption[A typical 2 speeds jet injection trajectory; $v_{jet}=200\,\mathrm{m/s}$ to reach the desired injection depth and $v_{follow}=20\,\mathrm{m/s}$ to reduce ‘splash back’]{A typical 2 speeds jet injection trajectory; $v_{jet}=200\,\mathrm{m/s}$ to reach the desired injection depth and $v_{follow}=20\,\mathrm{m/s}$ to reduce ‘splash back’ \,\cite{taberner2012}}
+            \caption[A typical 2 speeds jet injection trajectory; $v_{jet}=200\,\mathrm{m/s}$ to reach the desired injection depth and $v_{follow}=20\,\mathrm{m/s}$ to reduce ‘splash back’]{A typical 2 speeds jet injection trajectory; $v_{jet}=200\,\mathrm{m/s}$ to reach the desired injection depth and $v_{follow}=20\,\mathrm{m/s}$ to reduce ‘splash back’. This figure was reproduced from \cite{taberner2012} with permission from ©2012 Elsvier.}
           \label{fig:chapter/background/2 speeds ideas}
         \end{figure}
     
@@ -134,32 +134,32 @@
     % -----------------------------------------------------------------------------------
     \subsection{Commercially available options}     \label{Chapter:background/needle-free jet injection/commercially available options}
         
-        Commercially available \acsp{NFJI} including BIOJECT Zeajet\footnote{http://www.bioject.com/products/zetajet-info} , INJEX 30\footnote{https://www.injex.com.au/injex/injex} , PHARMAJET Stratis\footnote{http://pharmajet.com/fda-approved-needleless-flu-shot} , COMFORT-IN\footnote{http://www.comfort-in.com/diabetes.html}  are spring-powered, small, portable, handheld devices. They are capable of delivering either vaccination or insulin in a small dose, with volume limited to $\mathrm{300\,\mu L}$. Figure\,\ref{fig:chapter/background/pharma jet stratis} illustrates the appearance, construction, and mechanism of the spring-loaded PHARMAJET Stratis NFJI as an example. These devices come in various shapes, sizes, injection volumes, and target skin layers. Their primary structure consists of three main components:
+        Commercially available \acsp{NFJI} including BIOJECT Zeajet\footnote{http://www.bioject.com/products/zetajet-info} , INJEX 30\footnote{https://www.injex.com.au/injex/injex} , PHARMAJET Stratis\footnote{http://pharmajet.com/fda-approved-needleless-flu-shot} , COMFORT-IN\footnote{http://www.comfort-in.com/diabetes.html}  are spring-powered, small, portable, handheld devices. They are capable of delivering either vaccination or insulin in a small dose, with volume limited to $\mathrm{300\,\mu L}$. These devices come in various shapes, sizes, injection volumes, and target skin layers. Their primary structure consists of three main components:
         \begin{itemize}
             \item Energy storage - compressed gas, spring coil or explosives\,\cite{taberner2012}, which are often accompanied by a recharging device,
-            \item Piston - actuator with various size and triggering method to accomplish desired pressure profile as well as injection volume specification,
+            \item Piston - actuator with various size and triggering method to accomplish a desired pressure profile as well as injection volume specification,
             \item Replaceable syringe - single use container with orifice hole diameter of under $\mathrm{1\,mm}$.
         \end{itemize}
         
-        \begin{figure*}[!ht]
-            \centering
-            \subfloat[\acs{NFJI} device and replaceable syringe]{
-                \includegraphics[width=0.40\textwidth]{chap2/images/pharma_jet_stratis.png}
-                \label{fig:chapter/background/pharma jet stratis/full view}
-            }
-            \qquad
-            \subfloat[Spring loaded mechanism of the device]{
-                \includegraphics[width=0.45\textwidth]{chap2/images/pharma_jet_stratis_cut_view.png}
-                \label{fig:chapter/background/pharma jet stratis/cut view}
-            }
-            \caption[SUNFJI Pharma Jet Stratis™ from PharmaJet™]{
-                SUNFJI Pharma Jet Stratis™ from PharmaJet™\,\cite{PharmaJet2011}
-            }   \label{fig:chapter/background/pharma jet stratis}
-        \end{figure*}
+        % \begin{figure*}[!ht]
+        %     \centering
+        %     \subfloat[\acs{NFJI} device and replaceable syringe]{
+        %         \includegraphics[width=0.40\textwidth]{chap2/images/pharma_jet_stratis.png}
+        %         \label{fig:chapter/background/pharma jet stratis/full view}
+        %     }
+        %     \qquad
+        %     \subfloat[Spring loaded mechanism of the device]{
+        %         \includegraphics[width=0.45\textwidth]{chap2/images/pharma_jet_stratis_cut_view.png}
+        %         \label{fig:chapter/background/pharma jet stratis/cut view}
+        %     }
+        %     \caption[SUNFJI Pharma Jet Stratis™ from PharmaJet™]{
+        %         SUNFJI Pharma Jet Stratis™ from PharmaJet™. These figures were reproduced from \cite{PharmaJet2011}.
+        %     }   \label{fig:chapter/background/pharma jet stratis}
+        % \end{figure*}
         
-        Once triggered, stored energy produces varying pressure on the injection cylinder until the piston reaches the end of its track. Different devices utilize different recoil or trigger mechanisms, but no system is capable of monitoring and measuring injection performance. Instead of concentrated fluid delivery in a narrow stream down the tissue, these devices tend to spread the drug content in a cone shape\,\cite{baxtex2005}. Figure\,\ref{fig:chapter/background/jet injection effectiveness/mechanical devices pressure curve} shows the sharp peak and oscillating nature of the pressure produced by the injection stream of a BIOJECT Vitajet 3™ spring powered \acs{NFJI}\,\cite{schramm2002}. Schneider et al.\,\cite{schneider1994} reported that without stroke velocity and position control, the sharp fluid pressure profile peak could cause pain, bruises, bleeding, and blisters. Their studies also showed evidence that the same spring powered NFJI device exhibits inconsistent performance across different skin types and conditions. 
+        Once triggered, stored energy produces varying pressure on the injection cylinder until the piston reaches the end of its track. Different devices utilize different recoil or trigger mechanisms, but no commercial system is yet capable of monitoring and measuring injection performance. Instead of concentrated fluid delivery in a narrow stream directly into the tissue, these devices tend to spread the drug content in a cone shape\,\cite{baxtex2005}. Figure\,\ref{fig:chapter/background/jet injection effectiveness/mechanical devices pressure curve} shows the sharp peak and oscillating nature of the pressure produced by the injection stream of a BIOJECT Vitajet 3™ spring powered \acs{NFJI}\,\cite{schramm2002}. Schneider et al.\,\cite{schneider1994} reported that without stroke velocity and position control, the sharp fluid pressure profile peak could cause pain, bruises, bleeding, and blisters. Their studies also showed evidence that the same spring powered NFJI device exhibits inconsistent performance across different skin types and conditions. 
         
-        Despite being a safer alternative, mechanically powered \acsp{NFJI} require manual recharging. Thus, the average cycle time was recorded to be no faster than that of a conventional hypodermic needle injection\,\cite{PharmaJet2011}. More advanced \acsp{NFJI} like LECTRAJET  have shown the capability of automatic spring recoil to reduce reload time. Lack of pressure control, low injection volume (typically $0.05$ to $0.3\,\mathrm{mL}$), long cycle time, poor repeatability and reproducibility are drawbacks of commercially available mechanically powered \acsp{NFJI}.
+        Despite being a safer alternative, mechanically powered \acsp{NFJI} require manual recharging. Thus, the average cycle time was recorded to be no faster than that of a conventional hypodermic needle injection\,\cite{PharmaJet2011}. More advanced \acsp{NFJI} like LECTRAJET  have shown the capability of automatic spring recoil to reduce reload time. Lack of pressure control, low injection volume (typically $0.05\,\mathrm{mL}$ to $0.3\,\mathrm{mL}$), long cycle time, poor repeatability and reproducibility are drawbacks of commercially available mechanically powered \acsp{NFJI}.
         
         \begin{figure*}[!ht]
             \centering
@@ -173,7 +173,7 @@
                 \label{fig:chapter/background/jet injection effectiveness/delivery statistic}
             }
             \caption[Results of different jet injection study on mechanically powered \acs{NFJI} devices demonstrating rough pressure profile and poor adaptability.]{
-                Results of different jet injection study on mechanically powered \acs{NFJI} devices demonstrating rough pressure profile and poor adaptability\,\cite{schramm2002}.
+                Results of different jet injection study on mechanically powered \acs{NFJI} devices demonstrating rough pressure profile and poor adaptability. These figures were reproduced from \cite{schramm2002} with permission from ©2002 Springer. 
             }   \label{fig:chapter/background/jet injection effectiveness}
         \end{figure*}
 
@@ -192,7 +192,9 @@
             \item Measurable - convenient in monitoring progress to evaluate the performance of injection.
         \end{itemize}
         
-        This class of device performs injections by utilizing different electrically powered actuators: dynamically controlled piezo-electric actuators\,\cite{Stachowiak2009}, laser pulsed microjets\,\cite{tawaga2013, park2012} and Lorentz force voice coil motors\,\cite{taberner2006,hemond2006}. Piezo-electric and laser pulse methods are limited to sub $\mathrm{\mu L}$ injections. Scaling of Piezo-electric technology to hundreds of $\mathrm{mL}$ range in injection volume simply appears ambitious. Cumbersome ‘off-the-shelf’ voice coil actuators which will be explored in \ref{Chapter:background/voice coil motors for NFJI} are not yet suitable to become handheld. Recently, Zhang et al. has shown a \acs{NFJI} device powered by commercial rotary motor and specialized differential screw structure, capable of delivering $10\,\mathrm{\mu L}$ with the input power of $450\,\mathrm{W}$\,\cite{Zhang2017Needle-freeActuator}. Although the concept of utilizing synchronous rotary motor for \acs{NFJI} was proven, the volume delivered that a similar system could achieve will be unlikely to reach $1\,\mathrm{mL}$.
+        This class of device performs injections by utilizing different electrically powered actuators: dynamically controlled piezo-electric actuators\,\cite{Stachowiak2009}, laser pulsed microjets\,\cite{tawaga2013, park2012} and Lorentz force voice coil motors\,\cite{taberner2006,hemond2006}. Piezo-electric and laser pulse methods are limited to sub $\mathrm{\mu L}$ injections. Scaling of Piezo-electric technology to hundreds of $\mathrm{mL}$ range in injection volume simply appears ambitious. Cumbersome ‘off-the-shelf’ voice coil actuators which will be explored in \ref{Chapter:background/voice coil motors for NFJI} are not yet suitable to become handheld. Recently, Zhang et al. has shown a \acs{NFJI} device powered by commercial rotary motor and specialized differential screw structure, capable of delivering $10\,\mathrm{\mu L}$ with the input power of $450\,\mathrm{W}$\,\cite{Zhang2017Needle-freeActuator}. 
+        
+        % Although the concept of utilizing synchronous rotary motor for \acs{NFJI} was proven, the volume delivered that a similar system could achieve will be unlikely to reach $1\,\mathrm{mL}$.
 
 % ===================================================================================================
 % === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
@@ -220,7 +222,7 @@
     \begin{figure}[!ht]
       \centering
       \includegraphics[width=0.5\textwidth]{chap2/images/vcm_cut_view.png}
-      \caption[Construction of a voice coil motor with moving coil]{Construction of a voice coil motor with moving coil\,\cite{taberner2006}.}
+      \caption[Construction of a voice coil motor with moving coil]{Construction of a voice coil motor with moving coil. ©2006 IEEE. Reprinted, with permission, from \,\cite{taberner2006}.}
       \label{fig:chapter/background/vcm cut view}
     \end{figure}
     
@@ -246,7 +248,7 @@
             \label{fig:chapter/background/vcm injectors/ruddy2014}
         }
         \caption[Lorentz-force VCM actuated NFJI: Handheld injector and cRIO controller system (a); Hand-held injector and charged capacitor amplifier/controller system (b).]{
-            Lorentz-force VCM actuated NFJI: Handheld injector and cRIO controller system (a)\,\cite{taberner2006}; Hand-held injector and charged capacitor amplifier/controller system (b)\,\cite{ruddy2014}.
+            Lorentz-force VCM actuated NFJI: Handheld injector and cRIO controller system (a); Hand-held injector and charged capacitor amplifier/controller system (b). Figure (a) was reprinted, with permission, from ©2006 IEEE \cite{taberner2006}. Figure (b) was reprinted, with permission, from ©2014 IEEE \cite{ruddy2014}.
         }   \label{fig:chapter/background/vcm injectors}
     \end{figure*}
     
@@ -254,7 +256,7 @@
     \begin{figure}[!ht]
       \centering
       \includegraphics[width=0.5\textwidth]{chap2/images/vcm_for_nfji.png}
-      \caption[A basic schematic of a voice coil actuated NFJI. $L$ and $D$ are the cylinder’s working length (stroke length) and diameter, respectively.]{A basic schematic of a voice coil actuated \acs{NFJI}. $L$ and $D$ are the cylinder’s working length (stroke length) and diameter, respectively\,\cite{ruddy2014}.}
+      \caption[A basic schematic of a voice coil actuated NFJI. $L$ and $D$ are the cylinder’s working length (stroke length) and diameter, respectively.]{A basic schematic of a voice coil actuated \acs{NFJI}. $L$ and $D$ are the cylinder’s working length (stroke length) and diameter, respectively. ©2014 IEEE. Reprinted, with permission, from  \cite{ruddy2014}.}
       \label{fig:chapter/background/vcm for nfji}
     \end{figure}
     
@@ -268,7 +270,7 @@
     \end{equation}
     
     
-    If syringe’s diameter\,$D$ is chosen to scale with injection volume, electric power\,$P$ needs to scale with the square of $D$’s scaling ratio due to the relationship:
+    If the syringe diameter\,$D$ is chosen to scale with injection volume, electric power\,$P$ needs to scale with the square of $D$’s scaling ratio due to the relationship:
     
     
     \begin{equation}
@@ -298,7 +300,7 @@
     To compare the force exerted over the power consumed in different motors, the motor constant $K_m$ measured in $\mathrm{N/\sqrt{W}}$  is typically used. Note that this relationship is true of all direct drive linear motors, which apply force directly to a single injection ampoule without any mechanical coupling transmission.
     
     
-    Utilizing a general scaling magnetic and thermal model made for steady-state force production of \ac{PMLSM}\,\cite{Ruddy2011}, an optimal \acs{VCM} hand-piece was built to deliver $\mathrm{300\,\mu L}$ of the drug over a $\mathrm{50\,ms}$ period\,\cite{taberner2006}. The peak power required for this procedure was as high as 10 kW to produce a peak force of $\mathrm{300\,N}$ of over the stroke length of $\mathrm{35\,mm}$. Due to the extremely short duration of the force profile, the heat generated is far from enough to cause permanent demagnetization in the permanent magnet array; thus, the motor design neglects heat transfer. In the same body of work, the authors pointed out that scaling laws of the voice coil actuator fit for needle free injection means that the power $P$ required and motor mass $M$ both grow faster than the injection volume $V$:
+    Utilizing a general scaling magnetic and thermal model made for steady-state force production of \ac{PMLSM}\,\cite{Ruddy2011}, an optimal \acs{VCM} hand-piece was built to deliver $\mathrm{300\,\mu L}$ of the drug over a $\mathrm{50\,ms}$ period\,\cite{taberner2006}. The peak power required for this procedure was as high as 10 kW to produce a peak force of $\mathrm{300\,N}$ of over the stroke length of $\mathrm{35\,mm}$. Due to the extremely short duration of the force profile, the heat generated is sufficient to cause permanent demagnetization in the permanent magnet array; thus, the motor design neglects heat transfer. In the same body of work, the authors pointed out that scaling laws of the voice coil actuator fit for needle free injection means that the power $P$ required and motor mass $M$ both grow faster than the injection volume $V$:
     
     
     \begin{equation}
@@ -307,7 +309,7 @@
     \end{equation}
 
 
-    While the potential of using \acsp{VCM} in portable \acs{NFJI} devices has been proven, this type of motor is power inefficient. Without breakthrough improvements, \acsp{VCM} pose a considerable restriction on the portability of the electronic control system, as well as the size of the injector handpiece motor. Based on the model presented in that work, a \acs{VCM} with mass of over $\mathrm{1\,kg}$ is required to deliver $\mathrm{1\,mL}$. Thus, it was impractical to use a direct-drive linear \acs{VCM} to deliver regular livestock injections, where the volume can be as high to $\mathrm{10\,mL}$. 
+    While the potential of using \acsp{VCM} in portable \acs{NFJI} devices has been proven, this type of motor is power inefficient. Without breakthrough improvements, \acsp{VCM} impose a considerable restriction on the portability of the electronic control system, as well as the size of the injector handpiece motor. Based on the model presented in that work, a \acs{VCM} with mass of over $\mathrm{1\,kg}$ is required to deliver $\mathrm{1\,mL}$. Thus, it was impractical to use a direct-drive linear \acs{VCM} to deliver regular livestock injections, where the volume can be as high to $\mathrm{10\,mL}$. 
 
 % ===================================================================================================
 % === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION === NEW SECTION ===
@@ -315,7 +317,7 @@
 \section{Linear synchronous motors for NFJI}        \label{Chapter:background/linear synchronous motors for NFJI}
 
     
-    \acp{LSDDM} are actuators that can drive a motion load without an intermediate mechanism such as gears, screws or crank shafts\,\cite{JacekF.GierasZbigniewJ.Piech2017}. The absence of auxiliary mechanical adaptation increases their reliability. In high speed applications, linear direct-drive synchronous motors can have higher efficiency and a higher dynamic performance compared to their rotary counter parts. ‘Synchronous’ in the context of electric machines means that the speed of motion is the same as the speed of the travelling magnetic field. The thrust is generated by either the interaction between the traveling magnetic field produced by the poly-phase winding or switched DC windings in an array of magnetic excitation components. 
+    \acp{LSDDM} are actuators that can drive a mechanical load without an intermediate mechanism such as gears, screws or crank shafts\,\cite{JacekF.GierasZbigniewJ.Piech2017}. The absence of auxiliary mechanical adaptation increases their reliability. In high speed applications, linear direct-drive synchronous motors can have higher efficiency and a higher dynamic performance compared to their rotary counter parts. ‘Synchronous’ in the context of electric machines means that the speed of motion is the same as the speed of the travelling magnetic field. The thrust is generated by either the interaction between the traveling magnetic field produced by the poly-phase winding or switched DC windings in an array of magnetic excitation components. 
     
     \acsp{LSDDM} are being used increasingly in applications as varied as automated manufacturing\,\cite{Meessen2010}, transportation\,\cite{Gysen2011,Cao2012,WenxiangZhao2012}, and power generation\,\cite{Li2011,Baker2019}. Although \acsp{LSDDM} have existed for a long time\,\cite{Boldea1997}, to the best of the author’s knowledge, no report has demonstrated that this class of motor can achieve \acs{NFJI} tasks, where a high pulse of force is required from a near stall condition. Technically speaking, a \acs{VCM} is a type of \acs{LSDDM} where there is a single-phase winding driven by a direct current and an array of magnetic excitation with length equal one pole period. True linear synchronous motors, powered by alternating current, provide efficient energy to motion conversion, high force density and excellent capability for precise motion control\,\cite{Trumper1994,Levi1973,Budig2000}.
     
@@ -343,22 +345,22 @@
         Moving or fixed armature simply refers to which part of the motor moves, be it the part containing the armature or part that contain the field excitation system. A moving armature system requires more materials for the fixed field excitation system, which often increases the demand for costly rare-earth permanent magnets. In contrast, the a moving field excitation system often leads to more demanding electronics to control more armature phases. The moving armature configuration is more commonly seen in linear direct drive motors. 
         
         
-        The tubular motor concept can be realized by rolling a flat linear machine about its longitudinal axis. Tubular permanent-magnet machines offer the highest efficiency and power over force density and have excellent servo characteristics\,\cite{Eastham1990}. The advantages that the tubular structure can offer over the flat structure includes introducing even magnetic field distribution, reducing wasted winding, and easing the modelling step. Despite superior performance, tubular machines are only more popular than flat machines in research because they are more difficult to manufacture at scale.
+        The tubular motor can be realized by conceptually rolling a flat linear machine about its longitudinal axis. Tubular permanent-magnet machines offer the highest efficiency and power over force density and have excellent servo characteristics\,\cite{Eastham1990}. The advantages that the tubular structure can offer over the flat structure includes introducing even magnetic field distribution, reducing wasted winding, and easing the modelling step. Despite superior performance, tubular machines are only more popular than flat machines only in research, because they are more difficult to manufacture at scale.
         
         
         The ferromagnetic core, whether it is a magnet core or an iron core, exists to provide a low magnetic resistance path between the excitation source and the armature. The subset of \ac{PM} synchronous motors with the use of an iron core has to deal with cogging force. This force stands for the mutual attraction between the PM and iron in the armature. Cogging force is undesirable because it can contribute to a reduction in axial force, vibration and deteriorating control characteristics at low speed\,\cite{Jung1999}. The slotted iron core causes the cogging ripples while the limited iron length causes end effect cogging\,\cite{Lim2002}. Cogging force can be reduced by PM width adjustment\,\cite{Bianchi2002}, asymmetric PM arrangement\,\cite{Chung2016,Bianchi2003a,Cai2012}, a semi-closed slot for the iron core\,\cite{Zhu1997,Bai2015,Zhu2008}, and optimizing iron core geometry\,\cite{Inoue2000,Zhu1997,Wu2008,Zhu2009conf,Zhang2013,Kim2016,Lee2014}. It is better to improve the cogging force profile using mechanical design than to rely on complex control mechanism\,\cite{Jahn1996}. 
         
         
-        Recently, the number of research on actuators using permanent magnets has increased significantly. This is due to the availability of high energy rare earth permanent magnet materials from which compact actuators with a high efficiency can be realized. As the size approaches the form factor required for power application such as electric vehicle or energy generation, the difference in performance of induction and permanent magnet machines is small\,\cite{WoosukSung2012Energy-EfficientVehicles,2014Almeida,Chau2008OverviewVehicles,deSantiago2012ElectricalReview}. However, in small form factor use-cases, permanent magnet machines have been reported to outperform induction machines\,\cite{Zhu2007ElectricalVehicles,Yang2015ComparativeApplications}. 
+        Recently, the amount of research on actuators using permanent magnets has increased significantly. This is due to the availability of high energy rare earth permanent magnet materials from which compact actuators with a high efficiency can be realized. As the size approaches the form factor required for power application such as electric vehicle or energy generation, the difference in performance of induction and permanent magnet machines is small\,\cite{WoosukSung2012Energy-EfficientVehicles,2014Almeida,Chau2008OverviewVehicles,deSantiago2012ElectricalReview}. However, in small form factor use-cases, permanent magnet machines have been reported to outperform induction machines\,\cite{Zhu2007ElectricalVehicles,Yang2015ComparativeApplications}. 
         
         
         The most important distinction for motors perhaps lies in the arrangement of the flux path. Longitudinal flux means that the magnetic field lines are parallel to the direction of motion. Transverse flux, on the other hand, means that the magnetic field lines are perpendicular to the direction of the motion\,\cite{Laithwaite1975}. Further definition of \acfp{LTFM} includes having three-dimensional magnetic flux flow, and there is no coupling between the individual armature and secondary phases. \acsp{LTFM} are especially suitable for low speed and high thrust applications\,\cite{Zhao2015,Shin2015}. This topology allows for containing a large number of poles without compromising the space available for the windings\,\cite{Laithwaite1971}. The structure of this type of motor results in a complex, coupled magnetic and electric circuit. An increase in the number of poles is roughly proportional to the increase in force density. A transversal flux motor, in both rotary and linear forms, can achieve very high work output\,\cite{Ueda2014,Hsu2011,Wang2016,Arshad2001,Siatkowski2008}. Longitudinal flux machines may have discrete structural poles, but for transversal flux machines, discretization of the poles is compulsory\,\cite{Baoming2009}. This structure offers easier and cheaper design, manufacturing and maintenance. However, the segmented core construction and widely open conductor loop lead to high leakage flux, high winding inductance, and low power factor\,\cite{Harris1997,Lu2003}. The iron core takes significantly more volume and weight in transversal flux motors, thus, eddy losses and nonlinear permeability effects must be included to model this type of motor accurately.
         
         
-        Both transverse flux motors, or longitudinal flux when called alone, refers to motors that have the flux source (\acs{PM} for instance) separated from the current source, and both sources will not move at the same time as the motor operates. Since the flux source interacts with the current source through an air gap without hard mechanical coupling, we refer to those motors as singly salient motors. On the other hand, doubly-salient motors have "teeth" on both the primary and secondary, resulting in both sides contributing to variation in flux linkage/inductance with position. Belonging  to  the  the  family of doubly-salient permanent magnet motors \,\cite{Cheng2011}, \acp{LFSM} have high  thrust  density, high  tolerance  to  current  overload, lower use  of  permanent  magnet  material,  and  a generally robust construction. They use a passive secondary that can be made out of steel laminations or \ac{SMC} material to reduce eddy current loss to a minimum. Being  able  to ignore eddy currents will play an important role in improving the efficiency of design simulation. The amount of \acs{PM} in a \acs{LFSM} in long stroke applications can be significantly less than that used by a \acs{PMLSM}\,\cite{Aleksandrov2018}. All these advantages are important in bringing a  prototype into manufacturing at scale to reach high reliability. In hindsight, air is a very poor magnetic conductor, thus machines like \acsp{LFSM} with very small flux path resistance should vastly improve motors output. However, since the \acs{LFSM} is still a relatively unexplored topology, the literature has opposing opinions about whether \acsp{LFSM} outperform \acsp{PMLSM}\,\cite{Aleksandrov2018,Wang2008}.
+        Both transverse flux motors, or longitudinal flux when called alone, refers to motors that have the flux source (\acs{PM} for instance) separated from the current source, and both sources will not move at the same time as the motor operates. Since the flux source interacts with the current source through an air gap without hard mechanical coupling, we refer to those motors as singly salient motors. On the other hand, doubly-salient motors have "teeth" on both the primary and secondary, resulting in both sides contributing to variation in flux linkage/inductance with position. Belonging  to  the  the  family of doubly-salient permanent magnet motors \,\cite{Cheng2011}, \acp{LFSM} have high  thrust  density, high  tolerance  to  current  overload, lower use  of  permanent  magnet  material,  and  a generally robust construction. They use a passive secondary that can be made out of steel laminations or \ac{SMC} material to reduce eddy current loss to a minimum. Being  able  to ignore eddy currents will play an important role in improving the efficiency of design simulation. The amount of \acs{PM} in a \acs{LFSM} in long stroke applications can be significantly less than that used by a \acs{PMLSM}\,\cite{Aleksandrov2018}. All these advantages are important in bringing a  prototype into manufacturing at scale to reach high reliability. Air is a very poor magnetic conductor and thus machines like \acsp{LFSM} with very small flux path resistance should vastly improve motors output. However, since the \acs{LFSM} is still a relatively unexplored topology, the literature has opposing opinions about whether \acsp{LFSM} outperform \acsp{PMLSM}\,\cite{Aleksandrov2018,Wang2008}.
         
         
-        One of the disadvantages of synchronous motors is that once the motion and rotating magnetic fields were out synchronism, the motors would not move. A way to work around this problem is to incorporate absolute position sensors or Hall sensors into the control algorithm of the motor. In some cases where the armature requires a large starting torque, the motor is inherently unable to start itself. Even with the help of methods to speed up to synchronism, the armature can always lag if the power supplied is insufficient to cope with the load.
+        % One of the disadvantages of synchronous motors is that once the motion and rotating magnetic fields were out synchronism, the motors would not move. A way to work around this problem is to incorporate absolute position sensors or Hall sensors into the control algorithm of the motor. In some cases where the armature requires a large starting torque, the motor is inherently unable to start itself. Even with the help of methods to speed up to synchronism, the armature can always lag if the power supplied is insufficient to cope with the load.
         
         
         Compared to \acsp{VCM}, \acsp{PMLSM} and \acsp{LFSM} in general require far less power to operate. Thus, the same portable power supply built for powering \acsp{VCM} is also capable of driving the other \acsp{PMLSM} and \acsp{LFSM}, provided the technology used has room to expand for multiphase control.
@@ -370,7 +372,7 @@
     \subsection{Summary}                         \label{Chapter:background/linear synchronous motors for NFJI/summary}
         
         
-        Previous work at the ABI also conceived a design of a \ac{PMLSM} optimized for \acs{NFJI} application\,\cite{Ruddy2015}. The motor described in that work is a moving armature, tubular, single-sided, back iron cored, slot-less, \acs{PM}, and longitudinal flux linear synchronous motor. The optimized tubular \acs{PMLSM} with a stroke length of $\mathrm{200\,mm}$ and an injection volume of $\mathrm{1\,mL}$ promised a drastic reduction in power requirement compared to \acsp{VCM}. The next step from there is to construct a prototype motor and power amplifier and incorporate them into a complete \acs{NFJI} system. Such motor design will need to incorporate a creative packaging strategy to maintain the hand-held nature of the \acs{NFJI} device. The challenges of constructing \acs{PMLSM} motors with use of PM also include assembly of a large number of small and mutually attracted parts\,\cite{Hwang2012,Shin2012}.
+        Previous work at the Auckland Bioengineer Institute also conceived a design of a \ac{PMLSM} optimized for \acs{NFJI} application\,\cite{Ruddy2015}. The motor described in that work is a moving armature, tubular, single-sided, back iron cored, slot-less, \acs{PM}, and longitudinal flux linear synchronous motor. The optimized tubular \acs{PMLSM} with a stroke length of $\mathrm{200\,mm}$ and an injection volume of $\mathrm{1\,mL}$ promised a drastic reduction in power requirement compared to \acsp{VCM}. The next step from there is to construct a prototype motor and power amplifier and incorporate them into a complete \acs{NFJI} system. Such motor design will need to incorporate a creative packaging strategy to maintain the hand-held nature of the \acs{NFJI} device. The challenges of constructing \acs{PMLSM} motors with use of PM also include assembly of a large number of small and mutually attracted parts\,\cite{Hwang2012,Shin2012}.
         
         
         While the scaling law of longitudinal flux \acs{PMLSM} requires the stroke length to be long to make a drastic improvement in power efficiency\,\cite{Laithwaite1970}, that is not the case in transversal flux motors. The implication is that the uses of long \acs{NFJI} ampoule strokes and cumbersome packaging mechanism can be avoided altogether if we decided to adopt linear transversal flux motors. The use of newer types of motor such as \acsp{LFSM} should also be explored because it is possible to save a significant amount of rare-earth permanent magnet and have near equivalent performance to \acs{PMLSM}.
@@ -382,7 +384,7 @@
 \section{Electromagnetic field theory}              \label{Chapter:background/electromagnetic field theory}
 
 
-    The emergence of energy convergence of energy conversion applications and modern electronics have led to a large variety of magnetic materials supplied in all shapes and size. The phenomenon of a material forming a permanent magnet or temporary microscopic dipoles under the influence of a magnetic field is known as ferromagnetism. While all materials are magnetic to some extent, only ferromagnetic materials can form strong magnetic flux density $B$ under the influence of an external magnetizing field $H$. In this body of work, they are referred as ‘$B$-field’ and ‘$H$-field’. 
+    The emergence of energy convergence of energy conversion applications and modern electronics have led to a large variety of magnetic materials supplied in all shapes and sizes. The phenomenon of a material forming a permanent magnet or temporary microscopic dipoles under the influence of a magnetic field is known as ferromagnetism. While all materials are magnetic to some extent, only ferromagnetic materials can form strong magnetic flux density $B$ under the influence of an external magnetizing field $H$. In this body of work, these two quantities are referred as ‘$B$-field’ and ‘$H$-field’. 
     
 
     % -----------------------------------------------------------------------------------
@@ -604,7 +606,7 @@
 \section{Modelling techniques for motors}           \label{Chapter:background/modelling techniques for designing motors}
 
 
-    Electric machines are devices that either produce force as a product of electric current and magnetic field, or harvest electric current from a conductor in contact with a changing magnetic field. It is necessary to estimate rated power, efficiency, and losses to optimize and achieve design goals. These estimations often require calculation to work out one or more machine characteristics using different forms of Maxwell's equations, governed by the relationship between constitutional materials, geometry, and configurations that apply to individual machines. Quasi-static or low-frequency assumption has been extensively used to model synchronous motors. Methods to solve quasi-static Maxwell's equations indirectly via either magnetic vector potential $A$ or scalar potential $\varphi$ are mentioned in Section\,\ref{Chapter:background/electromagnetic field theory/quasi-static maxwell equations}. The method for solving Maxwell's equations to model electric machines can fall under three categories: numerical, analytical or semi-analytical. Recently, motor types yet to be well understood can be modelled using empirical methods by collecting a vast amount of simulation data and fitting the motor variables and performance onto a set of non-linear equations.
+    Electric machines are devices that either produce force as a product of electric current and magnetic field, or harvest electric current from a conductor in contact with a changing magnetic field. It is necessary to estimate rated power, efficiency, and losses to optimize and achieve design goals. These estimations often require calculation to work out one or more machine characteristics using different forms of Maxwell's equations, governed by the relationship between constitutional materials, geometry, and configurations that apply to individual machines. The quasi-static or low-frequency assumption has been extensively used to model synchronous motors. Methods to solve quasi-static Maxwell's equations indirectly via either magnetic vector potential $A$ or scalar potential $\varphi$ are mentioned in Section\,\ref{Chapter:background/electromagnetic field theory/quasi-static maxwell equations}. The method for solving Maxwell's equations to model electric machines can fall under three categories: numerical, analytical or semi-analytical. Recently, motor types yet to be well understood can be modelled using empirical methods by collecting a vast amount of simulation data and fitting the motor variables and performance onto a set of non-linear equations.
 
 
     % -----------------------------------------------------------------------------------
@@ -621,10 +623,10 @@
     % -----------------------------------------------------------------------------------
     % --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- NEW SUB SECTION --- 
     % -----------------------------------------------------------------------------------
-    \subsection{Analytical methods}                 \label{Chapter:background/modelling techniques for designing motors/analytical methods}
+    \subsection{Approximate and exact analytical methods}                 \label{Chapter:background/modelling techniques for designing motors/analytical methods}
     
     
-        The most commonly used analytical modeling method is known as \ac{MEC}. Similar to \acs{FEA}, the geometry is discretized. However, the number of elements is much smaller. Prior knowledge of flux distribution is necessary to construct an accurate model. Discretized flux tubes with assumed constant flux distribution are used to simplify the real problem. Instead of finding a direct solution for the Maxwell's equations, the flux distribution represented in terms of lumped flux tubes is modelled using electric circuit analogy. Magnetic flux is obtained as a product of given \ac{MMF} due to the magnetic field source.  
+        The most commonly used analytical modeling method for electromagnetic motor systems is known as \ac{MEC}. Similar to \acs{FEA}, the geometry is discretized. However, the number of elements is much smaller. Prior knowledge of flux distribution is necessary to construct an accurate model. Discretized flux tubes with assumed constant flux distribution are used to simplify the real problem. Instead of finding a direct solution for the Maxwell's equations, the flux distribution represented in terms of lumped flux tubes is modelled using electric circuit analogy. Magnetic flux is obtained as a product of given \ac{MMF} due to the magnetic field source.  
         
         
         \acs{MEC} takes a simple form and very low computational time. Saturation can be taken into account by splitting a soft magnetic object into multiple flux tubes with permanence dependent upon the magnetic field strength through each tube. Effects such as flux leakage and fringing are difficult to take into account because this approach assumes flux enters and leaves solely in the axial direction of the flux tubes. The differences in relative permeability between the regions are usually not taken into account, and relative permeability for air is assumed as unity. For the stated reasons, \acs{MEC} performs poorly in structures with large air gaps or structures with no magnetic bridge (iron) at all\,\cite{DeBoeij2006}. 
@@ -639,7 +641,7 @@
     \subsection{Semi-analytical methods}            \label{Chapter:background/modelling techniques for designing motors/semi-analytical methods}
     
     
-        One of the most popular semi-analytical methods takes the form of \ac{HM}. This approach uses the harmonic series or Fourier series to express the magnetic field formulation in 2D and 3D, based on the theory of transfer relation\,\cite{Melcher1981}. The problem is divided into material regions whose boundaries are orthogonal with axes of the coordinate system. The magnetic potentials in the quasi-Halbach magnet array and poly phase winding can be described in terms of a Fourier series. In each region, the equations for vector or scalar magnetic potential can take the form of Laplace or Poisson equations in Cartesian coordinates\,\cite{Trumper1993,Wang1999}. In cylindrical coordinates, the equation for magnetic potential takes the form of the Bessel function\cite{Gysen2008,Ruddy2011a,Gysen2011a}. The most widely used method to solve for the magnetic potential is separation of variables method. The coefficients in magnetic flux density equations, made up of magnetic potential terms are obtained by applying the boundary equations. The magnetic field can then simply be found via the constitutive relationship with magnetic flux density.
+        One of the most popular semi-analytical methods takes the form of \ac{HM}. This approach uses the harmonic series or Fourier series to express the magnetic field formulation in 2D and 3D, based on the theory of transfer relation\,\cite{Melcher1981}. The problem is divided into material regions whose boundaries are orthogonal with axes of the coordinate system. The magnetic potentials in the quasi-Halbach magnet array\,\cite{Halbach1980} and poly phase winding can be described in terms of a Fourier series. In each region, the equations for vector or scalar magnetic potential can take the form of Laplace or Poisson equations in Cartesian coordinates\,\cite{Trumper1993,Wang1999}. In cylindrical coordinates, the equation for magnetic potential takes the form of the Bessel function\cite{Gysen2008,Ruddy2011a,Gysen2011a}. The most widely used method to solve for the magnetic potential is the separation of variables method. The coefficients in magnetic flux density equations, made up of magnetic potential terms are obtained by applying the boundary equations. The magnetic field can then simply be found via the constitutive relationship with magnetic flux density.
         
         
         This modelling technique is excellent for periodic geometry as in long stroke linear machines. Since long stroke synchronous motors have repeating segments of the same structure, the analysis only needs to be limited to a single wavelength with periodic boundary conditions. The end effect is dealt with separately. \acs{HM} is capable of taking linear material properties into account although iron is often assumed to be infinitely permeable. Models which can account for saturation exist in form or diffusion equation or adopt an iterative method that calculates the magnetic field based on the nonlinear B-H curve. \acs{HM} can compute slower than \acs{MEC} but faster than \acs{FEM}. High accuracy and relatively good speed allow HM approaches to be used directly in multi-variable optimization. Different motor geometry configuration requires a different set of \acsp{PDE} to be solved in order to determine the general solution for the magnetic potential in each spatial region. This is a mathematically rigorous process. In validating solutions to the \acsp{PDE}, the tests are checking for continuity behaviour of underlying magnetic fields, and strong agreement with \acs{FEM} results.
@@ -711,10 +713,10 @@
         The increase in speed and reduction in price of computer hardware, together with the development of faster algorithms as well as highly accurate \acs{FEA} models allow theoretical optimum design to be obtained. The design of permanent magnet motors or actuators has been discussed in many textbooks; however, a standard method does not exist since the application together with different sets of applicable constraints determines the strategy. The design of \acsp{PMLSM} for \acs{NFJI} is no exception. Ideally, the actuator should have high force density and the energy losses should be minimal. 
     
         
-        One class of optimization methods is a group of gradient methods, in which the search direction is determined by the local gradient of the objective function at the current search point. Such algorithms are referred to as non-linear programming. Though straight forward to implement, these algorithms tends to converge to local optimum. If the problem at hand is a mixed integer optimization problem, the discrete variables will be treated separately by considering all possible combinations of the discrete variables as separate optimization problems\,\cite{Ruddy2015a}. This class of optimization algorithm has been demonstrated to be working well with semi-analytical and analytical modeling techniques\,\cite{Overboom2010,Aleksandrov2018,Fang2008}. 
+        One class of optimization methods is a group of gradient methods, in which the search direction is determined by the local gradient of the objective function at the current search point. Such algorithms are referred to as non-linear programming. Though straight forward to implement, these algorithms tends to converge to local optima. If the problem at hand is a mixed integer optimization problem, the discrete variables will be treated separately by considering all possible combinations of the discrete variables as separate optimization problems\,\cite{Ruddy2015a}. This class of optimization algorithm has been demonstrated to work well with semi-analytical and analytical modeling techniques\,\cite{Overboom2010,Aleksandrov2018,Fang2008}. 
         
         
-        The other class of optimization algorithm is evolutionary methods. They are probability based algorithms which start with an initial population of design candidates and simulate a breeding environment. The characteristics of each design are used to generate a fitness value to indicate its level of performance with respect to other designs in the population. After each generation, breeding is carried out to combine the characteristics of selected parent designs with the hope of yielding a better next generation of designs. This class of algorithm has the capacity to handle both discrete and continuous variables. The random mutation guarantees to some extent that we see a wide range of solutions. However, it is rather tricky to choose parameters such as the number of generation, the population and the mutation probability. Despite the experiment-like nature of this class of methods, the literature has applied this method extensively in motor design, starting from proven analytical and semi-analytical models\,\cite{Isfahani2007,Li2014,Mallik2017,RuiHuang2008}.
+        The other class of optimization algorithm is evolutionary methods. They are probability based algorithms which start with an initial population of design candidates and simulate a breeding environment. The characteristics of each design are used to generate a fitness value to indicate its level of performance with respect to other designs in the population. After each generation, breeding is carried out to combine the characteristics of selected parent designs with the hope of yielding a better next generation of designs. This class of algorithm has the capacity to handle both discrete and continuous variables. The random mutation guarantees to some extent that we see a wide range of solutions. However, it is rather tricky to choose parameters such as the number of generations, the population and the mutation probability. Despite the experiment-like nature of this class of methods, the literature has applied this method extensively in motor design, starting from proven analytical and semi-analytical models\,\cite{Isfahani2007,Li2014,Mallik2017,RuiHuang2008}.
         
         
         Direct use of \acs{FEM} is far less suitable for optimization purposes due to the long computation time taken to evaluate a single objective function. Even with simple structures, the creation of mesh can be the most time-consuming task. One way to overcome this limitation is to replace the online \acs{FEM} function evaluation with a simplified function that requires far less time to compute. As mentioned in Section\,\ref{Chapter:background/modelling techniques for designing motors/empirical methods}, these methods are classified as empirical modelling methods. Once there exists a simplified model to represent the design space, gradients and evolutionary methods can be applied to find the globally optimal motor design\,\cite{Ashabani2010,Lee2012,Giurgea2007,Hasanien2010, Hasanien2011,Zhang2017}. 
